@@ -7,7 +7,6 @@ module.exports = {
       .then(results => {
         res.status(200).send(results)
       })
-    console.log(req.session)
   },
 
   register: async (req, res) => {
@@ -36,10 +35,38 @@ module.exports = {
       hash,
       user_id: user_id[0].user_id
     }
-
-    console.log(session.user)
-
     res.sendStatus(200)
-  }
+  },
 
+  login: async (req, res) => {
+    const db = req.app.get("db")
+    const { session } = req
+    const { loginEmail: email } = req.body
+
+    try {
+      let user = await db.login({ email })
+      session.user = user[0]
+      const authenticated = bcrypt.compareSync(req.body.loginPassword, user[0].password)
+      if (authenticated) {
+        res.status(200).send({ authenticated, user_id: user[0].login_id })
+      } else {
+        throw new Error(401)
+      }
+    } catch (err) {
+      res.sendStatus(401)
+    }
+  },
+
+  getAddresses: async (req, res) => {
+    const db = req.app.get("db")
+    const { session } = req
+    const { login_id: id } = session.user
+
+    try {
+      const data = await db.getUserAddresses({ id })
+      res.status(200).send(data[0])
+    } catch (err) {
+      res.send(`You have 0 Addresses stored`)
+    }
+  }
 } 
