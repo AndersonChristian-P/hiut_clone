@@ -33,7 +33,7 @@ module.exports = {
     session.user = {
       email,
       hash,
-      user_id: user_id[0].user_id
+      login_id: user_id[0].user_id
     }
     res.sendStatus(200)
   },
@@ -64,9 +64,44 @@ module.exports = {
 
     try {
       const data = await db.getUserAddresses({ id })
-      res.status(200).send(data[0])
+      res.status(200).send(data)
     } catch (err) {
-      res.send(`You have 0 Addresses stored`)
+      res.status(404).send(`You have 0 Addresses stored`)
+    }
+  },
+
+  addAddress: async (req, res) => {
+    const db = req.app.get("db")
+    const { session } = req
+    const { login_id: id } = session.user
+    const { street, city, state, zip } = req.body
+
+    try {
+      const data = await db.addUserAddress({
+        street,
+        city,
+        state,
+        zip,
+        id
+      })
+
+      console.log(data[0].address_id)
+
+      session.user.address = {
+        street,
+        city,
+        state,
+        zip,
+        address_id: data[0].address_id
+      }
+
+      res.sendStatus(200)
+    } catch (err) {
+      res.sendStatus(400)
     }
   }
-} 
+}
+
+// the idea I have for address is if user selects a difference shipping address on the client side it changes the address on req.session.user
+
+// the base process is that if a user adds an address to the book it is automatically selected as the ship to address
