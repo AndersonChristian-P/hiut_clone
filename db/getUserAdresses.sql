@@ -1,0 +1,2 @@
+-- SELECT street, city, state
+-- FROM addresses
