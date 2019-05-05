@@ -1,4 +1,4 @@
--- Men Products
+-- // Men Products // --
 
 CREATE TABLE men_denim_type (
   men_denim_type_id SERIAL PRIMARY KEY,
@@ -73,8 +73,7 @@ VALUES (
 
 
 
--- Women Products
-
+-- // Women Products // --
 
 CREATE TABLE women_prod_line (
   women_prod_line_id SERIAL PRIMARY KEY,
