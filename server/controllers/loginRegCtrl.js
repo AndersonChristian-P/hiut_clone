@@ -34,7 +34,7 @@ module.exports = {
     session.user = {
       email,
       hash,
-      login_id: user_id[0].user_id
+      user_id: user_id[0].user_id
     }
 
     console.log(session.user)
