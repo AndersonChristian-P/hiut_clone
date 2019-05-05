@@ -4,6 +4,7 @@ const app = express()
 const massive = require("massive")
 const session = require("express-session")
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env
+const loginRegCtrl = require("./controllers/loginRegCtrl")
 
 // -- MIDDLEWARE -- //
 app.use(express.json())
@@ -27,3 +28,6 @@ massive(CONNECTION_STRING).then((database) => {
 })
 
 // -- ENDPOINTS -- //
+
+app.get("/api/users", loginRegCtrl.getUsers)
+app.post("/api/register", loginRegCtrl.register)
