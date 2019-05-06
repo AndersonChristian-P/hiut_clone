@@ -26,8 +26,8 @@ module.exports = {
     const user_id = await db.registerUser({
       firstname,
       lastname,
-      email
-      // ,hash
+      email,
+      hash
     })
 
     session.user = {
