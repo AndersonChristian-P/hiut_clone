@@ -45,7 +45,10 @@ module.exports = {
 
     try {
       let user = await db.login({ email })
-      session.user = user[0]
+      session.user = {
+        email: user[0].email,
+        user_id: user[0].login_id
+      }
       const authenticated = bcrypt.compareSync(req.body.loginPassword, user[0].password)
       if (authenticated) {
         res.status(200).send({ authenticated, user_id: user[0].login_id })
