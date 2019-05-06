@@ -47,7 +47,7 @@ module.exports = {
       let user = await db.login({ email })
       session.user = {
         email: user[0].email,
-        user_id: user[0].login_id
+        login_id: user[0].login_id
       }
       const authenticated = bcrypt.compareSync(req.body.loginPassword, user[0].password)
       if (authenticated) {
@@ -67,6 +67,8 @@ module.exports = {
 
     try {
       const data = await db.getUserAddresses({ id })
+      session.user.address = data[0]
+      console.log(session)
       res.status(200).send(data[0]) // put ability to select ship to address on the back burner so currently only the first address inputted is ever returned
     } catch (err) {
       res.sendStatus(404)
@@ -88,14 +90,14 @@ module.exports = {
         id
       })
 
-      // session.user.address = {
-      //   street,
-      //   city,
-      //   state,
-      //   zip,
-      //   address_id: data[0].address_id
-      // }
-      // console.log(session.user)
+      session.user.address = {
+        street,
+        city,
+        state,
+        zip,
+        address_id: data[0].address_id
+      }
+      console.log(session.user)
 
       res.sendStatus(200)
     } catch (err) {

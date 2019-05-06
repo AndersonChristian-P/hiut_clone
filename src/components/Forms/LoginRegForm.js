@@ -21,11 +21,11 @@ class Login extends Component {
     }
   }
 
-  componentDidMount() {
-    if (this.props.email) {
-      console.log("true")
-    }
-  }
+  // componentDidMount() {
+  //   if (this.props.email) {
+  //     console.log("true")
+  //   }
+  // }
 
   handleFormsInputUpdate = (event) => {
     const { name, value } = event.target
@@ -45,7 +45,6 @@ class Login extends Component {
       this.props.updateUserFirstName(res.data.firstname)
       this.props.updateUserLastName(res.data.lastname)
       this.props.updateAuthenticated(res.data.authenticated)
-      console.log(this.props)
       this.props.history.push("/info")
 
     } catch (err) {
@@ -55,9 +54,7 @@ class Login extends Component {
         loginError: true
       })
     }
-
   }
-
 
   render() {
     return (
@@ -75,7 +72,7 @@ class Login extends Component {
             />
             <input
               onChange={this.handleFormsInputUpdate}
-              type="text"
+              type="password"
               name="loginPassword"
               placeholder="Password"
               value={this.state.loginPassword}
@@ -112,7 +109,7 @@ class Login extends Component {
             />
             <input
               onChange={this.handleFormsInputUpdate}
-              type="text"
+              type="password"
               name="password"
               placeholder="Password"
               value={this.state.password} />
