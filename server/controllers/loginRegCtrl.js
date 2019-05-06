@@ -49,7 +49,6 @@ module.exports = {
       const authenticated = bcrypt.compareSync(req.body.loginPassword, user[0].password)
       if (authenticated) {
         res.status(200).send({ authenticated, user_id: user[0].login_id })
-        console.log(session.user)
       } else {
         throw new Error(401)
       }
@@ -65,7 +64,7 @@ module.exports = {
 
     try {
       const data = await db.getUserAddresses({ id })
-      res.status(200).send(data)
+      res.status(200).send(data[0])
     } catch (err) {
       res.sendStatus(404)
     }
