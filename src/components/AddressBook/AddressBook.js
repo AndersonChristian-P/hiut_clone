@@ -23,7 +23,8 @@ class AddressBook extends Component {
     }
   }
 
-  handleAddressFormSubmit = () => {
+  handleAddressFormSubmit = (event) => {
+    event.preventDefault()
     const { street, city, state, zip } = this.state
     axios.post("/auth/addresses", { street, city, state, zip })
     this.props.history.push("/info")
