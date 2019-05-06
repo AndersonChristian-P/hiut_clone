@@ -64,7 +64,7 @@ module.exports = {
 
     try {
       const data = await db.getUserAddresses({ id })
-      res.status(200).send(data[0])
+      res.status(200).send(data[0]) // put ability to select ship to address on the back burner so currently only the first address inputted is ever returned
     } catch (err) {
       res.sendStatus(404)
     }
