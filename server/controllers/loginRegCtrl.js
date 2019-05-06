@@ -26,13 +26,13 @@ module.exports = {
     const user_id = await db.registerUser({
       firstname,
       lastname,
-      email,
-      hash
+      email
+      // ,hash
     })
 
     session.user = {
       email,
-      hash,
+      // hash,
       login_id: user_id[0].user_id
     }
     res.sendStatus(200)
@@ -49,6 +49,7 @@ module.exports = {
       const authenticated = bcrypt.compareSync(req.body.loginPassword, user[0].password)
       if (authenticated) {
         res.status(200).send({ authenticated, user_id: user[0].login_id })
+        console.log(session.user)
       } else {
         throw new Error(401)
       }
@@ -66,7 +67,7 @@ module.exports = {
       const data = await db.getUserAddresses({ id })
       res.status(200).send(data)
     } catch (err) {
-      res.status(404).send(`You have 0 Addresses stored`)
+      res.sendStatus(404)
     }
   },
 
@@ -85,8 +86,6 @@ module.exports = {
         id
       })
 
-      console.log(data[0].address_id)
-
       session.user.address = {
         street,
         city,
@@ -94,6 +93,8 @@ module.exports = {
         zip,
         address_id: data[0].address_id
       }
+
+      console.log(session.user)
 
       res.sendStatus(200)
     } catch (err) {
