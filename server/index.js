@@ -29,8 +29,11 @@ massive(CONNECTION_STRING).then((database) => {
 
 // -- ENDPOINTS -- //
 
+// Authentication
 app.get("/api/users", loginRegCtrl.getUsers)
 app.post("/auth/register", loginRegCtrl.register)
 app.post("/auth/login", loginRegCtrl.login)
+
+// Addresses
 app.get("/auth/addresses", loginRegCtrl.getAddresses)
 app.post("/auth/addresses", loginRegCtrl.addAddress)
