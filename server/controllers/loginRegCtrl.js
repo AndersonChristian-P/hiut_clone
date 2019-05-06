@@ -85,15 +85,14 @@ module.exports = {
         id
       })
 
-      session.user.address = {
-        street,
-        city,
-        state,
-        zip,
-        address_id: data[0].address_id
-      }
-
-      console.log(session.user)
+      // session.user.address = {
+      //   street,
+      //   city,
+      //   state,
+      //   zip,
+      //   address_id: data[0].address_id
+      // }
+      // console.log(session.user)
 
       res.sendStatus(200)
     } catch (err) {
