@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import axios from "axios";
+import { Link } from "react-router-dom"
+import { withRouter } from "react-router-dom"
 
 class Details extends Component {
 
@@ -17,18 +19,22 @@ class Details extends Component {
   }
 
   componentDidMount() {
-    axios.get("/auth/addresses")
-      .then(res => {
-        if (res.data) {
-          this.setState({
-            street: res.data.street,
-            city: res.data.city,
-            state: res.data.state,
-            zip: res.data.zip,
-            haveAddress: true
-          })
-        }
-      })
+    if (this.props.authenticated) {
+      axios.get("/auth/addresses")
+        .then(res => {
+          if (res.data) {
+            this.setState({
+              street: res.data.street,
+              city: res.data.city,
+              state: res.data.state,
+              zip: res.data.zip,
+              haveAddress: true
+            })
+          }
+        })
+    } else {
+      this.props.history.push("/account")
+    }
   }
 
   render() {
@@ -47,7 +53,9 @@ class Details extends Component {
 
           <div>
             <h2>You do not have a shipping address on file.</h2>
-            <button>Add Address</button>
+            <Link to="/addressbook">
+              <button>Add Address</button>
+            </Link>
           </div>
         }
 
@@ -60,6 +68,6 @@ const mapStateToProps = (state) => {
   return state
 }
 
-export default connect(mapStateToProps)(Details)
+export default connect(mapStateToProps)(withRouter(Details))
 
 
