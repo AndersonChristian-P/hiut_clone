@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
-import { updateUserId, updateUserEmail } from "./../../redux/authReducer"
+import { updateUserId, updateUserEmail, updateUserFirstName, updateUserLastName, updateAuthenticated } from "./../../redux/authReducer"
 import axios from "axios";
 
 class Login extends Component {
@@ -22,7 +22,9 @@ class Login extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.username)
+    if (this.props.email) {
+      console.log("true")
+    }
   }
 
   handleFormsInputUpdate = (event) => {
@@ -36,14 +38,15 @@ class Login extends Component {
   handleLoginFormSubmit = async (event) => {
     event.preventDefault()
     const { loginEmail, loginPassword } = this.state
-
     try {
-
-      const response = await axios.post("/auth/login", { loginEmail, loginPassword })
-      this.props.updateUserEmail(loginEmail)
-      this.props.updateUserId(response.data.user_id)
+      const res = await axios.post("/auth/login", { loginEmail, loginPassword })
+      this.props.updateUserEmail(res.data.email)
+      this.props.updateUserId(res.data.user_id)
+      this.props.updateUserFirstName(res.data.firstname)
+      this.props.updateUserLastName(res.data.lastname)
+      this.props.updateAuthenticated(res.data.authenticated)
       console.log(this.props)
-      // this.props.history.push("/info")
+      this.props.history.push("/info")
 
     } catch (err) {
       this.setState({
@@ -126,4 +129,4 @@ const mapStateToProps = (state) => {
   return state
 }
 
-export default connect(mapStateToProps, { updateUserEmail, updateUserId })(withRouter(Login))
+export default connect(mapStateToProps, { updateUserEmail, updateUserId, updateUserFirstName, updateUserLastName, updateAuthenticated })(withRouter(Login))
