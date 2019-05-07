@@ -8,6 +8,7 @@ CREATE TABLE men_denim_type (
 
 CREATE TABLE men_product (
   men_prod_id SERIAL PRIMARY KEY,
+  id_text VARCHAR(50),
   fit VARCHAR(25),
   men_prod_name1 VARCHAR(25),
   men_prod_name2 VARCHAR(25),
@@ -28,13 +29,8 @@ CREATE TABLE men_product (
   img5 TEXT,
   img6 TEXT,
   img7 TEXT,
-  img8 TEXT,
-  img9 TEXT,
-  img10 TEXT,
-  img11 TEXT,
   men_denim_type_id INTEGER references men_denim_type
 );
-
 
 INSERT INTO men_denim_type (denim, denim_desc)
 VALUES (
@@ -42,8 +38,9 @@ VALUES (
   'Selvedge is an investment. Ours is from Kuroki, the artisanal Japanese denim mill. Woven on a 1959 loom. 100% indigo dyed. Unwashed 14.5oz.'
 );
 
-INSERT INTO men_product(fit, men_prod_name1, men_prod_name2, price, brief_fit_desc, prod_title, long_desc, prod_desc1, prod_desc2, prod_desc3, prod_desc4, prod_desc5, prod_desc6, img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11,men_denim_type_id) 
+INSERT INTO men_product(id_text, fit, men_prod_name1, men_prod_name2, price, brief_fit_desc, prod_title, long_desc, prod_desc1, prod_desc2, prod_desc3, prod_desc4, prod_desc5, prod_desc6, img1, img2, img3, img4, img5, img6, img7, men_denim_type_id) 
 VALUES (
+  'selvedge-denim-worka',
   'Regular',
   'Work@',
   'Selvedge',
@@ -57,17 +54,13 @@ VALUES (
   'Button fly',
   'Redline selvedge',
   '100% cotton',
-  'https://cdn.shopify.com/s/files/1/0065/4242/products/SELREG_1024x1024.jpg?v=1530790345',
-  'https://cdn.shopify.com/s/files/1/0065/4242/products/SELREGG_1024x1024.jpg?v=1530790355',
-  'https://cdn.shopify.com/s/files/1/0065/4242/products/SELREGGG_1024x1024.jpg?v=1530790373',
-  'https://cdn.shopify.com/s/files/1/0065/4242/products/unspecified-4_1024x1024.png?v=1530790395',
-  'https://cdn.shopify.com/s/files/1/0065/4242/products/unspecified-7_1024x1024.png?v=1530790406',
-  'https://cdn.shopify.com/s/files/1/0065/4242/products/unspecified-6_1024x1024.png?v=1530790416',
-  'https://cdn.shopify.com/s/files/1/0065/4242/products/unspecified-5_1024x1024.png?v=1530790433',
-  '',
-  '',
-  '',
-  '',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/SEL/sel_work/SELWORK_001.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/SEL/sel_work/SELWORK_002.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/SEL/sel_work/SELWORK_003.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/SEL/SEL_001.png',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/SEL/SEL_002.png',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/SEL/SEL_003.png',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/SEL/SEL_004.png',
   1
 );
 
