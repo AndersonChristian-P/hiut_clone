@@ -5,6 +5,7 @@ const massive = require("massive")
 const session = require("express-session")
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env
 const loginRegCtrl = require("./controllers/loginRegCtrl")
+const prodCtrl = require("./controllers/productsCtrl")
 
 // -- MIDDLEWARE -- //
 app.use(express.json())
@@ -45,3 +46,6 @@ app.get("/auth/logout", loginRegCtrl.logout)
 // Addresses
 app.get("/auth/addresses/:userId", loginRegCtrl.getAddresses)
 app.post("/auth/addresses/:userId", loginRegCtrl.addAddress)
+
+// Products
+app.get("/api/collections/:sex", prodCtrl.getProducts)
