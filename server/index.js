@@ -17,6 +17,13 @@ app.use(session({
   }
 }))
 
+app.use((req, res, next) => {
+  if (!req.session.cart) {
+    req.session.cart = []
+  }
+  next()
+})
+
 // -- MASSIVE -- //
 massive(CONNECTION_STRING).then((database) => {
   app.set("db", database)

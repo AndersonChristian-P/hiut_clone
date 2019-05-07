@@ -2,6 +2,8 @@ const bcrypt = require("bcryptjs")
 
 module.exports = {
   getUsers: (req, res) => {
+    console.log("THIS IS THE CART", req.session.cart)
+    console.log("THIS IS THE USER.SESSION", req.session)
     const db = req.app.get("db")
     db.getUsers()
       .then(results => {
