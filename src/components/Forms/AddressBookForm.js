@@ -23,10 +23,11 @@ class AddressBookForm extends Component {
     }
   }
 
-  handleAddressFormSubmit = (event) => {
+  handleAddressFormSubmit = async (event) => {
     event.preventDefault()
     const { street, city, state, zip } = this.state
-    axios.post("/auth/addresses", { street, city, state, zip })
+    const userId = this.props.user_id
+    await axios.post(`/auth/addresses/${userId}`, { street, city, state, zip })
     this.props.history.push("/info")
   }
 

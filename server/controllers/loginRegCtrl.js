@@ -33,8 +33,9 @@ module.exports = {
     session.user = {
       email,
       // hash,
-      login_id: user[0].user_id
+      user_id: user[0].login_id
     }
+    // console.log("registered", session.user)
     // res.sendStatus(200)
     res.status(200).send({ authenticated: true, email: user[0].email, firstname: user[0].firstname, lastname: user[0].lastname, user_id: user[0].login_id })
   },
@@ -48,7 +49,7 @@ module.exports = {
       let user = await db.login({ email })
       session.user = {
         email: user[0].email,
-        login_id: user[0].login_id
+        user_id: user[0].login_id
       }
       const authenticated = bcrypt.compareSync(req.body.loginPassword, user[0].password)
       if (authenticated) {
@@ -64,12 +65,14 @@ module.exports = {
   getAddresses: async (req, res) => {
     const db = req.app.get("db")
     const { session } = req
-    const { login_id: id } = session.user
+    const { userId: id } = req.params
+    // console.log(id, typeof id)
+    // const { user_id: id } = session.user 
 
     try {
       const data = await db.getUserAddresses({ id })
       session.user.address = data[0]
-      console.log(session)
+      // console.log("this is session", session.user.address)
       res.status(200).send(data[0]) // put ability to select ship to address on the back burner so currently only the first address inputted is ever returned
     } catch (err) {
       res.sendStatus(404)
@@ -79,7 +82,8 @@ module.exports = {
   addAddress: async (req, res) => {
     const db = req.app.get("db")
     const { session } = req
-    const { login_id: id } = session.user
+    const { userId: id } = req.params
+    // const { user_id: id } = session.user
     const { street, city, state, zip } = req.body
 
     try {
@@ -98,7 +102,7 @@ module.exports = {
         zip,
         address_id: data[0].address_id
       }
-      console.log(session.user)
+      // console.log("add address", session.user)
 
       res.sendStatus(200)
     } catch (err) {
@@ -108,7 +112,7 @@ module.exports = {
 
   logout: (req, res) => {
     req.session.destroy()
-    console.log(req.session)
+    // console.log(req.session)
     res.sendStatus(200)
   }
 }

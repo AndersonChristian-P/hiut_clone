@@ -36,5 +36,5 @@ app.post("/auth/login", loginRegCtrl.login)
 app.get("/auth/logout", loginRegCtrl.logout)
 
 // Addresses
-app.get("/auth/addresses", loginRegCtrl.getAddresses)
-app.post("/auth/addresses", loginRegCtrl.addAddress)
+app.get("/auth/addresses/:userId", loginRegCtrl.getAddresses)
+app.post("/auth/addresses/:userId", loginRegCtrl.addAddress)

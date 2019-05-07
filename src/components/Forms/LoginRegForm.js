@@ -17,7 +17,9 @@ class Login extends Component {
       firstname: "",
       lastname: "",
       email: "",
-      password: ""
+      password: "",
+      registerError: false,
+      registerMessage: "Something went wrong. Please try again."
     }
   }
 
@@ -46,7 +48,6 @@ class Login extends Component {
       this.props.updateUserLastName(res.data.lastname)
       this.props.updateAuthenticated(res.data.authenticated)
       this.props.history.push("/info")
-
     } catch (err) {
       this.setState({
         loginEmail: "",
@@ -56,13 +57,36 @@ class Login extends Component {
     }
   }
 
+  handleRegistrationFormSubmit = async (event) => {
+    event.preventDefault()
+    const { firstname, lastname, email, password } = this.state
+    try {
+      const res = await axios.post("/auth/register", { firstname, lastname, email, password })
+      this.props.updateAuthenticated(res.data.authenticated)
+      this.props.updateUserEmail(res.data.email)
+      this.props.updateUserId(res.data.user_id)
+      this.props.updateUserFirstName(res.data.firstname)
+      this.props.updateUserLastName(res.data.lastname)
+      this.props.history.push("/info")
+    } catch (err) {
+      this.setState({
+        firstname: "",
+        lastname: "",
+        email: "",
+        password: "",
+        registerError: true
+      })
+    }
+  }
+
+
   render() {
     return (
       <div>
 
         <div>
           <h1>Sign in</h1>
-          <form action="">
+          <form onSubmit={this.handleLoginFormSubmit}>
             <input
               onChange={this.handleFormsInputUpdate}
               type="text"
@@ -77,15 +101,14 @@ class Login extends Component {
               placeholder="Password"
               value={this.state.loginPassword}
             />
-            <button onClick={this.handleLoginFormSubmit}>Sign In</button>
+            <button>Sign In</button>
           </form>
           {this.state.loginError && <h3>{this.state.loginMessage}</h3>}
-
         </div>
 
         <div>
           <h1>Sign Up</h1>
-          <form action="">
+          <form onSubmit={this.handleRegistrationFormSubmit}>
             <input
               onChange={this.handleFormsInputUpdate}
               type="text"
@@ -113,8 +136,9 @@ class Login extends Component {
               name="password"
               placeholder="Password"
               value={this.state.password} />
+            <button>Create</button>
           </form>
-          <button>Create</button>
+          {this.state.registerError && <h3>{this.state.registerMessage}</h3>}
         </div>
 
       </div>

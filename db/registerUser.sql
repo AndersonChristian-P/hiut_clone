@@ -9,7 +9,7 @@ VALUES (
   ${firstname},
   ${lastname},
   ${email}
-) returning user_id;
+);
 
 -- adding this code below to send back as part of the response -- 
 SELECT ul.email, firstname, lastname, login_id

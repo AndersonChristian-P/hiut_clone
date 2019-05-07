@@ -21,9 +21,13 @@ class Details extends Component {
 
   componentDidMount() {
     if (this.props.authenticated) {
-      axios.get("/auth/addresses")
+      const userId = this.props.user_id
+      console.log(userId)
+      axios.get(`/auth/addresses/${userId}`)
         .then(res => {
+          console.log(res.data)
           if (res.data) {
+            console.log(res.data)
             this.setState({
               street: res.data.street,
               city: res.data.city,
@@ -65,7 +69,7 @@ class Details extends Component {
           <div>
             <h2>Your shipping address on file is...</h2>
             <h3>{this.state.street}</h3>
-            <h3>{`${this.state.city}, ${this.state.state}, ${this.state.zip}`}</h3>
+            <h3>{`${this.state.city}, ${this.state.state} ${this.state.zip}`}</h3>
           </div> :
 
           <div>
