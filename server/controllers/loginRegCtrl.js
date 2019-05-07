@@ -103,6 +103,12 @@ module.exports = {
     } catch (err) {
       res.sendStatus(400)
     }
+  },
+
+  logout: (req, res) => {
+    req.session.destroy()
+    console.log(req.session)
+    res.sendStatus(200)
   }
 }
 

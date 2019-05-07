@@ -33,6 +33,7 @@ massive(CONNECTION_STRING).then((database) => {
 app.get("/api/users", loginRegCtrl.getUsers)
 app.post("/auth/register", loginRegCtrl.register)
 app.post("/auth/login", loginRegCtrl.login)
+app.get("/auth/logout", loginRegCtrl.logout)
 
 // Addresses
 app.get("/auth/addresses", loginRegCtrl.getAddresses)
