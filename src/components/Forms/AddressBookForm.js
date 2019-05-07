@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import axios from "axios"
 import { withRouter } from "react-router-dom"
 
-class AddressBook extends Component {
+class AddressBookForm extends Component {
   constructor() {
     super()
 
@@ -79,4 +79,4 @@ const mapStateToProps = (state) => {
   return state
 }
 
-export default connect(mapStateToProps)(withRouter(AddressBook))
+export default connect(mapStateToProps)(withRouter(AddressBookForm))

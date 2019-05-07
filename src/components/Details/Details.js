@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import axios from "axios";
 import { Link } from "react-router-dom"
 import { withRouter } from "react-router-dom"
+import { userLogOut } from "./../../redux/authReducer"
 
 class Details extends Component {
 
@@ -37,6 +38,22 @@ class Details extends Component {
     }
   }
 
+  handleUserLogOut = () => {
+    axios.get("/auth/logout")
+      .then(res => {
+        this.props.userLogOut()
+        this.setState({
+          street: "",
+          city: "",
+          state: "",
+          zip: null,
+          haveAddress: false
+        })
+        this.props.history.push("/account")
+      }
+      )
+  }
+
   render() {
     return (
       <div>
@@ -58,6 +75,7 @@ class Details extends Component {
             </Link>
           </div>
         }
+        <button onClick={this.handleUserLogOut} >Logout</button>
 
       </div>
     )
@@ -68,6 +86,6 @@ const mapStateToProps = (state) => {
   return state
 }
 
-export default connect(mapStateToProps)(withRouter(Details))
+export default connect(mapStateToProps, { userLogOut })(withRouter(Details))
 
 

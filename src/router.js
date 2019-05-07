@@ -4,7 +4,7 @@ import Home from "./components/Pages/Home/Home"
 import Login from "./components/Forms/Login"
 import LoginRegForm from "./components/Forms/LoginRegForm"
 import Details from "./components/Details/Details"
-import AddressBook from "./components/AddressBook/AddressBook"
+import AddressBook from "./components/Forms/AddressBookForm"
 
 
 export default (

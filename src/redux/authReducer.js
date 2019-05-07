@@ -11,6 +11,7 @@ const UPDATE_USER_EMAIL = "UPDATE_USER_EMAIL"
 const UPDATE_USER_FIRSTNAME = "UPDATE_USER_FIRSTNAME"
 const UPDATE_USER_LASTNAME = "UPDATE_USER_LASTNAME"
 const UPDATE_AUTHENTICATED = "UPDATE_AUTHENTICATED"
+const UPDATE_USER_LOGOUT = "UPDATE_USER_LOGOUT"
 
 export function updateUserId(id) {
   return {
@@ -47,6 +48,12 @@ export function updateAuthenticated(authenticated) {
   }
 }
 
+export function userLogOut(logout) {
+  return {
+    type: UPDATE_USER_LOGOUT
+  }
+}
+
 export default function authReducer(state = initialState, action) {
   const { type, payload } = action
   switch (type) {
@@ -60,6 +67,8 @@ export default function authReducer(state = initialState, action) {
       return { ...state, lastname: payload }
     case UPDATE_AUTHENTICATED:
       return { ...state, authenticated: payload }
+    case UPDATE_USER_LOGOUT:
+      return { ...state, user_id: null, email: "", firstname: "", lastname: "", authenticated: false }
     default:
       return state
   }
