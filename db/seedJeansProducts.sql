@@ -74,8 +74,9 @@ CREATE TABLE women_prod_line (
   prod_desc text
 );
 
-CREATE TABLE women_prod (
+CREATE TABLE women_product (
   women_prod_id SERIAL PRIMARY KEY,
+  id_text VARCHAR(50),
   fit_desc VARCHAR(25),
   denim_type VARCHAR(25),
   price INTEGER,
@@ -97,8 +98,9 @@ VALUES (
   'A classic slim leg jean, button-fly, mid-rise, not too skinny, not too loose, made with raw denim.'
 );
 
-INSERT INTO women_prod (fit_desc, denim_type, price, prod_line, fit, fit_long_desc1, fit_long_desc2, denim_long_desc, details_long_desc, img1, img2, img3, women_prod_line_id)
+INSERT INTO women_product (id_text, fit_desc, denim_type, price, prod_line, fit, fit_long_desc1, fit_long_desc2, denim_long_desc, details_long_desc, img1, img2, img3, women_prod_line_id)
 VALUES (
+  'coda',
   'Slim Fit',
   'Raw Denim',
   155,
