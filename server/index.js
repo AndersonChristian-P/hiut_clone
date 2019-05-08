@@ -49,3 +49,5 @@ app.post("/auth/addresses/:userId", loginRegCtrl.addAddress)
 
 // Products
 app.get("/api/collections/:sex", prodCtrl.getProducts)
+app.get("/api/product/men/:productId", prodCtrl.getMenProduct)
+app.get("/api/product/women/:productId", prodCtrl.getWomenProduct)

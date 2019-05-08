@@ -13,5 +13,13 @@ module.exports = {
     } catch (err) {
       res.sendStatus(404)
     }
+  },
+
+  getMenProduct: async (req, res) => {
+
+  },
+
+  getWomenProduct: async (req, res) => {
+
   }
 }
