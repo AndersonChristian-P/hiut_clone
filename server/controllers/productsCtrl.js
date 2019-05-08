@@ -18,7 +18,6 @@ module.exports = {
   getMenProduct: async (req, res) => {
     const db = req.app.get("db")
     const { productId: id } = req.params
-    console.log(id)
     try {
       const data = await db.getMenProduct({ id })
       res.status(200).send(data)
@@ -30,7 +29,6 @@ module.exports = {
   getWomenProduct: async (req, res) => {
     const db = req.app.get("db")
     const { productId: id } = req.params
-    console.log(id)
     try {
       const data = await db.getWomenProduct({ id })
       res.status(200).send(data)
