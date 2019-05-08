@@ -2,7 +2,6 @@ import React, { Component } from "react"
 import axios from "axios"
 import Slider from "react-slick"
 
-
 class MensProduct extends Component {
   constructor() {
     super()
@@ -27,8 +26,6 @@ class MensProduct extends Component {
     this.setState({
       size: event.target.value
     })
-
-
   }
 
   render() {
@@ -44,8 +41,6 @@ class MensProduct extends Component {
     const { product } = this.state
 
     const imagesArr = [product[0].img1, product[0].img2, product[0].img3, product[0].img4, product[0].img5, product[0].img6, product[0].img7]
-
-    // const descArr = []
 
     const images = imagesArr.map((image, i) => {
       return <div key={i}><img width="640px" src={image} alt="#" /></div>
@@ -121,7 +116,6 @@ class MensProduct extends Component {
 
           <button>Add to Cart</button>
         </div>
-
       </div>
     )
   }
