@@ -5,7 +5,7 @@ import store from "./redux/store"
 import router from "./router"
 import Header from "./components/Header/Header"
 import Footer from "./components/Footer/Footer"
-import './App.css';
+import './App.scss';
 
 function App() {
   return (
