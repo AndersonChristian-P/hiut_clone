@@ -8,7 +8,8 @@ class MensProduct extends Component {
 
     this.state = {
       product: [{}],
-      size: ""
+      size: "",
+      quantity: 1
     }
   }
 
@@ -37,7 +38,7 @@ class MensProduct extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
     }
-    console.log(this.state.size)
+
     const { product } = this.state
 
     const imagesArr = [product[0].img1, product[0].img2, product[0].img3, product[0].img4, product[0].img5, product[0].img6, product[0].img7]
@@ -56,7 +57,7 @@ class MensProduct extends Component {
         </div>
         <br />
 
-        <div className="men-prod-info-pur">
+        <div className="men-prod-info-purchase">
           <h1>{product[0].prod_title}</h1>
           <p>{`${product[0].fit} fit`}</p>
           <p>{`£${product[0].price}.00`}</p>
@@ -69,8 +70,8 @@ class MensProduct extends Component {
             <li>{product[0].prod_desc5}</li>
             <li>{product[0].prod_desc6}</li>
           </ul>
-          <p>Made in Wales</p>
-          <p>If your size is not in stock, your jeans will be cut to order, with expected delivery in 4-6 weeks. Payment is taken when ordered.</p>
+          <p>Made in Wales.</p>
+          <p><i>If your size is not in stock, your jeans will be cut to order, with expected delivery in 4-6 weeks. Payment is taken when ordered.</i></p>
           <hr />
 
           <select onChange={this.handleSizeSelection} id="men-prod-size">
@@ -112,9 +113,10 @@ class MensProduct extends Component {
             <option value="38/34">38 / 34 (Waist/Leg) In Stock</option>
             <option value="38/36">38 / 36 (Waist/Leg) In Stock</option>
           </select>
-          <br />
+          <hr />
 
-          <button>Add to Cart</button>
+          <button>Add to basket</button>
+          <p>What if they don't fit? You can exchange or return your jeans up to 90 days after purchase</p>
         </div>
       </div>
     )
