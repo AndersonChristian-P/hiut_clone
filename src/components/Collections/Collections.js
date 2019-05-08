@@ -1,15 +1,15 @@
 import React, { Component } from "react"
 import { Switch, Route } from "react-router-dom"
-import Mens from "./../Mens/Mens"
-import Womens from "./../Womens/Womens"
+import MensCollection from "./../Mens/MensCollection"
+import WomensCollection from "./../Womens/WomensCollection"
 
 class Collections extends Component {
 
   render() {
     return (
       <Switch>
-        <Route path="/collections/mens" component={Mens} />
-        <Route path="/collections/womens" component={Womens} />
+        <Route path="/collections/mens" component={MensCollection} />
+        <Route path="/collections/womens" component={WomensCollection} />
       </Switch>
     )
   }

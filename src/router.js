@@ -20,7 +20,7 @@ export default (
     <Route path="/info" component={Details} />
     <Route path="/addressbook" component={AddressBook} />
     <Route path="/collections/:sex" component={Collections} />
-    <Route path="/product/:id" component={Product} />
+    <Route path="/product/:sex" component={Product} />
   </Switch>
 )
 

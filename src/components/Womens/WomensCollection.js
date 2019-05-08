@@ -30,8 +30,8 @@ class Womens extends Component {
       return product.id_text.includes("coda")
     }).map((product, i) => {
       return (
-        <div>
-          <Link key={i} to={`/product/${product.id_text}`} >
+        <div key={i}>
+          <Link to={`/product/women/${product.id_text}`} >
             <img width="1260" src={product.img0} alt="#" />
           </Link>
           <h2>{product.fit_desc}</h2>

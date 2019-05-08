@@ -29,8 +29,8 @@ class Mens extends Component {
       return product.id_text.includes("selvedge")
     }).map((product, i) => {
       return (
-        <div>
-          <Link key={i} to={`/product/${product.id_text}`} >
+        <div key={i}>
+          <Link to={`/product/men/${product.id_text}`} >
             <img width="315" src={product.img0} alt="#" />
           </Link>
           <h2>{product.fit}</h2>
