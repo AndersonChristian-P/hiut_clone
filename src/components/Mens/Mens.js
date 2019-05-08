@@ -30,7 +30,7 @@ class Mens extends Component {
     }).map((product, i) => {
       return (
         <div>
-          <Link key={i} to={`/products/${product.id_text}`} >
+          <Link key={i} to={`/product/${product.id_text}`} >
             <img width="315" src={product.img0} alt="#" />
           </Link>
           <h2>{product.fit}</h2>

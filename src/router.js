@@ -6,6 +6,7 @@ import LoginRegForm from "./components/Forms/LoginRegForm"
 import Details from "./components/Details/Details"
 import AddressBook from "./components/Forms/AddressBookForm"
 import Collections from "./components/Collections/Collections"
+import Product from "./components/Product/Product"
 
 
 export default (
@@ -19,6 +20,7 @@ export default (
     <Route path="/info" component={Details} />
     <Route path="/addressbook" component={AddressBook} />
     <Route path="/collections/:sex" component={Collections} />
+    <Route path="/product/:id" component={Product} />
   </Switch>
 )
 
