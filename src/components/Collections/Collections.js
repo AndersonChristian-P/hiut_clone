@@ -1,36 +1,48 @@
 import React, { Component } from "react"
-import axios from "axios";
+import { Switch, Route } from "react-router-dom"
+import Mens from "./../Mens/Mens"
+import Womens from "./../Womens/Womens"
 
 class Collections extends Component {
-  constructor() {
-    super()
-
-    this.state = {
-      products: [],
-      sex: "mens"
-    }
-  }
-
-
-  componentDidMount() {
-    if (this.props.match.params === "mens") {
-      const sex = this.props.match.params
-      axios.get(`/api/products/${sex}`)
-        .then(res => {
-          this.setState({
-            products: res.data
-          })
-        })
-    }
-  }
 
   render() {
     return (
-      <div>
-        <h1>This is the Collections page.</h1>
-      </div>
+      <Switch>
+        <Route path="/collections/mens" component={Mens} />
+        <Route path="/collections/womens" component={Womens} />
+      </Switch>
     )
   }
 }
 
 export default Collections
+
+
+
+
+      // {this.state.sex === "mens" ?
+
+      //   <h1>This is the Mens Collection page.</h1> :
+      //   <h1>This is the Womens Collection page.</h1>
+      // }
+
+      // componentDidMount() {
+      //   const { sex } = this.props.match.params
+      //   if (sex === "mens") {
+      //     axios.get(`/api/collections/${sex}`)
+      //       .then(res => {
+      //         this.setState({
+      //           products: res.data,
+      //           sex: sex
+      //         })
+      //       })
+      //   } else if (sex === "womens") {
+      //     axios.get(`/api/collections/${sex}`)
+      //       .then(res => {
+      //         this.setState({
+      //           products: res.data,
+      //           sex: sex
+      //         })
+      //       })
+      //   }
+      // }

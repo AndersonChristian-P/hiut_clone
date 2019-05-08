@@ -1,7 +1,7 @@
 -- // Men Products // --
 
-CREATE TABLE men_denim_type (
-  men_denim_type_id SERIAL PRIMARY KEY,
+CREATE TABLE men_prod_line (
+  men_prod_line_id SERIAL PRIMARY KEY,
   denim VARCHAR(50),
   denim_desc text
 );
@@ -22,6 +22,7 @@ CREATE TABLE men_product (
   prod_desc4 VARCHAR(75), 
   prod_desc5 VARCHAR(75), 
   prod_desc6 VARCHAR(75),
+  img0 TEXT,
   img1 TEXT,
   img2 TEXT,
   img3 TEXT,
@@ -29,16 +30,16 @@ CREATE TABLE men_product (
   img5 TEXT,
   img6 TEXT,
   img7 TEXT,
-  men_denim_type_id INTEGER references men_denim_type
+  men_prod_line_id INTEGER references men_prod_line
 );
 
-INSERT INTO men_denim_type (denim, denim_desc)
+INSERT INTO men_prod_line (denim, denim_desc)
 VALUES (
   'Selvedge Denim',
   'Selvedge is an investment. Ours is from Kuroki, the artisanal Japanese denim mill. Woven on a 1959 loom. 100% indigo dyed. Unwashed 14.5oz.'
 );
 
-INSERT INTO men_product(id_text, fit, men_prod_name1, men_prod_name2, price, brief_fit_desc, prod_title, long_desc, prod_desc1, prod_desc2, prod_desc3, prod_desc4, prod_desc5, prod_desc6, img1, img2, img3, img4, img5, img6, img7, men_denim_type_id) 
+INSERT INTO men_product(id_text, fit, men_prod_name1, men_prod_name2, price, brief_fit_desc, prod_title, long_desc, prod_desc1, prod_desc2, prod_desc3, prod_desc4, prod_desc5, prod_desc6, img0, img1, img2, img3, img4, img5, img6, img7, men_prod_line_id) 
 VALUES (
   'selvedge-denim-worka',
   'Regular',
@@ -54,6 +55,7 @@ VALUES (
   'Button fly',
   'Redline selvedge',
   '100% cotton',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/SEL/sel_work/SELWORK_000.jpg',
   'https://s3.us-east-2.amazonaws.com/hiut-clone/SEL/sel_work/SELWORK_001.jpg',
   'https://s3.us-east-2.amazonaws.com/hiut-clone/SEL/sel_work/SELWORK_002.jpg',
   'https://s3.us-east-2.amazonaws.com/hiut-clone/SEL/sel_work/SELWORK_003.jpg',
@@ -86,6 +88,7 @@ CREATE TABLE women_product (
   fit_long_desc2 TEXT,
   denim_long_desc TEXT,
   details_long_desc TEXT,
+  img0 TEXT,
   img1 TEXT,
   img2 TEXT,
   img3 TEXT,
@@ -98,7 +101,7 @@ VALUES (
   'A classic slim leg jean, button-fly, mid-rise, not too skinny, not too loose, made with raw denim.'
 );
 
-INSERT INTO women_product (id_text, fit_desc, denim_type, price, prod_line, fit, fit_long_desc1, fit_long_desc2, denim_long_desc, details_long_desc, img1, img2, img3, women_prod_line_id)
+INSERT INTO women_product (id_text, fit_desc, denim_type, price, prod_line, fit, fit_long_desc1, fit_long_desc2, denim_long_desc, details_long_desc, img0, img1, img2, img3, women_prod_line_id)
 VALUES (
   'coda',
   'Slim Fit',
@@ -110,8 +113,9 @@ VALUES (
   'Our advice: These jeans are unwashed and will be very stiff when you first get them, as there is no stretch in the fabric. If you are curvy, we recommend sizing up.',
   'When everything is being distressed, bleached and washed to an inch of its life, the Coda is a raw jean full of life. This is a classic blue jean, made with a raw dark blue,13.oz denim from ISKO, Turkey. There''s no stretch in the fabric but it softens with age. Break them in gently and over time they will become your faves for sure.',
   'Authentic five-pocket jean. 100% cotton. 13.oz, raw denim. button fly. Hiut Denim branded leather patch. Fastened with copper rivets on pockets. Signature red owl rivet on left back pocket. For best results, go 6 months without washing. Wash on 30˚C. Do not tumble dry.',
-  'https://cdn.shopify.com/s/files/1/0065/4242/products/coda2_1024x1024.jpg?v=1530787011',
-  'https://cdn.shopify.com/s/files/1/0065/4242/products/coda3_1024x1024.jpg?v=1530787021',
-  'https://cdn.shopify.com/s/files/1/0065/4242/products/coda4_1024x1024.jpg?v=1530787030',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/CODA/CODA_000.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/CODA/CODA_001.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/CODA/CODA_002.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/CODA/CODA_003.jpg',
   1
 );
