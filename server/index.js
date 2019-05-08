@@ -6,6 +6,7 @@ const session = require("express-session")
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env
 const loginRegCtrl = require("./controllers/loginRegCtrl")
 const prodCtrl = require("./controllers/productsCtrl")
+const cartCtrl = require("./controllers/cartCtrl")
 
 // -- MIDDLEWARE -- //
 app.use(express.json())
@@ -13,9 +14,9 @@ app.use(session({
   secret: SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
-  cookie: {
-    maxAge: 1000 * 60 * 60 * 72
-  }
+  // cookie: {
+  //   maxAge: 1000 * 60 * 60 * 72
+  // }
 }))
 
 app.use((req, res, next) => {
@@ -51,3 +52,7 @@ app.post("/auth/addresses/:userId", loginRegCtrl.addAddress)
 app.get("/api/collections/:sex", prodCtrl.getProducts)
 app.get("/api/product/men/:productId", prodCtrl.getMenProduct)
 app.get("/api/product/women/:productId", prodCtrl.getWomenProduct)
+
+// Cart
+app.post("/api/addtocart/:idText", cartCtrl.addToCart)
+app.get("/api/cart", cartCtrl.getCart)

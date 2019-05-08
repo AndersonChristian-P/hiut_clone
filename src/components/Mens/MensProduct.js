@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import axios from "axios"
 import Slider from "react-slick"
+import { withRouter } from "react-router-dom"
 
 class MensProduct extends Component {
   constructor() {
@@ -23,11 +24,20 @@ class MensProduct extends Component {
   }
 
   handleSizeSelection = (event) => {
-    console.log("THIS IS THE EVENT", event.target.value)
     this.setState({
       size: event.target.value
     })
   }
+
+  handleAddToCart = () => {
+    const { size, quantity } = this.state
+    const { img1, prod_title, price, id_text } = this.state.product[0]
+    axios.post(`/api/addtocart/${id_text}`, { size, quantity, img1, prod_title, price })
+      .then(
+        this.props.history.push("/cart")
+      )
+  }
+
 
   render() {
 
@@ -115,7 +125,7 @@ class MensProduct extends Component {
           </select>
           <hr />
 
-          <button>Add to basket</button>
+          <button onClick={this.handleAddToCart}>Add to basket</button>
           <p>What if they don't fit? You can exchange or return your jeans up to 90 days after purchase</p>
         </div>
       </div>
@@ -123,6 +133,6 @@ class MensProduct extends Component {
   }
 }
 
-export default MensProduct
+export default withRouter(MensProduct)
 
 
