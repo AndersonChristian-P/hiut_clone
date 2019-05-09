@@ -22,7 +22,7 @@ module.exports = {
       }
     }
     req.session.save()
-    console.log("-- THIS IS THE SESSION --", req.session)
+    // console.log("-- THIS IS THE SESSION --", req.session)
     res.sendStatus(200)
   },
 
@@ -38,9 +38,37 @@ module.exports = {
     } catch (err) {
       res.sendStatus(404)
     }
+  },
+
+  deleteItemFromCart: async (req, res) => {
+    const { cart } = req.session
+    const { idText: id, size1, size2, quantity, price } = req.params
+    const size = `${size1}/${size2}`
+
+    const index = await cart.findIndex(prod => prod.id === id && prod.size === size)
+
+    cart.splice(index, 1)
+    console.log(typeof req.session.total, quantity, price)
+    req.session.total -= (quantity * price)
+    req.session.save()
+
+    console.log("-- THIS IS THE SESSION AFTER DELETE --", req.session)
+
+    res.sendStatus(200)
+  },
+
+  updateQty: async (req, res) => {
+    const { cart: userCart } = req.body
+
+    req.session.cart = userCart
+
+    req.session.total = await req.session.cart.map((item) =>
+      item.quantity * item.price
+    ).reduce((acc, currentValue), 0)
+
+    req.session.save()
   }
 }
-
 
 
 

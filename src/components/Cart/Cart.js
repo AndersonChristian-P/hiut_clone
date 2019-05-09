@@ -10,24 +10,56 @@ class Cart extends Component {
   }
 
   componentDidMount() {
+    this.handleGetCart()
+  }
+
+  handleGetCart = () => {
     axios.get("/api/cart")
       .then(res => {
-        console.log(res.data)
         this.setState({
           cart: res.data
         })
       })
   }
 
+  // handleQtyChange = (event) => {
+  //   const { name, value } = this.event
+  //   this.setState({
+  //     [name]: value
+  //   })
+  // }
+
+  handleDelete = (i) => {
+    console.log("I AM FIRING DELETE!")
+    const idText = this.state.cart[i].id
+    const size = this.state.cart[i].size
+    const quantity = this.state.cart[i].quantity
+    const price = this.state.cart[i].price
+
+    const endpoint = `/api/deletefromcart/${idText}/${size}/${quantity}/${price}`
+
+    axios.delete(endpoint)
+      .then(this.handleGetCart())
+  }
+
   render() {
     const { cart } = this.state
+
+    console.log("---THIS IS THE CART ARRAY---", cart)
 
     const cartContents = cart.map((product, i) => {
       return <div key={i}>
         <img width="100" src={product.img1} alt="#" />
         <span>{`${product.prod_title} ${product.size}`}</span>
-        <input type="number" placeholder={product.quantity} />
+        <input
+          // onChange={this.handleQtyChange}
+          // type="number"
+          placeholder={product.quantity}
+        // value={cart[i].quantity}
+        // name="quantity"
+        />
         <span>{`${product.price}` * `${product.quantity}`}</span>
+        <button onClick={(e) => this.handleDelete(i)} >Delete Item</button>
       </div>
     })
 
@@ -43,6 +75,3 @@ class Cart extends Component {
 }
 
 export default Cart
-
-
-// important questions | How do you get everything to re-render? | If I add different sizes of the same product to the cart I don't have the code to differentiate between sizes, so the cart doesn't save the different sizes just the most recent one added, however the cart quantity is updated

@@ -56,6 +56,7 @@ app.get("/api/product/men/:productId", prodCtrl.getMenProduct)
 app.get("/api/product/women/:productId", prodCtrl.getWomenProduct)
 
 // Cart
-app.post("/api/addtocart/:idText", cartCtrl.addToCart)
 app.get("/api/cart", cartCtrl.getCart)
-app.delete("/api/deletecart")
+app.post("/api/addtocart/:idText", cartCtrl.addToCart)
+app.post("/api/updatecart", cartCtrl.updateQty)
+app.delete("/api/deletefromcart/:idText/:size1/:size2/:quantity/:price/", cartCtrl.deleteItemFromCart)
