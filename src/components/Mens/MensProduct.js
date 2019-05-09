@@ -38,7 +38,6 @@ class MensProduct extends Component {
       )
   }
 
-
   render() {
 
     let sliderSettings = {
@@ -128,6 +127,7 @@ class MensProduct extends Component {
           <button onClick={this.handleAddToCart}>Add to basket</button>
           <p>What if they don't fit? You can exchange or return your jeans up to 90 days after purchase</p>
         </div>
+
       </div>
     )
   }
