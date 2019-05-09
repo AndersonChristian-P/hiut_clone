@@ -6,8 +6,15 @@ class Cart extends Component {
   constructor() {
     super()
     this.state = {
-      cart: [{}],
-      haveCart: false
+      cart: [{
+        id: "",
+        size: "",
+        quantity: 0,
+        img1: "",
+        prod_title: "",
+        prodSubtotal: 0,
+        price: 0
+      }]
     }
   }
 
@@ -18,11 +25,6 @@ class Cart extends Component {
   handleGetCart = () => {
     axios.get("/api/cart")
       .then(res => {
-        if (res.data !== []) {
-          this.setState({
-            haveCart: true
-          })
-        }
         this.setState({
           cart: res.data
         })
@@ -40,7 +42,6 @@ class Cart extends Component {
   }
 
   handleDelete = (i) => {
-    console.log("I AM FIRING DELETE!")
     const idText = this.state.cart[i].id
     const size = this.state.cart[i].size
     const quantity = this.state.cart[i].quantity
@@ -60,7 +61,7 @@ class Cart extends Component {
 
   render() {
     const { cart } = this.state
-    console.log("THIS IS THE CART", cart)
+
     const cartContents = cart.map((product, i) => {
       return <div key={i}>
         <img width="100" src={product.img1} alt="#" />
@@ -80,12 +81,11 @@ class Cart extends Component {
     return (
       <div>
 
-        {this.state.haveCart ?
+        {cart[0] ?
           <div>
             <h1>This is the Cart page!</h1>
             <div>
               {cartContents}
-
               <button onClick={() => this.handleUpdateClick()}>Update Cart</button>
             </div>
           </div> :
@@ -94,11 +94,7 @@ class Cart extends Component {
             <h1>This is the Cart page!</h1>
             <div>You don't have any items in the cart. Please click here.</div>
           </div>
-
         }
-
-
-
       </div>
     )
   }
