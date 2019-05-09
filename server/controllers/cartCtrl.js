@@ -6,14 +6,16 @@ module.exports = {
 
     const index = await cart.findIndex(prod => prod.id === id)
 
+    const prodSubtotal = (+quantity * +price)
+
     if (index === -1) {
-      const newItem = { id, size, quantity, img1, prod_title, price }
+      const newItem = { id, size, quantity, img1, prod_title, prodSubtotal, price }
       req.session.total += price
       req.session.cart.push(newItem)
     } else if (index > -1) {
       const sizeInCart = cart[index].size
       if (sizeInCart !== size) {
-        const newItem = { id, size, quantity, img1, prod_title, price }
+        const newItem = { id, size, quantity, img1, prod_title, prodSubtotal, price }
         req.session.total += price
         req.session.cart.push(newItem)
       } else {
