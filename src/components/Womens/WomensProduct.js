@@ -50,7 +50,7 @@ class WomensProduct extends Component {
         <br />
 
         <div className="women-prod-info-purchase">
-          <h1>{product[0].prod_line}</h1>
+          <h1>{product[0].prod_title}</h1>
           <p>{product[0].fit}</p>
           <p>{`£${product[0].price}.00`}</p>
           <p><strong>The Fit:</strong></p>
