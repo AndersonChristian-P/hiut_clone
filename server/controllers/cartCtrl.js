@@ -5,24 +5,43 @@ module.exports = {
     const { cart } = req.session
 
     const index = await cart.findIndex(prod => prod.id === id)
+    console.log("THIS IS THE INDEX", index)
 
     if (index === -1) {
-      const newItem = {
-        id, size, quantity, img1, prod_title, price
+      const newItem = { id, size, quantity, img1, prod_title, price }
+      req.session.cart.push(newItem)
+    } else if (index > -1) {
+      const sizeInCart = cart[index].size
+      console.log("DOES SIZE EXIST IN CART", sizeInCart)
+      if (sizeInCart !== size) {
+        const newItem = { id, size, quantity, img1, prod_title, price }
+        req.session.cart.push(newItem)
+      } else {
+        cart[index].quantity++
       }
-
-      const newCart = req.session.cart.slice()
-
-      newCart.push(newItem)
-
-      req.session.cart = newCart
-
-    } else {
-      cart[index].quantity++
     }
-
-    res.sendStatus(200)
     req.session.save()
+    console.log("THIS IS THE SESSION CART", cart)
+    res.sendStatus(200)
+
+
+    // if (index === -1) {
+    //   const newItem = {
+    //     id, size, quantity, img1, prod_title, price
+    //   }
+
+    //   const newCart = req.session.cart.slice()
+
+    //   newCart.push(newItem)
+
+    //   req.session.cart = newCart
+
+    // } else {
+    //   cart[index].quantity++
+    // }
+
+    // res.sendStatus(200)
+    // req.session.save()
     // since we are not calling res.send the session is not saved, so you have to call req.session.save()
   },
 
