@@ -23,6 +23,7 @@ app.use(session({
 app.use((req, res, next) => {
   if (!req.session.cart) {
     req.session.cart = []
+    req.session.total = 0
   }
   next()
 })
@@ -57,3 +58,4 @@ app.get("/api/product/women/:productId", prodCtrl.getWomenProduct)
 // Cart
 app.post("/api/addtocart/:idText", cartCtrl.addToCart)
 app.get("/api/cart", cartCtrl.getCart)
+app.delete("/api/deletecart")
