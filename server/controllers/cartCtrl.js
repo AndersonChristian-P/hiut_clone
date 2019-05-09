@@ -21,13 +21,31 @@ module.exports = {
       cart[index].quantity++
     }
 
+    res.sendStatus(200)
     req.session.save()
     // since we are not calling res.send the session is not saved, so you have to call req.session.save()
   },
 
   getCart: async (req, res) => {
-    await console.log("THIS IS THE GET CART EVENT", req.session)
     const { cart } = req.session
-    res.status(200).send(cart)
+    try {
+      let returnCart = await cart
+      if (returnCart) {
+        res.status(200).send(returnCart)
+      } else {
+        throw new Error(401)
+      }
+      console.log("--- THIS IS WHAT THE CART LOOKS LIKE ---", returnCart)
+    } catch (err) {
+      res.sendStatus(404)
+    }
   }
 }
+
+
+
+
+
+// let returnCart = await cart
+//     console.log("--- THIS IS WHAT THE CART LOOKS LIKE ---", returnCart)
+//     res.status(200).send(returnCart)
