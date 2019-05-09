@@ -20,11 +20,12 @@ module.exports = {
         req.session.cart.push(newItem)
       } else {
         cart[index].quantity++
+        cart[index].prodSubtotal += price
         req.session.total += price
       }
     }
     req.session.save()
-    console.log("-- THIS IS THE ADD CART --", req.session.cart)
+    // console.log("-- THIS IS THE ADD CART --", req.session.cart)
     res.sendStatus(200)
   },
 
