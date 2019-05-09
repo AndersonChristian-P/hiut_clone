@@ -22,7 +22,7 @@ module.exports = {
       }
     }
     req.session.save()
-    // console.log("-- THIS IS THE SESSION --", req.session)
+    console.log("-- THIS IS THE ADD CART --", req.session.cart)
     res.sendStatus(200)
   },
 
@@ -48,7 +48,6 @@ module.exports = {
     const index = await cart.findIndex(prod => prod.id === id && prod.size === size)
 
     cart.splice(index, 1)
-    console.log(typeof req.session.total, quantity, price)
     req.session.total -= (quantity * price)
     req.session.save()
 
@@ -57,16 +56,20 @@ module.exports = {
     res.sendStatus(200)
   },
 
-  updateQty: async (req, res) => {
+  updateCart: async (req, res) => {
     const { cart: userCart } = req.body
 
-    req.session.cart = userCart
 
-    req.session.total = await req.session.cart.map((item) =>
+    const newTotal = await userCart.map((item) =>
       item.quantity * item.price
-    ).reduce((acc, currentValue), 0)
+    ).reduce(((acc, val) => acc + val), 0)
 
+    req.session.cart = userCart
+    req.session.total = newTotal
+
+    console.log("THIS IS THE UPDATE SESSION", req.session)
     req.session.save()
+    res.sendStatus(200)
   }
 }
 
