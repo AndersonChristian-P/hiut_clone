@@ -43,6 +43,20 @@ module.exports = {
     }
   },
 
+  getTotal: async (req, res) => {
+    const { total: userTotal } = req.session
+    try {
+      let returnTotal = await userTotal.toString()
+      if (returnTotal) {
+        res.status(200).send(returnTotal)
+      } else {
+        throw new Error(401)
+      }
+    } catch (err) {
+      res.sendStatus(404)
+    }
+  },
+
   deleteItemFromCart: async (req, res) => {
     const { cart } = req.session
     const { idText: id, size1, size2, quantity, price } = req.params

@@ -14,12 +14,14 @@ class Cart extends Component {
         prod_title: "",
         prodSubtotal: 0,
         price: 0
-      }]
+      }],
+      total: 0
     }
   }
 
   componentDidMount() {
     this.handleGetCart()
+    this.handleGetTotal()
   }
 
   handleGetCart = () => {
@@ -27,6 +29,15 @@ class Cart extends Component {
       .then(res => {
         this.setState({
           cart: res.data
+        })
+      })
+  }
+
+  handleGetTotal = () => {
+    axios.get("/api/total")
+      .then(res => {
+        this.setState({
+          total: +res.data
         })
       })
   }
@@ -50,17 +61,19 @@ class Cart extends Component {
     const endpoint = `/api/deletefromcart/${idText}/${size}/${quantity}/${price}`
 
     axios.delete(endpoint)
-      .then(this.handleGetCart())
+      .then(this.handleGetCart()).then(this.handleGetTotal())
   }
 
   handleUpdateClick = () => {
     let cart = this.state.cart
     axios.put("/api/updatecart", { cart })
-      .then(this.handleGetCart())
+      .then(this.handleGetCart()).then(this.handleGetTotal())
   }
 
   render() {
     const { cart } = this.state
+
+    console.log(this.state.total)
 
     const cartContents = cart.map((product, i) => {
       return <div key={i}>
@@ -87,6 +100,7 @@ class Cart extends Component {
             <div>
               {cartContents}
               <button onClick={() => this.handleUpdateClick()}>Update Cart</button>
+              <div>Total: {this.state.total}</div>
               <button>Checkout</button>
             </div>
           </div> :
