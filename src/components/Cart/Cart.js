@@ -87,6 +87,7 @@ class Cart extends Component {
             <div>
               {cartContents}
               <button onClick={() => this.handleUpdateClick()}>Update Cart</button>
+              <button>Checkout</button>
             </div>
           </div> :
 
