@@ -71,7 +71,7 @@ app.post("/charge", async (req, res) => {
   try {
     let { status } = await stripe.charges.create({
       amount: cartTotal,
-      currency: "USD",
+      currency: "GBP",
       description: "An example charge",
       source: token
     })
