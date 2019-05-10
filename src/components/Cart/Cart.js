@@ -88,7 +88,7 @@ class Cart extends Component {
           value={cart[i].quantity}
           name="quantity"
         />
-        <span>{product.prodSubtotal}</span>
+        <span> {`£${product.prodSubtotal}`} </span>
         <button onClick={(event) => this.handleDelete(i)} >Delete Item</button>
       </div>
     })
@@ -106,7 +106,7 @@ class Cart extends Component {
                 <div>
                   {cartContents}
                   <button onClick={() => this.handleUpdateClick()}>Update Cart</button>
-                  <div>Total: {this.state.total}</div>
+                  <div>Total: {`£${this.state.total}`} </div>
 
                   <Popup trigger={<button className="button"> Checkout </button>} modal>
                     {close => (

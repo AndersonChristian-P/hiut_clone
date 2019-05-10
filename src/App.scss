@@ -1,2 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Ropa+Sans:400,400i|Tinos:400,400i,700,700i');
+
 @import "./components/Mens/MensProduct";
 @import "./components/Cart/Cart";
+
+* {
+	margin: 0;
+  padding: 0; // bullet points are gone, so you need to increase padding on the ul element in the appropriate scss snippets
+  box-sizing: border-box;
+
+	// border: 0;
+	// font-size: 100%;
+	// font: inherit;
+  // vertical-align: baseline;
+} // reset
