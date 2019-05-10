@@ -108,7 +108,7 @@ class Cart extends Component {
                   <button onClick={() => this.handleUpdateClick()}>Update Cart</button>
                   <div>Total: {this.state.total}</div>
 
-                  <Popup trigger={<button className="button"> Open Modal </button>} modal>
+                  <Popup trigger={<button className="button"> Checkout </button>} modal>
                     {close => (
                       <div className="modal">
                         <a className="close" onClick={close} >&times;</a>

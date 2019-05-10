@@ -64,7 +64,7 @@ app.put("/api/updatecart", cartCtrl.updateCart)
 app.delete("/api/deletefromcart/:idText/:size1/:size2/:quantity/:price/", cartCtrl.deleteItemFromCart)
 app.post("/api/clearcart", cartCtrl.clearCart)
 
-// Stripe
+// Stripe | did not create a controller because there's only one end point
 app.post("/charge", async (req, res) => {
   const { cartTotal, token } = req.body
 
