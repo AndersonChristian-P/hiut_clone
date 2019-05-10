@@ -3,13 +3,17 @@ const express = require("express")
 const app = express()
 const massive = require("massive")
 const session = require("express-session")
-const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env
+const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING, STRIPE_SECRET_KEY } = process.env
+const stripe = require("stripe")(STRIPE_SECRET_KEY)
+const bodyParser = require("body-parser")
 const loginRegCtrl = require("./controllers/loginRegCtrl")
 const prodCtrl = require("./controllers/productsCtrl")
 const cartCtrl = require("./controllers/cartCtrl")
 
 // -- MIDDLEWARE -- //
 app.use(express.json())
+
+app.use(bodyParser.text())
 
 app.use(session({
   secret: SESSION_SECRET,
@@ -61,3 +65,21 @@ app.get("/api/total", cartCtrl.getTotal)
 app.post("/api/addtocart/:idText", cartCtrl.addToCart)
 app.put("/api/updatecart", cartCtrl.updateCart)
 app.delete("/api/deletefromcart/:idText/:size1/:size2/:quantity/:price/", cartCtrl.deleteItemFromCart)
+app.post("/api/clearcart", cartCtrl.clearCart)
+
+// Stripe
+app.post("/charge", async (req, res) => {
+  // const { total } = req.body
+  try {
+    let { status } = await stripe.charges.create({
+      amount: 2000,
+      currency: "USD",
+      description: "An example charge",
+      source: req.body
+    })
+
+    res.json({ status })
+  } catch (err) {
+    res.status(500).end()
+  }
+})

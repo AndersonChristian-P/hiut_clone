@@ -8,6 +8,7 @@ import AddressBook from "./components/Forms/AddressBookForm"
 import Collections from "./components/Collections/Collections"
 import Product from "./components/Product/Product"
 import Cart from "./components/Cart/Cart"
+import CheckoutForm from "./components/Forms/CheckoutForm";
 
 
 export default (
@@ -23,6 +24,7 @@ export default (
     <Route path="/collections/:sex" component={Collections} />
     <Route path="/product/:sex" component={Product} />
     <Route path="/cart" component={Cart} />
+    <Route path="/checkout" component={CheckoutForm} />
   </Switch>
 )
 

@@ -1,6 +1,8 @@
 import React, { Component } from "react"
-import axios from "axios";
-import { Link } from "react-router-dom"
+import axios from "axios"
+import { Elements, StripeProvider } from "react-stripe-elements"
+import Popup from "reactjs-popup"
+import CheckoutForm from "./../Forms/CheckoutForm"
 
 class Cart extends Component {
   constructor() {
@@ -91,28 +93,78 @@ class Cart extends Component {
       </div>
     })
 
+    const stripePublicKey = "pk_test_tc5CEolppjyFIp0t5eVgjTDf00IrJ7qdYO"
     return (
-      <div>
 
-        {cart[0] ?
+      <StripeProvider apiKey={stripePublicKey} >
+        <Elements>
           <div>
-            <h1>This is the Cart page!</h1>
-            <div>
-              {cartContents}
-              <button onClick={() => this.handleUpdateClick()}>Update Cart</button>
-              <div>Total: {this.state.total}</div>
-              <button>Checkout</button>
-            </div>
-          </div> :
 
-          <div>
-            <h1>This is the Cart page!</h1>
-            <div>You don't have any items in the cart. Please click here.</div>
+            {cart[0] ?
+              <div>
+                <h1>This is the Cart page!</h1>
+                <div>
+                  {cartContents}
+                  <button onClick={() => this.handleUpdateClick()}>Update Cart</button>
+                  <div>Total: {this.state.total}</div>
+
+                  <Popup trigger={<button className="button"> Open Modal </button>} modal>
+                    {close => (
+                      <div className="modal">
+                        <a className="close" onClick={close} >&times;</a>
+                        <div className="header" > Checkout </div>
+                        <div className="content" >
+                          {' '}
+                          <CheckoutForm total={this.state.total} />
+                        </div>
+                        <div className="actions" >
+                          <button
+                            className="button"
+                            onClick={() => {
+                              console.log('modal closed ')
+                              close()
+                            }}
+                          >
+                            Cancel
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                  </Popup>
+
+                </div>
+              </div> :
+
+              <div>
+                <h1>This is the Cart page!</h1>
+                <div>You don't have any items in the cart. Please click here.</div>
+              </div>
+            }
           </div>
-        }
-      </div>
+        </Elements>
+      </StripeProvider>
+
+
     )
   }
 }
 
 export default Cart
+
+
+
+//  <Link to="/checkout">
+// <button>Checkout</button>
+// </Link>
+
+
+
+/* <Popup
+  trigger={<button className="cart-checkout-btn" >Checkout</button>}
+  position="top center"
+>
+  <div >
+    <h1>Popup content here!!!</h1>
+    <CheckoutForm />
+  </div>
+</Popup> */

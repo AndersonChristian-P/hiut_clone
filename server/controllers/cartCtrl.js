@@ -87,6 +87,12 @@ module.exports = {
     console.log("THIS IS THE UPDATE SESSION", req.session)
     req.session.save()
     res.sendStatus(200)
+  },
+
+  clearCart: (req, res) => {
+    req.session.cart = []
+    req.session.total = 0
+    res.sendStatus(200)
   }
 }
 
