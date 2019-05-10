@@ -16,29 +16,36 @@ class CheckoutForm extends Component {
   submit = async (event) => {
     let { token } = await this.props.stripe.createToken({ name: "Name" })
     let { cartTotal } = await this.state
-    console.log(token.id)
-    console.log(cartTotal)
 
-    let response = await axios.post("/charge", { cartTotal, token: token.id })
+    if (token) {
+      let response = await axios.post("/charge", { cartTotal, token: token.id })
 
-    if (response.status === 200) {
-      console.log("Purchase Complete!")
+      if (response.status === 200) {
+        console.log("Purchase Complete!")
+        Swal.fire({
+          title: "Success!!!",
+          text: "Thank you so much for your purchase.",
+          type: "success",
+          confirmButtonText: "Cool",
+        }).then((result) => {
+          if (result.value) {
+            this.handleClickCoolBtn()
+            window.location.reload()
+          }
+        })
+      }
+    } else {
+      console.log("Error making purchase!")
       Swal.fire({
-        title: 'Success!',
-        text: 'Thank you for your purchase',
-        type: 'success',
-        confirmButtonText: 'Cool',
-      }).then((result) => {
-        if (result.value) {
-          this.handleClickCoolBtn()
-          window.location.reload()
-        }
+        title: "Woops! Something went wrong.",
+        text: "Please re-enter your payment information.",
+        type: "failure",
+        confirmButtonText: "OK"
       })
     }
   }
 
   handleClickCoolBtn = () => {
-    console.log("THE CLICK COOL BTN WAS CLICKED!!!!")
     axios.post("/api/clearcart")
       .then(console.log("THE CART HAS BEEN CLEARED"))
   }
