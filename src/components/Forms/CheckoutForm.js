@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import { CardElement, injectStripe } from "react-stripe-elements"
-import { withRouter } from "react-router-dom"
 import Swal from "sweetalert2"
 import axios from "axios";
 
@@ -10,31 +9,29 @@ class CheckoutForm extends Component {
     super(props)
 
     this.state = {
-      total: this.props.total
+      cartTotal: (+this.props.total * 100)
     }
   }
 
   submit = async (event) => {
     let { token } = await this.props.stripe.createToken({ name: "Name" })
-    let response = await fetch("/charge", {
-      method: "POST",
-      headers: { "Content-Type": "text/plain" },
-      body: token.id
-    })
-    if (response.ok) {
+    let { cartTotal } = await this.state
+    console.log(token.id)
+    console.log(cartTotal)
+
+    let response = await axios.post("/charge", { cartTotal, token: token.id })
+
+    if (response.status === 200) {
       console.log("Purchase Complete!")
       Swal.fire({
         title: 'Success!',
         text: 'Thank you for your purchase',
         type: 'success',
-        // showConfirmButton: false,
-        // timer: 3000,
         confirmButtonText: 'Cool',
-        // onAfterClose: this.handleClickCoolBtn()
-        // link the button to the cart page
       }).then((result) => {
         if (result.value) {
           this.handleClickCoolBtn()
+          window.location.reload()
         }
       })
     }
@@ -44,14 +41,12 @@ class CheckoutForm extends Component {
     console.log("THE CLICK COOL BTN WAS CLICKED!!!!")
     axios.post("/api/clearcart")
       .then(console.log("THE CART HAS BEEN CLEARED"))
-
   }
-
 
   render() {
     return (
       <div className="checkout" >
-        <p>Would you like to complete the purchase?</p>
+        <p>Please fill out the information below to complete your payment.</p>
         <CardElement />
         <button onClick={this.submit} >Submit Payment</button>
       </div>
@@ -59,4 +54,4 @@ class CheckoutForm extends Component {
   }
 }
 
-export default withRouter(injectStripe(CheckoutForm))
+export default injectStripe(CheckoutForm)
