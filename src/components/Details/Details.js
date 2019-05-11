@@ -74,7 +74,7 @@ class Details extends Component {
 
           <div>
             <h2>You do not have a shipping address on file.</h2>
-            <Link to="/addressbook">
+            <Link to="/address-book">
               <button>Add Address</button>
             </Link>
           </div>
