@@ -59,7 +59,6 @@ class Cart extends Component {
     let { value } = event.target
     let currentCart = [...this.state.cart]
     currentCart[i].quantity = value
-    // currentCart[i].prodSubtotal = +currentCart[i].quantity * +currentCart[i].price
     this.setState({
       cart: currentCart
     })
@@ -91,19 +90,24 @@ class Cart extends Component {
     const cartContents = cart.map((product, i) => {
       return <div key={i}>
         <img width="100" src={product.img1} alt="#" />
+
         <span>
           {`${product.prod_title} ${product.size}`}
-          <div><strong>{`£${product.price}`}</strong></div>
+          <span><strong>{`£${product.price}`}</strong></span>
         </span>
-        <input
-          onChange={(event) => this.handleChange(i, event)}
-          type="number"
-          placeholder={product.quantity}
-          value={cart[i].quantity}
-          name="quantity"
-        />
+
+        <span>
+          <input
+            onChange={(event) => this.handleChange(i, event)}
+            type="number"
+            placeholder={product.quantity}
+            value={cart[i].quantity}
+            name="quantity"
+          />
+          <button onClick={(event) => this.handleDelete(i)} >Remove</button>
+        </span>
+
         <span> {`£${product.prodSubtotal}`} </span>
-        <button onClick={(event) => this.handleDelete(i)} >Remove</button>
       </div>
     })
 
