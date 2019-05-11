@@ -13,11 +13,8 @@
 	padding: 0;
 	// bullet points are gone, so you need to increase padding on the ul element in the appropriate scss snippets
   box-sizing: border-box;
-	// border: 0;
-	// font-size: 100%;
-	// font: inherit;
-  // vertical-align: baseline;
-} // reset
+}
+// reset
 
 // -- Map Functions -- //
 $fontSizeMap: (
@@ -34,7 +31,9 @@ $fontSizeMap: (
 body {
 	font-size: 1em;
 	line-height: 1.5em;
-	margin: 0 0.625em;
+	margin: 10px auto;
 	color: #231f20;
 	text-rendering: optimizeLegibility;
+	max-width: 1420px;
+	padding: 0 10px;
 }

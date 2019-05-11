@@ -46,17 +46,16 @@ class Header extends Component {
             Sign In | Register
           </Link>
           <Link to="/cart" className="header-cart">
-            <i class="fas fa-shopping-bag"></i>
-            {itemsInCart}
-            {this.state.cart.length === 0 ? "item" : "items"}
-            <span>{`£${this.state.total}.00`}</span>
+            <div>
+              <i class="fas fa-shopping-bag"></i> {itemsInCart} {this.state.cart.length === 0 ? "item" : "items"} <span>{`£${this.state.total}.00`}</span>
+            </div>
           </Link>
         </div>
 
         <div className="header-nav-container">
-          <div>
-            Logo goes here
-          </div>
+          <Link to="/">
+            <img src="https://s3.us-east-2.amazonaws.com/hiut-clone/Icons/hiutlogo.png" className="jiut-logo" alt="jiut-logo" />
+          </Link>
           <nav className="header-nav">
             <ul>
               <li><Link to="/collections/mens" >Shop Men's</Link></li>
