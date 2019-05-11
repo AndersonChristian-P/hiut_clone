@@ -17,7 +17,6 @@
 
 // -- Map Functions -- //
 $fontSizeMap: (
-	heading: 12px,
 	body: 13px
 );
 
@@ -26,4 +25,4 @@ $fontSizeMap: (
 		@return map-get($fontSizeMap, $key);
 	}
 }
-// fontSize("heading") returns 12px and fontSize("body") returns 13px
+// fontSize("body") returns 13px
