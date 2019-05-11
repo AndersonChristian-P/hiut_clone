@@ -10,7 +10,8 @@ class MensProduct extends Component {
     this.state = {
       product: [{}],
       size: "",
-      quantity: 1
+      quantity: 1,
+      vatRate: 0.20
     }
   }
 
@@ -30,15 +31,18 @@ class MensProduct extends Component {
   }
 
   handleAddToCart = () => {
-    const { size, quantity } = this.state
+    const { size, quantity, vatRate } = this.state
     const { img1, prod_title, price, id_text } = this.state.product[0]
-    axios.post(`/api/addtocart/${id_text}`, { size, quantity, img1, prod_title, price })
+    const vatAmnt = (vatRate * price)
+    axios.post(`/api/addtocart/${id_text}`, { size, quantity, img1, prod_title, price, vatAmnt })
       .then(
         this.props.history.push("/cart")
       )
   }
 
   render() {
+
+    console.log("THIS IS THE VAT RATE ON STATE", this.state.vatRate)
 
     let sliderSettings = {
       dots: true,

@@ -17,13 +17,15 @@ class Cart extends Component {
         prodSubtotal: 0,
         price: 0
       }],
-      total: 0
+      total: 0,
+      vatAmnt: 0
     }
   }
 
   componentDidMount() {
     this.handleGetCart()
     this.handleGetTotal()
+    this.handleGetVatAmnt()
   }
 
   handleGetCart = () => {
@@ -44,11 +46,20 @@ class Cart extends Component {
       })
   }
 
+  handleGetVatAmnt = () => {
+    axios.get("/api/vat")
+      .then(res => {
+        this.setState({
+          vatAmnt: +res.data
+        })
+      })
+  }
+
   handleChange = (i, event) => {
     let { value } = event.target
     let currentCart = [...this.state.cart]
     currentCart[i].quantity = value
-    currentCart[i].prodSubtotal = +currentCart[i].quantity * +currentCart[i].price
+    // currentCart[i].prodSubtotal = +currentCart[i].quantity * +currentCart[i].price
     this.setState({
       cart: currentCart
     })
@@ -63,13 +74,13 @@ class Cart extends Component {
     const endpoint = `/api/deletefromcart/${idText}/${size}/${quantity}/${price}`
 
     axios.delete(endpoint)
-      .then(this.handleGetCart()).then(this.handleGetTotal())
+      .then(this.handleGetCart()).then(this.handleGetTotal().then(this.handleGetVatAmnt))
   }
 
   handleUpdateClick = () => {
-    let cart = this.state.cart
-    axios.put("/api/updatecart", { cart })
-      .then(this.handleGetCart()).then(this.handleGetTotal())
+    const { cart, vatAmnt } = this.state
+    axios.put("/api/updatecart", { cart, vatAmnt })
+      .then(this.handleGetCart()).then(this.handleGetTotal()).then(this.handleGetVatAmnt())
   }
 
   render() {
@@ -80,7 +91,10 @@ class Cart extends Component {
     const cartContents = cart.map((product, i) => {
       return <div key={i}>
         <img width="100" src={product.img1} alt="#" />
-        <span>{`${product.prod_title} ${product.size}`}</span>
+        <span>
+          {`${product.prod_title} ${product.size}`}
+          <div><strong>{`£${product.price}`}</strong></div>
+        </span>
         <input
           onChange={(event) => this.handleChange(i, event)}
           type="number"
@@ -89,7 +103,7 @@ class Cart extends Component {
           name="quantity"
         />
         <span> {`£${product.prodSubtotal}`} </span>
-        <button onClick={(event) => this.handleDelete(i)} >Delete Item</button>
+        <button onClick={(event) => this.handleDelete(i)} >Remove</button>
       </div>
     })
 
@@ -104,9 +118,26 @@ class Cart extends Component {
               <div>
                 <h1>This is the Cart page!</h1>
                 <div>
+
+                  <div>
+                    <span></span>
+                    <span><strong>Item</strong></span>
+                    <span><strong>Qty</strong></span>
+                    <span><strong>Item Total</strong></span>
+                  </div>
+
                   {cartContents}
+
+                  <hr />
+                  <div>
+                    <div>Sub-total(<i>exc. VAT</i>) = £{this.state.total}</div>
+                    <div>VAT (<i>UK only</i>)=£{this.state.vatAmnt}</div>
+                    <div><strong>Sub-total</strong> (<i>inc. VAT</i>)=£{this.state.total + this.state.vatAmnt}</div>
+                    <div>Free Returns. Free Repairs For Life.</div>
+                  </div>
+                  <hr />
+
                   <button onClick={() => this.handleUpdateClick()}>Update Cart</button>
-                  <div>Total: {`£${this.state.total}`} </div>
 
                   <Popup trigger={<button className="button"> Checkout </button>} modal>
                     {close => (
@@ -115,7 +146,7 @@ class Cart extends Component {
                         <div className="header" > Checkout </div>
                         <div className="content" >
                           {' '}
-                          <CheckoutForm total={this.state.total} />
+                          <CheckoutForm total={this.state.total} vat={this.state.vatAmnt} />
                         </div>
                         <div className="actions" >
                           <button

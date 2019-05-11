@@ -9,7 +9,7 @@ class CheckoutForm extends Component {
     super(props)
 
     this.state = {
-      cartTotal: (+this.props.total * 100)
+      cartTotal: ((+this.props.total + +this.props.vatAmnt) * 100)
     }
   }
 
