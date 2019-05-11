@@ -3,13 +3,27 @@
 @import "./components/Mens/MensProduct";
 @import "./components/Cart/Cart";
 
+// -- RESET -- //
 * {
 	margin: 0;
-  padding: 0; // bullet points are gone, so you need to increase padding on the ul element in the appropriate scss snippets
+	padding: 0;
+	// bullet points are gone, so you need to increase padding on the ul element in the appropriate scss snippets
   box-sizing: border-box;
-
 	// border: 0;
 	// font-size: 100%;
 	// font: inherit;
   // vertical-align: baseline;
 } // reset
+
+// -- Map Functions -- //
+$fontSizeMap: (
+	heading: 12px,
+	body: 13px
+);
+
+@function fontSize($key) {
+	@if map-has-key($fontSizeMap, $key ) {
+		@return map-get($fontSizeMap, $key);
+	}
+}
+// fontSize("heading") returns 12px and fontSize("body") returns 13px
