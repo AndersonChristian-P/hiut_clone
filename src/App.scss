@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Ropa+Sans:400,400i|Tinos:400,400i,700,700i');
 
+// font-family: 'Ropa Sans', sans-serif; === nimbus-sans
+// font-family: 'Tinos', serif; === calluna
+
+@import "./components/Header/Header";
 @import "./components/Mens/MensProduct";
 @import "./components/Cart/Cart";
 
@@ -26,3 +30,11 @@ $fontSizeMap: (
 	}
 }
 // fontSize("body") returns 13px
+
+body {
+	font-size: 1em;
+	line-height: 1.5em;
+	margin: 0 0.625em;
+	color: #231f20;
+	text-rendering: optimizeLegibility;
+}
