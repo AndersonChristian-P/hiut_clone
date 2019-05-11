@@ -82,9 +82,12 @@ module.exports = {
     const size = `${size1}/${size2}`
 
     const index = await cart.findIndex(prod => prod.id === id && prod.size === size)
+    const vatRate = req.session.vat / req.session.total
 
     cart.splice(index, 1)
     req.session.total -= (quantity * price)
+    const newVat = req.session.total * vatRate
+    req.session.vat = newVat
     req.session.save()
 
     console.log("-- THIS IS THE SESSION AFTER DELETE --", req.session)
