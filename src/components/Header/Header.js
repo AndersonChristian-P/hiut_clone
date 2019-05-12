@@ -14,6 +14,7 @@ class Header extends Component {
 
   componentDidMount() {
     this.handleGetCart()
+    this.handleGetTotal()
   }
 
   handleGetCart = () => {
@@ -28,6 +29,7 @@ class Header extends Component {
   handleGetTotal = () => {
     axios.get("/api/total")
       .then(res => {
+        console.log("THIS IS THE TOTAL FROM THE POST REQ", res.data)
         this.setState({
           total: +res.data
         })
@@ -39,32 +41,44 @@ class Header extends Component {
     const itemsInCart = this.state.cart.map(item => +item.quantity)
       .reduce(((acc, val) => acc + val), 0)
 
+    console.log("NUMBER OF ITEMS IN CART", itemsInCart)
+    console.log("THIS IS THE CART", this.state.cart)
+
     return (
       <div>
         <div className="header-top-bar">
-          <Link to="/account" className="header-sign-in-reg">
-            Sign In | Register
+          <div>
+            <Link to="/account" className="header-sign-in">
+              Sign In
           </Link>
+            <span> | </span>
+            <Link to="/account" className="header-reg">
+              Register
+          </Link>
+          </div>
           <Link to="/cart" className="header-cart">
             <div>
-              <i class="fas fa-shopping-bag"></i> {itemsInCart} {this.state.cart.length === 0 ? "item" : "items"} <span>{`£${this.state.total}.00`}</span>
+              <img className="bag-icon" src="https://s3.us-east-2.amazonaws.com/hiut-clone/Icons/bag.svg" alt="bag-icon" />
+              <span>
+                {itemsInCart} {this.state.cart.length === 0 || itemsInCart === 1 ? "item" : "items"} {`£${this.state.total}.00`}
+              </span>
             </div>
           </Link>
         </div>
 
         <div className="header-nav-container">
           <Link to="/">
-            <img src="https://s3.us-east-2.amazonaws.com/hiut-clone/Icons/hiutlogo.png" className="jiut-logo" alt="jiut-logo" />
+            <img src="https://s3.us-east-2.amazonaws.com/hiut-clone/Icons/hiutlogo.svg" className="jiut-logo" alt="jiut-logo" />
           </Link>
           <nav className="header-nav">
             <ul>
-              <li><Link to="/collections/mens" >Shop Men's</Link></li>
-              <li><Link to="/collections/womens" >Shop Women's</Link></li>
-              <li><Link to="/our-story">Our Story</Link></li>
-              <li><Link to="/repairs" >Repairs</Link></li>
-              <li><Link to="/fit-guide" >Fit Guide</Link></li>
-              <li><Link to="/faq" >FAQ</Link></li>
-              <li><Link to="/customer-service" >Contact</Link></li>
+              <li><Link className="nav" to="/collections/mens" >Shop Men's</Link></li>
+              <li><Link className="nav" to="/collections/womens" >Shop Women's</Link></li>
+              <li><Link className="nav" to="/our-story">Our Story</Link></li>
+              <li><Link className="nav" to="/repairs" >Repairs</Link></li>
+              <li><Link className="nav" to="/fit-guide" >Fit Guide</Link></li>
+              <li><Link className="nav" to="/faq" >FAQ</Link></li>
+              <li><Link className="nav" to="/customer-service" >Contact</Link></li>
             </ul>
 
 

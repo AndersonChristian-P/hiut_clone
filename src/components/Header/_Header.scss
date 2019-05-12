@@ -7,6 +7,25 @@
   align-items: center;
   font-family: helvetica;
   font-size: 10px;
+  .header-sign-in {
+    color: #C6151B;
+    text-decoration: none;
+  }
+  .header-reg {
+    color: #C6151B;
+    text-decoration: none;
+  }
+  .header-cart {
+    color: #C6151B;
+    text-decoration: none;
+  }
+  .bag-icon {
+    width: 12px;
+    height: auto;
+    margin-right: 4px;
+    position: relative;
+    top: 3px;
+  }
 }
 
 .header-nav-container {
@@ -16,14 +35,15 @@
   display: flex;
 	justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
+  padding-top: 6px;
+  padding-bottom: 2px;
   margin: 0 0 20px 0;
 }
 
 
 .jiut-logo {
-  height: 3.2em;
-  top: 2px;
+  width: 108px;
+  margin-top: 7px;
 }
 
 .header-nav{
@@ -37,11 +57,17 @@
   li {
     display: inline-block;
     font-family: 'Tinos', serif;
+    text-decoration: none;
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 1px;
     line-height: 18px;
     text-transform: uppercase;
     margin-left: 1.5em;
+    padding-bottom: 8px;
+  }
+  .nav{
+    text-decoration: none;
+    color: #231f20;
   }
 }
