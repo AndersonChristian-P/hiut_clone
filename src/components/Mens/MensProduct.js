@@ -35,9 +35,7 @@ class MensProduct extends Component {
     const { img1, prod_title, price, id_text } = this.state.product[0]
     const vatAmnt = (vatRate * price)
     axios.post(`/api/addtocart/${id_text}`, { size, quantity, img1, prod_title, price, vatAmnt })
-      .then(
-        this.props.history.push("/cart")
-      )
+      .then(this.props.history.push("/cart"))
   }
 
   render() {

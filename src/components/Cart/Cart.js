@@ -79,13 +79,15 @@ class Cart extends Component {
   handleUpdateClick = () => {
     const { cart, vatAmnt } = this.state
     axios.put("/api/updatecart", { cart, vatAmnt })
-      .then(this.handleGetCart()).then(this.handleGetTotal()).then(this.handleGetVatAmnt())
+      // .then(this.handleGetCart()).then(this.handleGetTotal()).then(this.handleGetVatAmnt())
+      .then(window.location.reload())
   }
 
   render() {
     const { cart } = this.state
+    let reload = window.location.reload()
 
-    console.log(this.state.total)
+
 
     const cartContents = cart.map((product, i) => {
       return <div key={i}>
@@ -119,7 +121,7 @@ class Cart extends Component {
           <div>
 
             {cart[0] ?
-              <div>
+              < div >
                 <h1>This is the Cart page!</h1>
                 <div>
 
