@@ -32,19 +32,19 @@ const Footer = () => {
 
           <ul class="row two" >
             <li>
-              <a href="https://www.facebook.com/HiutDenimCo/">facebook</a>
+              <a href="https://www.facebook.com/HiutDenimCo/" target="_blank">facebook</a>
             </li>
             <li>
-              <a href="https://www.instagram.com/hiutdenim/">instagram</a>
+              <a href="https://www.instagram.com/hiutdenim/" target="_blank">instagram</a>
             </li>
             <li>
-              <a href="https://twitter.com/hiutdenim">twitter</a>
+              <a href="https://twitter.com/hiutdenim" target="_blank">twitter</a>
             </li>
             <li>
-              <a href="https://www.pinterest.com/hiutdenim/">pintrest</a>
+              <a href="https://www.pinterest.com/hiutdenim/" target="_blank">pintrest</a>
             </li>
             <li>
-              <a href="https://medium.com/@hiutdenim">medium</a>
+              <a href="https://medium.com/@hiutdenim" target="_blank">medium</a>
             </li>
           </ul>
 
