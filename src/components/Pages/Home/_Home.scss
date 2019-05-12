@@ -1,0 +1,47 @@
+.home-hero {
+  width: 100%;
+  margin: 0 auto 40px auto;
+  height: 40vh;
+  max-height: 700px;
+  min-height: 400px;
+  background: url("https://s3.us-east-2.amazonaws.com/hiut-clone/Pages/home_page/panel_1.jpg") no-repeat center center;
+  background-size: cover;
+  position: relative;
+  display: block;
+
+  h2 {
+    font-family: "Tinos";
+    font-weight: 700;
+    color: white;
+    text-transform: capitalize;
+    font-size: 4rem;
+    line-height: 1.1;
+  }
+}
+
+.home-hero-wrap {
+  width: 450px;
+  position: absolute;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  left: 50px;
+  margin-top: 50px;
+}
+
+.home-partition {
+  border-bottom: 1px solid #231F20;
+  padding-bottom: 1.25em;
+  margin-bottom: 1.25em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .article {
+    .icon-denim {
+      width: 50px;
+    }
+  }
+  .article-image-men {
+    width: 295px;
+  }
+}
