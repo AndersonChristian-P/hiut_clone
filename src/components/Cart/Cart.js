@@ -85,9 +85,6 @@ class Cart extends Component {
 
   render() {
     const { cart } = this.state
-    let reload = window.location.reload()
-
-
 
     const cartContents = cart.map((product, i) => {
       return <div key={i}>
