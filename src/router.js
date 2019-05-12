@@ -41,7 +41,7 @@ export default (
     <Route path="/our-story" component={OurStory} />
     <Route path="/repairs" component={Repairs} />
     <Route path="/store-locations" component={StoreLocations} />
-    <Route path="terms-and-conditions" component={TermsAndConditions} />
+    <Route path="/terms-and-conditions" component={TermsAndConditions} />
   </Switch>
 )
 
