@@ -53,10 +53,10 @@ VALUES (
   'Our advice: These jeans are unwashed and will be very stiff when you first get them, as there is no stretch in the fabric. If you are curvy, we recommend sizing up.',
   'When everything is being distressed, bleached and washed to an inch of its life, the Coda is a raw jean full of life. This is a classic blue jean, made with a raw dark blue,13.oz denim from ISKO, Turkey. There''s no stretch in the fabric but it softens with age. Break them in gently and over time they will become your faves for sure.',
   'Authentic five-pocket jean. 100% cotton. 13.oz, raw denim. button fly. Hiut Denim branded leather patch. Fastened with copper rivets on pockets. Signature red owl rivet on left back pocket. For best results, go 6 months without washing. Wash on 30˚C. Do not tumble dry.',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/CODA/CODA_000.jpg',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/CODA/CODA_001.jpg',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/CODA/CODA_002.jpg',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/CODA/CODA_003.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Womens_Line/CODA/CODA_000.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Womens_Line/CODA/CODA_001.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Womens_Line/CODA/CODA_002.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Womens_Line/CODA/CODA_003.jpg',
   1
 ), (
   'the-girlfriend-jean',
