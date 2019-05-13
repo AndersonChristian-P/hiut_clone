@@ -1,23 +1,23 @@
 import axios from "axios"
 
-const initialState = {
-  cart: [],
-  total: 0
-}
-
 const REQUEST_SESSION_CART = "REQUEST_SESSION_CART"
 const REQUEST_SESSION_TOTAL = "REQUEST_SESSION_TOTAL"
 
-export async function requestCart() {
-  let data = await axios.get("/api/cart").then(res => res.data)
+const initialState = {
+  cart: [{}],
+  total: 0
+}
+
+export /*async*/ function requestCart() {
+  let data = /*await*/ axios.get("/api/cart").then(res => res.data)
   return {
     type: REQUEST_SESSION_CART,
     payload: data
   }
 }
 
-export async function requestTotal() {
-  let data = await axios.get("/api/total").then(res => res.data)
+export /*async*/ function requestTotal() {
+  let data = /*await*/ axios.get("/api/total").then(res => res.data)
   return {
     type: REQUEST_SESSION_TOTAL,
     payload: data

@@ -23,12 +23,6 @@ class Login extends Component {
     }
   }
 
-  // componentDidMount() {
-  //   if (this.props.email) {
-  //     console.log("true")
-  //   }
-  // }
-
   handleFormsInputUpdate = (event) => {
     const { name, value } = event.target
     this.setState({
@@ -81,8 +75,6 @@ class Login extends Component {
 
 
   render() {
-
-    console.log(this.props.auth.authenticated)
     return (
       <div>
 
@@ -148,10 +140,4 @@ class Login extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    auth: state.auth
-  }
-}
-
-export default connect(mapStateToProps, { updateUserEmail, updateUserId, updateUserFirstName, updateUserLastName, updateAuthenticated })(withRouter(Login))
+export default connect(null, { updateUserEmail, updateUserId, updateUserFirstName, updateUserLastName, updateAuthenticated })(withRouter(Login))

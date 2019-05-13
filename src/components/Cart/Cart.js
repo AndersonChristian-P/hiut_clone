@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 import axios from "axios"
 import { Elements, StripeProvider } from "react-stripe-elements"
+import { connect } from "react-redux"
+import { requestCart, requestTotal } from "./../../redux/cartReducer"
 import Popup from "reactjs-popup"
 import CheckoutForm from "./../Forms/CheckoutForm"
 
@@ -28,22 +30,37 @@ class Cart extends Component {
     this.handleGetVatAmnt()
   }
 
-  handleGetCart = () => {
-    axios.get("/api/cart")
-      .then(res => {
-        this.setState({
-          cart: res.data
-        })
+  handleGetCart = async () => {
+    await this.props.requestCart()
+    if (this.props.cart.length > 0) {
+      this.setState({
+        cart: this.props.cart
       })
+    }
+
+    // axios.get("/api/cart")
+    //   .then(res => {
+    //     this.setState({
+    //       cart: res.data
+    //     })
+    //   })
   }
 
-  handleGetTotal = () => {
-    axios.get("/api/total")
-      .then(res => {
-        this.setState({
-          total: +res.data
-        })
+  handleGetTotal = async () => {
+    await this.props.requestTotal()
+    if (this.props.total > 0) {
+      this.setState({
+        total: this.props.total
       })
+    }
+
+
+    // axios.get("/api/total")
+    //   .then(res => {
+    //     this.setState({
+    //       total: +res.data
+    //     })
+    //   })
   }
 
   handleGetVatAmnt = () => {
@@ -84,7 +101,8 @@ class Cart extends Component {
   }
 
   render() {
-    const { cart } = this.state
+
+    const { cart, total } = this.state
 
     const cartContents = cart.map((product, i) => {
       return <div key={i}>
@@ -117,7 +135,7 @@ class Cart extends Component {
         <Elements>
           <div>
 
-            {cart[0] ?
+            {total > 0 ?
               < div >
                 <h1>This is the Cart page!</h1>
                 <div>
@@ -179,13 +197,19 @@ class Cart extends Component {
           </div>
         </Elements>
       </StripeProvider>
-
-
     )
   }
 }
 
-export default Cart
+function mapStateToProps(state) {
+  const { cart, total } = state.cart
+  return {
+    cart,
+    total
+  }
+}
+
+export default connect(mapStateToProps, { requestCart, requestTotal })(Cart)
 
 
 
