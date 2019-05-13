@@ -87,7 +87,13 @@ class Details extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return state
+  const { authenticated, user_id, firstname, lastname } = state.auth
+  return {
+    authenticated,
+    user_id,
+    firstname,
+    lastname
+  }
 }
 
 export default connect(mapStateToProps, { userLogOut })(withRouter(Details))

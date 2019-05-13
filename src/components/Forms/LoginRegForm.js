@@ -81,6 +81,8 @@ class Login extends Component {
 
 
   render() {
+
+    console.log(this.props.auth.authenticated)
     return (
       <div>
 
@@ -147,7 +149,9 @@ class Login extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return state
+  return {
+    auth: state.auth
+  }
 }
 
 export default connect(mapStateToProps, { updateUserEmail, updateUserId, updateUserFirstName, updateUserLastName, updateAuthenticated })(withRouter(Login))

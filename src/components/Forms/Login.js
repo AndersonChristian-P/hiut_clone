@@ -11,6 +11,9 @@ class Login extends Component {
   }
 
   render() {
+
+    console.log("THIS IS THE AUTHENTICATION", this.props.authenticated)
+
     return (
       <div>
         {this.props.children}
@@ -20,7 +23,10 @@ class Login extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return state
+  const { authenticated } = state.auth
+  return {
+    authenticated
+  }
 }
 
 export default connect(mapStateToProps)(withRouter(Login))

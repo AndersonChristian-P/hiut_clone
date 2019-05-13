@@ -67,8 +67,9 @@ module.exports = {
   getAddresses: async (req, res) => {
     const db = req.app.get("db")
     const { session } = req
-    const { userId: id } = req.params
-    // console.log(id, typeof id)
+    const { userId } = req.params
+    const id = +userId
+    console.log("THIS IS THE GET ADDRESS USER ID:", id, typeof id)
     // const { user_id: id } = session.user 
 
     try {
@@ -84,7 +85,8 @@ module.exports = {
   addAddress: async (req, res) => {
     const db = req.app.get("db")
     const { session } = req
-    const { userId: id } = req.params
+    const { userId } = req.params
+    const id = +userId
     // const { user_id: id } = session.user
     const { street, city, state, zip } = req.body
 

@@ -11,7 +11,7 @@ class AddressBookForm extends Component {
       street: "",
       city: "",
       state: "",
-      zip: ""
+      zip: 0
     }
   }
 
@@ -28,7 +28,7 @@ class AddressBookForm extends Component {
     const { street, city, state, zip } = this.state
     const userId = this.props.user_id
     await axios.post(`/auth/addresses/${userId}`, { street, city, state, zip })
-    this.props.history.push("/info")
+      .then(this.props.history.push("/info"))
   }
 
   handleChange = (event) => {
@@ -77,7 +77,11 @@ class AddressBookForm extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return state
+  const { authenticated, user_id } = state.auth
+  return {
+    authenticated,
+    user_id
+  }
 }
 
 export default connect(mapStateToProps)(withRouter(AddressBookForm))
