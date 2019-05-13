@@ -3,14 +3,18 @@
 }
 .modal > .header {
   width: 100%;
-  border-bottom: 1px solid gray;
   font-size: 18px;
   text-align: center;
   padding: 5px;
+  img {
+    width: 2em;
+  }
 }
 .modal > .content {
   width: 100%;
   padding: 10px 5px;
+  background-color: #231F20;
+  
 }
 .modal > .actions {
   width: 100%;

@@ -92,7 +92,7 @@ class Cart extends Component {
 
         <span>
           {`${product.prod_title} ${product.size}`}
-          <span><strong>{`£${product.price}`}</strong></span>
+          <span><strong>£{(product.price).toFixed(2)}</strong></span>
         </span>
 
         <span>
@@ -106,7 +106,7 @@ class Cart extends Component {
           <button onClick={(event) => this.handleDelete(i)} >Remove</button>
         </span>
 
-        <span> {`£${product.prodSubtotal}`} </span>
+        <span> £{(product.prodSubtotal).toFixed(2)} </span>
       </div>
     })
 
@@ -133,9 +133,9 @@ class Cart extends Component {
 
                   <hr />
                   <div>
-                    <div>Sub-total(<i>exc. VAT</i>) = £{this.state.total}</div>
-                    <div>VAT (<i>UK only</i>)=£{this.state.vatAmnt}</div>
-                    <div><strong>Sub-total</strong> (<i>inc. VAT</i>)=£{this.state.total + this.state.vatAmnt}</div>
+                    <div>Sub-total(<i>exc. VAT</i>) = £{(this.state.total).toFixed(2)}</div>
+                    <div>VAT (<i>UK only</i>)=£{(this.state.vatAmnt).toFixed(2)}</div>
+                    <div><strong>Sub-total</strong> (<i>inc. VAT</i>)=£{(this.state.total + this.state.vatAmnt).toFixed(2)}</div>
                     <div>Free Returns. Free Repairs For Life.</div>
                   </div>
                   <hr />
@@ -146,13 +146,15 @@ class Cart extends Component {
                     {close => (
                       <div className="modal">
                         <a className="close" onClick={close} >&times;</a>
-                        <div className="header" > Checkout </div>
+                        <div className="header" >
+                          <img src="https://s3.us-east-2.amazonaws.com/hiut-clone/Icons/owl.png" />
+                        </div>
                         <div className="content" >
                           {' '}
                           <CheckoutForm total={this.state.total} vatAmnt={this.state.vatAmnt} />
                         </div>
                         <div className="actions" >
-                          <button
+                          {/* <button
                             className="button"
                             onClick={() => {
                               console.log('modal closed ')
@@ -160,7 +162,7 @@ class Cart extends Component {
                             }}
                           >
                             Cancel
-                          </button>
+                          </button> */}
                         </div>
                       </div>
                     )}

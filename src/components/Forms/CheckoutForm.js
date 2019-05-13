@@ -9,13 +9,16 @@ class CheckoutForm extends Component {
     super(props)
 
     this.state = {
-      cartTotal: ((+this.props.total + +this.props.vatAmnt) * 100)
+      total: this.props.total,
+      vatAmnt: this.props.vatAmnt
+      // cartTotal: ((+this.props.total + +this.props.vatAmnt) * 100)
     }
   }
 
   submit = async (event) => {
     let { token } = await this.props.stripe.createToken({ name: "Name" })
-    let { cartTotal } = await this.state
+    const { total, vatAmnt } = await this.state
+    let cartTotal = ((total + vatAmnt) * 100)
 
     if (token) {
       let response = await axios.post("/charge", { cartTotal, token: token.id })
@@ -51,12 +54,28 @@ class CheckoutForm extends Component {
   }
 
   render() {
+
+    const { total, vatAmnt } = this.state
+
+    const cartTotal = parseFloat(total).toFixed(2)
+
+    const cartVat = parseFloat(vatAmnt).toFixed(2)
+
+    console.log("THIS IS THE CART TOTAL", cartTotal)
+
+
     return (
       <div className="checkout" >
-        <p>The total that will be charged to your card is {`£${this.state.cartTotal}`}</p>
-        <p>Please fill out the information below to complete your payment.</p>
+        <div>
+          <p>The amount that will be charged to your card is £{cartTotal}.</p>
+          <p>If you live in the UK, an additional charge of £{cartVat} for VAT will be processed.</p>
+          <div className="req-info">
+            <p>Please fill out the information below to complete your payment.</p>
+          </div>
+        </div>
+        <br />
         <CardElement />
-        <button onClick={this.submit} >Submit Payment</button>
+        <button id="payment-btn" onClick={this.submit} >Submit Payment</button>
       </div>
     )
   }
