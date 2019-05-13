@@ -37,13 +37,6 @@ class Cart extends Component {
         cart: this.props.cart
       })
     }
-
-    // axios.get("/api/cart")
-    //   .then(res => {
-    //     this.setState({
-    //       cart: res.data
-    //     })
-    //   })
   }
 
   handleGetTotal = async () => {
@@ -53,14 +46,6 @@ class Cart extends Component {
         total: +this.props.total
       })
     }
-
-
-    // axios.get("/api/total")
-    //   .then(res => {
-    //     this.setState({
-    //       total: +res.data
-    //     })
-    //   })
   }
 
   handleGetVatAmnt = () => {
@@ -97,12 +82,9 @@ class Cart extends Component {
     const { cart, vatAmnt } = this.state
     axios.put("/api/updatecart", { cart, vatAmnt })
       .then(this.handleGetCart()).then(this.handleGetTotal()).then(this.handleGetVatAmnt())
-    // .then(window.location.reload())
   }
 
   render() {
-
-    console.log("THIS IS THE FIRSTNAME", this.props.firstname)
 
     const { cart, total } = this.state
 
@@ -171,18 +153,9 @@ class Cart extends Component {
                         </div>
                         <div className="content" >
                           {' '}
-                          <CheckoutForm total={this.state.total} vatAmnt={this.state.vatAmnt} firstname={this.props.firstname} lastname={this.props.lastname} />
+                          <CheckoutForm total={this.state.total} vatAmnt={this.state.vatAmnt} firstname={this.props.firstname} />
                         </div>
                         <div className="actions" >
-                          {/* <button
-                            className="button"
-                            onClick={() => {
-                              console.log('modal closed ')
-                              close()
-                            }}
-                          >
-                            Cancel
-                          </button> */}
                         </div>
                       </div>
                     )}
@@ -215,21 +188,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, { requestCart, requestTotal })(Cart)
-
-
-
-//  <Link to="/checkout">
-// <button>Checkout</button>
-// </Link>
-
-
-
-/* <Popup
-  trigger={<button className="cart-checkout-btn" >Checkout</button>}
-  position="top center"
->
-  <div >
-    <h1>Popup content here!!!</h1>
-    <CheckoutForm />
-  </div>
-</Popup> */
