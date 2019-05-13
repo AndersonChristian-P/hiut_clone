@@ -58,6 +58,8 @@ const Footer = () => {
             <li>
               <Link to="/how-to-wash">no wash club</Link>
             </li>
+            <li className="li-no-show">|</li>
+            <li className="li-no-show">|</li>
           </ul>
         </nav>
       </div>

@@ -27,6 +27,12 @@
       text-decoration: none;
       color: #878787;
     }
+    .two, .three {
+      border-left: 1px solid lightgrey;
+    }
+    .li-no-show {
+      color: white;
+    }
   }
   ul {
      width: 28.42%;
@@ -45,3 +51,4 @@
   color: #878787;
   text-align: right;
 }
+
