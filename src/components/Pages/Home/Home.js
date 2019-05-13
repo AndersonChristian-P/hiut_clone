@@ -59,7 +59,7 @@ const Home = () => {
 
       <section className="video-container">
         <div className="video-wrapper">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/CD-C8V8NNlo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe width="560" title="Denim for Duchess" height="315" src="https://www.youtube.com/embed/CD-C8V8NNlo" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         </div>
       </section>
 

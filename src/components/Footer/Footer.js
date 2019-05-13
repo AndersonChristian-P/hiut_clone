@@ -11,7 +11,7 @@ const Footer = () => {
 
 
         <nav>
-          <ul class="row one">
+          <ul className="row one">
             <li>
               <a href="tel: 44-0-1239-612-469">
                 t: +44 (0)1239 612 469
@@ -30,33 +30,33 @@ const Footer = () => {
             </li>
           </ul>
 
-          <ul class="row two" >
+          <ul className="row two" >
             <li>
-              <a href="https://www.facebook.com/HiutDenimCo/" target="_blank">facebook</a>
+              <a href="https://www.facebook.com/HiutDenimCo/" target="_blank" rel="noopener noreferrer">facebook</a>
             </li>
             <li>
-              <a href="https://www.instagram.com/hiutdenim/" target="_blank">instagram</a>
+              <a href="https://www.instagram.com/hiutdenim/" target="_blank" rel="noopener noreferrer">instagram</a>
             </li>
             <li>
-              <a href="https://twitter.com/hiutdenim" target="_blank">twitter</a>
+              <a href="https://twitter.com/hiutdenim" target="_blank" rel="noopener noreferrer">twitter</a>
             </li>
             <li>
-              <a href="https://www.pinterest.com/hiutdenim/" target="_blank">pintrest</a>
+              <a href="https://www.pinterest.com/hiutdenim/" target="_blank" rel="noopener noreferrer">pintrest</a>
             </li>
             <li>
-              <a href="https://medium.com/@hiutdenim" target="_blank">medium</a>
+              <a href="https://medium.com/@hiutdenim" target="_blank" rel="noopener noreferrer">medium</a>
             </li>
           </ul>
 
-          <ul class="row three" >
+          <ul className="row three" >
             <li>
-              <Link path="/how-to-wash">how to wash</Link>
+              <Link to="/how-to-wash">how to wash</Link>
             </li>
             <li>
-              <Link path="/store-locations">stockists</Link>
+              <Link to="/store-locations">stockists</Link>
             </li>
             <li>
-              <Link path="/how-to-wash">no wash club</Link>
+              <Link to="/how-to-wash">no wash club</Link>
             </li>
           </ul>
         </nav>
