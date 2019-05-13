@@ -75,7 +75,13 @@ class Mens extends Component {
 
     return (
       <div>
-        <h1>This is the Mens Collection</h1>
+        <div className="mens-collection-banner">
+          <div className="mens-banner-title">
+            <h2 className="mens-collection-title">
+              <p>Mens</p>
+            </h2>
+          </div>
+        </div>
 
         <div className="selvedge-denim">
           <h1>Selvedge Denim</h1>
