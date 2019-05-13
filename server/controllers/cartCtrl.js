@@ -55,6 +55,7 @@ module.exports = {
     try {
       let returnTotal = await userTotal.toString()
       if (returnTotal) {
+        console.log("THIS IS THE TOTAL", returnTotal, typeof returnTotal)
         res.status(200).send(returnTotal)
       } else {
         throw new Error(401)

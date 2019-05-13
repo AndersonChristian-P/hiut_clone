@@ -24,10 +24,10 @@ class Cart extends Component {
     }
   }
 
-  componentDidMount() {
-    this.handleGetCart()
-    this.handleGetTotal()
-    this.handleGetVatAmnt()
+  async componentDidMount() {
+    await this.handleGetCart()
+    await this.handleGetTotal()
+    await this.handleGetVatAmnt()
   }
 
   handleGetCart = async () => {
@@ -50,7 +50,7 @@ class Cart extends Component {
     await this.props.requestTotal()
     if (this.props.total > 0) {
       this.setState({
-        total: this.props.total
+        total: +this.props.total
       })
     }
 
@@ -96,8 +96,8 @@ class Cart extends Component {
   handleUpdateClick = () => {
     const { cart, vatAmnt } = this.state
     axios.put("/api/updatecart", { cart, vatAmnt })
-      // .then(this.handleGetCart()).then(this.handleGetTotal()).then(this.handleGetVatAmnt())
-      .then(window.location.reload())
+      .then(this.handleGetCart()).then(this.handleGetTotal()).then(this.handleGetVatAmnt())
+    // .then(window.location.reload())
   }
 
   render() {

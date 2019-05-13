@@ -12,37 +12,20 @@ class Header extends Component {
     }
   }
 
-  // componentDidMount() {
-  //   this.handleGetCart()
-  //   this.handleGetTotal()
-  // }
+  componentDidUpdate(prevProps, prevState) {
+    if (+this.props.total !== prevState.total) {
 
-  componentDidUpdate(prevProps) {
-    if (this.props.total !== prevProps.total) {
+      console.log("THIS IS THE CART ON REDUX", this.props.cart)
+      console.log("THIS IS THE TOTAL ON REDUX", this.props.total)
+
       this.setState({
         cart: this.props.cart,
-        total: this.props.total
+        total: +this.props.total
       })
     }
   }
 
-  // handleGetCart = () => {
-  //   axios.get("/api/cart")
-  //     .then(res => {
-  //       this.setState({
-  //         cart: res.data
-  //       })
-  //     })
-  // }
 
-  // handleGetTotal = () => {
-  //   axios.get("/api/total")
-  //     .then(res => {
-  //       this.setState({
-  //         total: +res.data
-  //       })
-  //     })
-  // }
 
   render() {
 

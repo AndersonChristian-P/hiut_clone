@@ -5,19 +5,19 @@ const REQUEST_SESSION_TOTAL = "REQUEST_SESSION_TOTAL"
 
 const initialState = {
   cart: [{}],
-  total: 0
+  total: ""
 }
 
-export /*async*/ function requestCart() {
-  let data = /*await*/ axios.get("/api/cart").then(res => res.data)
+export function requestCart() {
+  let data = axios.get("/api/cart").then(res => res.data)
   return {
     type: REQUEST_SESSION_CART,
     payload: data
   }
 }
 
-export /*async*/ function requestTotal() {
-  let data = /*await*/ axios.get("/api/total").then(res => res.data)
+export function requestTotal() {
+  let data = axios.get("/api/total").then(res => res.data)
   return {
     type: REQUEST_SESSION_TOTAL,
     payload: data
