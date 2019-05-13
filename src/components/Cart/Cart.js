@@ -102,6 +102,8 @@ class Cart extends Component {
 
   render() {
 
+    console.log("THIS IS THE FIRSTNAME", this.props.firstname)
+
     const { cart, total } = this.state
 
     const cartContents = cart.map((product, i) => {
@@ -169,7 +171,7 @@ class Cart extends Component {
                         </div>
                         <div className="content" >
                           {' '}
-                          <CheckoutForm total={this.state.total} vatAmnt={this.state.vatAmnt} />
+                          <CheckoutForm total={this.state.total} vatAmnt={this.state.vatAmnt} firstname={this.props.firstname} lastname={this.props.lastname} />
                         </div>
                         <div className="actions" >
                           {/* <button
@@ -203,9 +205,12 @@ class Cart extends Component {
 
 function mapStateToProps(state) {
   const { cart, total } = state.cart
+  const { firstname, lastname } = state.auth
   return {
     cart,
-    total
+    total,
+    firstname,
+    lastname,
   }
 }
 

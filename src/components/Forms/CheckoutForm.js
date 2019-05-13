@@ -10,7 +10,9 @@ class CheckoutForm extends Component {
 
     this.state = {
       total: this.props.total,
-      vatAmnt: this.props.vatAmnt
+      vatAmnt: this.props.vatAmnt,
+      firstname: this.props.firstname,
+      lastname: this.props.lastname
       // cartTotal: ((+this.props.total + +this.props.vatAmnt) * 100)
     }
   }
@@ -55,6 +57,8 @@ class CheckoutForm extends Component {
 
   render() {
 
+    console.log("THIS IS THE CHECK OUT FORM FIRST NAME", this.state.firstname)
+
     const { total, vatAmnt } = this.state
 
     const cartTotal = parseFloat(total).toFixed(2)
@@ -67,6 +71,8 @@ class CheckoutForm extends Component {
     return (
       <div className="checkout" >
         <div>
+          {this.state.firstname ?
+            <p>Hi, {`${this.state.firstname} ${this.state.lastname}`}.</p> : <span></span>}
           <p>The amount that will be charged to your card is £{cartTotal}.</p>
           <p>If you live in the UK, an additional charge of £{cartVat} for VAT will be processed.</p>
           <div className="req-info">
