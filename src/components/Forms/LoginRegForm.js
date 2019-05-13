@@ -57,6 +57,7 @@ class Login extends Component {
     try {
       const res = await axios.post("/auth/register", { firstname, lastname, email, password })
       this.props.updateAuthenticated(res.data.authenticated)
+      console.log("IS THIS USER AUTHENTICATED AFTER REGISTRATION", res.data.authenticated)
       this.props.updateUserEmail(res.data.email)
       this.props.updateUserId(res.data.user_id)
       this.props.updateUserFirstName(res.data.firstname)
@@ -75,6 +76,9 @@ class Login extends Component {
 
 
   render() {
+
+
+
     return (
       <div>
 

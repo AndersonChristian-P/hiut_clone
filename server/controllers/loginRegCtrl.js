@@ -67,15 +67,15 @@ module.exports = {
   getAddresses: async (req, res) => {
     const db = req.app.get("db")
     const { session } = req
-    const { userId } = req.params
-    const id = +userId
+    const { userId: id } = req.params
+    // const id = +userId
     console.log("THIS IS THE GET ADDRESS USER ID:", id, typeof id)
     // const { user_id: id } = session.user 
 
     try {
       const data = await db.getUserAddresses({ id })
       session.user.address = data[0]
-      // console.log("this is session", session.user.address)
+      console.log("this is the address on session", session.user.address)
       res.status(200).send(data[0]) // put ability to select ship to address on the back burner so currently only the first address inputted is ever returned
     } catch (err) {
       res.sendStatus(404)
