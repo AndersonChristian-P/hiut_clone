@@ -39,6 +39,8 @@ module.exports = {
     try {
       let returnCart = await cart
       if (returnCart) {
+
+        console.log("THIS IS THE CONTENTS OF THE CART", returnCart)
         res.status(200).send(returnCart)
       } else {
         throw new Error(401)

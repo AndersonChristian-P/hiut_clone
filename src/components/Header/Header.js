@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
-import axios from "axios"
+import { connect } from "react-redux"
 
 class Header extends Component {
   constructor() {
@@ -12,38 +12,44 @@ class Header extends Component {
     }
   }
 
-  componentDidMount() {
-    this.handleGetCart()
-    this.handleGetTotal()
-  }
+  // componentDidMount() {
+  //   this.handleGetCart()
+  //   this.handleGetTotal()
+  // }
 
-  componentDidUpdate() {
-
-  }
-
-  handleGetCart = () => {
-    axios.get("/api/cart")
-      .then(res => {
-        this.setState({
-          cart: res.data
-        })
+  componentDidUpdate(prevProps) {
+    if (this.props.total !== prevProps.total) {
+      this.setState({
+        cart: this.props.cart,
+        total: this.props.total
       })
+    }
   }
 
-  handleGetTotal = () => {
-    axios.get("/api/total")
-      .then(res => {
-        console.log("THIS IS THE TOTAL FROM THE POST REQ", res.data)
-        this.setState({
-          total: +res.data
-        })
-      })
-  }
+  // handleGetCart = () => {
+  //   axios.get("/api/cart")
+  //     .then(res => {
+  //       this.setState({
+  //         cart: res.data
+  //       })
+  //     })
+  // }
+
+  // handleGetTotal = () => {
+  //   axios.get("/api/total")
+  //     .then(res => {
+  //       this.setState({
+  //         total: +res.data
+  //       })
+  //     })
+  // }
 
   render() {
 
-    const itemsInCart = this.state.cart.map(item => +item.quantity)
+    const itemsInCart = this.state.cart.map(item => item.quantity)
       .reduce(((acc, val) => acc + val), 0)
+
+    console.log("THIS IS THE ITEMS IN CART FROM THE HEADER", itemsInCart)
 
     console.log("NUMBER OF ITEMS IN CART", itemsInCart)
     console.log("THIS IS THE CART", this.state.cart)
@@ -84,23 +90,22 @@ class Header extends Component {
               <li><Link className="nav" to="/faq" >FAQ</Link></li>
               <li><Link className="nav" to="/customer-service" >Contact</Link></li>
             </ul>
-
-
-
-
-
-
-
           </nav>
         </div>
 
-        <div className="header-mobile-nav-container">
-
-        </div>
+        <div className="header-mobile-nav-container"></div>
 
       </div>
     )
   }
 }
 
-export default Header
+function mapStateToProps(state) {
+  const { cart, total } = state.cart
+  return {
+    cart,
+    total
+  }
+}
+
+export default connect(mapStateToProps)(Header)
