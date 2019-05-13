@@ -77,18 +77,18 @@ class Mens extends Component {
       <div>
         <h1>This is the Mens Collection</h1>
 
-        <div>
+        <div className="selvedge-denim">
           <h1>Selvedge Denim</h1>
           <p>Selvedge is an investment. Ours is from Kuroki, the atisanal Japanese denim mill. Woven on a 1959 loom. 100% indigo dyed. Unwashed 14.5oz.</p>
-          <div>
+          <div className="selvedge-denim-products">
             {selvedgeProducts}
           </div>
         </div>
 
-        <div>
+        <div className="organic-denim">
           <h1>Organic Denim</h1>
           <p>This is our organic denim. It's a beautiful unwashed 12oz denim from a great mill in Turkey. Hard wearing too. We are in organic denim forever. Preferably longer.</p>
-          <div>
+          <div className="organic-denim-products">
             {organicProducts}
           </div>
         </div>
