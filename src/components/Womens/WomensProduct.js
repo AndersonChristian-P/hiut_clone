@@ -43,11 +43,13 @@ class WomensProduct extends Component {
   render() {
 
     let sliderSettings = {
+      arrows: true,
       dots: true,
       infinite: true,
       speed: 750,
       slidesToShow: 1,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      className: "women-slides"
     }
 
     const { product } = this.state

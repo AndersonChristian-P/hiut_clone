@@ -4,4 +4,21 @@ div {
   }
 }
 
+.women-slides {
+  position: relative;
+  .slick-prev, .slick-next {
+    position: absolute;
+    top: 50%;
+  }
+  .slick-prev {
+    left: 5%;
+    z-index: 1;
+  }
+  .slick-next {
+    right: 5%;
+    z-index: 1;
+  }
+}
+
+
 // I hard coded image widths to be 640px | see line 46 in MensProduct.js

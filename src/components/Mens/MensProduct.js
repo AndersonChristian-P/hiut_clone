@@ -43,11 +43,13 @@ class MensProduct extends Component {
     console.log("THIS IS THE VAT RATE ON STATE", this.state.vatRate)
 
     let sliderSettings = {
+      arrows: true,
       dots: true,
       infinite: true,
       speed: 750,
       slidesToShow: 1,
       slidesToScroll: 1,
+      className: "men-slides"
     }
 
     const { product } = this.state
