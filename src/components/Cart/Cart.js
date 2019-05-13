@@ -149,7 +149,7 @@ class Cart extends Component {
                         <div className="header" > Checkout </div>
                         <div className="content" >
                           {' '}
-                          <CheckoutForm total={this.state.total} vat={this.state.vatAmnt} />
+                          <CheckoutForm total={this.state.total} vatAmnt={this.state.vatAmnt} />
                         </div>
                         <div className="actions" >
                           <button

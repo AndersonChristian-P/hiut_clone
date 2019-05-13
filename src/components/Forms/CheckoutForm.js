@@ -53,6 +53,7 @@ class CheckoutForm extends Component {
   render() {
     return (
       <div className="checkout" >
+        <p>The total that will be charged to your card is {`£${this.state.cartTotal}`}</p>
         <p>Please fill out the information below to complete your payment.</p>
         <CardElement />
         <button onClick={this.submit} >Submit Payment</button>
