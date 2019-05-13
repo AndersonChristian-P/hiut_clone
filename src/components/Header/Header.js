@@ -17,6 +17,10 @@ class Header extends Component {
     this.handleGetTotal()
   }
 
+  componentDidUpdate() {
+
+  }
+
   handleGetCart = () => {
     axios.get("/api/cart")
       .then(res => {
