@@ -13,14 +13,14 @@ class Header extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (+this.props.total !== prevState.total) {
+    if (this.props.total !== prevState.total) {
 
-      console.log("THIS IS THE CART ON REDUX", this.props.cart)
-      console.log("THIS IS THE TOTAL ON REDUX", this.props.total)
+      // console.log("THIS IS THE CART ON REDUX", this.props.cart)
+      // console.log("THIS IS THE TOTAL ON REDUX", this.props.total, typeof this.props.total)
 
       this.setState({
         cart: this.props.cart,
-        total: +this.props.total
+        total: this.props.total
       })
     }
   }
