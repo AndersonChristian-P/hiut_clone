@@ -14,12 +14,12 @@ const Footer = () => {
           <ul className="row one">
             <li>
               <a href="tel: 44-0-1239-612-469">
-                t: +44 (0)1239 612 469
+                t: +55 (0)5555 555 555
             </a>
             </li>
             <li>
               <a href="mailto: h1@jiutdenim.co.uk">
-                e: h1@jiutdenim.co.uk
+                e: h1@nicemail.com
               </a>
             </li>
             <li>
@@ -64,8 +64,10 @@ const Footer = () => {
         </nav>
       </div>
 
-      <div className="copyright">
-        All rights reserved | © MMXIII
+      <div>
+        <div className="copyright">
+          All rights reserved | © MMXIII
+        </div>
       </div>
 
     </div >
