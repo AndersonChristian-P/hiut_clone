@@ -31,7 +31,7 @@ class Mens extends Component {
       return (
         <div key={i} className="selvedge-product">
           <Link to={`/product/men/${product.id_text}`} >
-            <img width="315px" src={product.img0} alt="#" />
+            <img className="selvedge-product-img" src={product.img0} alt="#" />
           </Link>
           <div className="selvedge-product-info">
             <h2 className="selvedge-product-fit">{product.fit}</h2>

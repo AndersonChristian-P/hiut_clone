@@ -47,12 +47,14 @@
     img {
       width: 2.75em;
       margin-bottom: 11px;
+      margin-top: -1px;
     }
     h3 {
       font-weight: 700;
       font-size: 1.189em;
       padding: 0 0.625em;
       margin-right: 4.8em;
+      margin-top: .05em;
     }
     p {
       font-size: 0.8em;
@@ -69,10 +71,14 @@
     justify-content: center;
     align-items: stretch;
     margin-bottom: 2.563em;
+    margin-top: .2em;
   }
 }
 
 .selvedge-product {
+  .selvedge-product-img {
+    width: 19.625em;
+  }
   .selvedge-product-info {
     line-height: 1.4em;
     margin-left: 1.25em;
