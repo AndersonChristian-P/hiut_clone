@@ -3,11 +3,11 @@ const express = require("express")
 const app = express()
 const massive = require("massive")
 const session = require("express-session")
-const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING, STRIPE_SECRET_KEY } = process.env
-const stripe = require("stripe")(STRIPE_SECRET_KEY)
+const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env
 const loginRegCtrl = require("./controllers/loginRegCtrl")
 const prodCtrl = require("./controllers/productsCtrl")
 const cartCtrl = require("./controllers/cartCtrl")
+const stripeCtrl = require("./controllers/stripeCtrl")
 
 // -- MIDDLEWARE -- //
 app.use(express.json())
@@ -66,21 +66,5 @@ app.put("/api/updatecart", cartCtrl.updateCart)
 app.delete("/api/deletefromcart/:idText/:size1/:size2/:quantity/:price/", cartCtrl.deleteItemFromCart)
 app.post("/api/clearcart", cartCtrl.clearCart)
 
-// Stripe | did not create a controller because there's only one end point
-app.post("/charge", async (req, res) => {
-  const { cartTotal, token } = req.body
-
-  try {
-    let { status } = await stripe.charges.create({
-      amount: cartTotal,
-      currency: "GBP",
-      description: "An example charge",
-      source: token
-    })
-
-    console.log("THIS IS THE STRIPE STATUS:", status)
-    res.sendStatus(200)
-  } catch (err) {
-    res.status(500).end()
-  }
-})
+// Stripe
+app.post("/api/charge", stripeCtrl.stripeCharge)

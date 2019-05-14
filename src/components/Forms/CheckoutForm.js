@@ -23,9 +23,9 @@ class CheckoutForm extends Component {
     let cartTotal = ((total + vatAmnt) * 100)
 
     if (token) {
-      let response = await axios.post("/charge", { cartTotal, token: token.id })
+      let response = await axios.post("/api/charge", { cartTotal, token: token.id })
 
-      if (response.status === 200) {
+      if (response.data === "succeeded") {
         console.log("Purchase Complete!")
         Swal.fire({
           title: "Success!!!",
