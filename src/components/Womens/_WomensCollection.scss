@@ -1,0 +1,68 @@
+.coda-denim, .girlfriend-denim, .dina-denim, .stelsby-denim, .stelsby-hw-denim {
+  border-top: 1px solid #231F20;
+  padding-top: 2.2em;
+  display: flex;
+  flex-direction: column;
+  .coda-wrapper, .girlfriend-wrapper, .dina-wrapper, .stelsby-wrapper, .stelsby-hw-wrapper {
+    display: flex;
+    align-items: flex-start;
+    font-family: 'Tinos', serif;
+    div {
+      width: 4.875em;
+      padding: 0 0.625em;
+      margin-top: -1px;
+    }
+    img {
+      width: 2.75em;
+      margin-bottom: 11px;
+      margin-top: -1px;
+    }
+    h3 {
+      font-weight: 700;
+      font-size: 1.189em;
+      padding: 0 0.625em;
+      margin-right: 4.8em;
+      margin-top: .05em;
+    }
+    p {
+      font-size: 0.8em;
+      font-style: italic;
+      color: #999999;
+      line-height: 1.5;
+      width: 45em;
+      margin-top: 3px;
+    }
+  }
+
+}
+
+.coda-denim-product, .girlfriend-denim-product, .dina-denim-product, .stelsby-denim-product, .stelsby-hw-denim-product  {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  margin-bottom: 2.06em;
+  margin-top: .2em;
+  .women-product-info {
+    margin-left: 1.25em;
+    margin-top: 0.4em;
+  }
+  .women-product-fit {
+    line-height: 1em;
+    font-weight: 700;
+    font-family: 'Tinos', serif;
+    font-size: 1.2em;
+  }
+  .women-product-denim {
+    font-family: 'Ropa Sans', sans-serif;
+    font-size: 0.813em;
+    color: #999999;
+  }
+  .women-product-price {
+    line-height: 0.7em;
+    font-weight: 700;
+    font-family: 'Tinos', serif;
+    font-size: 1em;
+    color: #C61B21;
+  }
+}
