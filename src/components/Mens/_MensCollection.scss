@@ -1,6 +1,9 @@
 .mens-collection-hero {
   display: flex;
   flex-direction: column;
+  border-bottom: 1px solid #231F20;
+  margin-bottom: 1em;
+  padding-bottom: 2.225em;
 }
 
 .mens-collection-banner {
@@ -139,9 +142,6 @@
 }
 
 .short-run-product {
-  margin-bottom: -.8em;
-  padding-bottom: 2.225em;
-  border-bottom: 1px solid #231F20;
   .short-run-product-info {
     line-height: 1.4em;
     margin-left: 1.15em;
