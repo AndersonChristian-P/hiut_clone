@@ -49,7 +49,7 @@ class Mens extends Component {
       return (
         <div key={i} className="org men-product">
           <Link to={`/product/men/${product.id_text}`} >
-            <img width="315px" src={product.img0} alt="#" />
+            <img className="org men-product-img" src={product.img0} alt="#" />
           </Link>
           <div className="org men-product-info">
             <h2 className="org men-product-fit">{product.fit}</h2>
@@ -67,7 +67,7 @@ class Mens extends Component {
       return (
         <div key={i} className="anderson-product">
           <Link to={`/product/men/${product.id_text}`} >
-            <img width="1255px" src={product.img0} alt="#" />
+            <img className="anderson-product-img" src={product.img0} alt="#" />
           </Link>
           <div className="anderson-product-info">
             <h2 className="anderson-product-fit">{product.fit}</h2>
@@ -126,6 +126,29 @@ class Mens extends Component {
           </div>
           <div className="anderson-denim-products">
             {andersonProduct}
+          </div>
+        </div>
+
+        <div className="short-run-denim">
+          <div className="short-run">
+            <div>
+              <img src="https://s3.us-east-2.amazonaws.com/hiut-clone/Icons/icon-denim.png" alt="denim-icon" />
+            </div>
+            <h3>Short Run</h3>
+            <p>Limited Edition Japanese Summer Weight Stretch Selvedge Short Run. 150 Only.</p>
+          </div>
+          <div className="short-run-denim-products">
+            <div className="short-run-product">
+              <img width="1255px" src="https://s3.us-east-2.amazonaws.com/hiut-clone/Pages/mens_collection/JSWSS.jpg" alt="#" />
+              <div className="short-run-product-info">
+                <h2 className="short-run-product-fit">Japanese Summer Weight Stretch Selvedge</h2>
+                <p className="short-run-product-name">Limited Edition. 150 Only.</p>
+                <p className="short-run-product-price">SOLD OUT</p>
+              </div>
+            </div>
+
+
+
           </div>
         </div>
 

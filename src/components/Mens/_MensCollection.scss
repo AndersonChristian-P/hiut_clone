@@ -30,12 +30,12 @@
   }
 }
 
-.selvedge-denim {
+.selvedge-denim, .organic-denim, .anderson-denim, .short-run-denim {
   border-top: 1px solid #231F20;
   padding-top: 2.2em;
   display: flex;
   flex-direction: column;
-  .selvedge {
+  .selvedge, .organic, .anderson, .short-run {
     display: flex;
     align-items: flex-start;
     font-family: 'Tinos', serif;
@@ -65,7 +65,7 @@
       margin-top: 3px;
     }
   }
-  .selvedge-denim-products {
+  .selvedge-denim-products, .organic-denim-products, .anderson-products, .short-run-denim-products {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -75,11 +75,15 @@
   }
 }
 
+.anderson-denim {
+  margin-bottom: 2.06em;
+}
+
 .men-product {
   .men-product-img {
     width: 19.625em;
   }
-  .men-product-info {
+  .men-product-info{
     margin-left: 1.25em;
     margin-top: 0.4em;
   }
@@ -89,7 +93,7 @@
     font-family: 'Tinos', serif;
     font-size: 1.2em;
   }
-  .men-product-name, .men-product-desc {
+  .men-product-name, .men-product-desc, .anderson-product-name {
     font-family: 'Ropa Sans', sans-serif;
     font-size: 0.813em;
     color: #999999;
@@ -103,101 +107,19 @@
   }
 }
 
-.organic-denim {
-  border-top: 1px solid #231F20;
-  padding-top: 2.2em;
-  display: flex;
-  flex-direction: column;
-  .organic {
-    display: flex;
-    align-items: flex-start;
-    font-family: 'Tinos', serif;
-    div {
-      width: 4.875em;
-      padding: 0 0.625em;
-      margin-top: -1px;
-    }
-    img {
-      width: 2.75em;
-      margin-bottom: 11px;
-      margin-top: -1px;
-    }
-    h3 {
-      font-weight: 700;
-      font-size: 1.189em;
-      padding: 0 0.625em;
-      margin-right: 4.8em;
-      margin-top: .05em;
-    }
-    p {
-      font-size: 0.8em;
-      font-style: italic;
-      color: #999999;
-      line-height: 1.5;
-      width: 45em;
-      margin-top: 3px;
-    }
-  }
-  .organic-denim-products {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    margin-bottom: 2.06em;
-    margin-top: .2em;
-  }
-}
-
-
-
-
-.anderson-denim {
-  border-top: 1px solid #231F20;
-  padding-top: 2.2em;
-  display: flex;
-  flex-direction: column;
-  .anderson {
-    display: flex;
-    align-items: flex-start;
-    font-family: 'Tinos', serif;
-    div {
-      width: 4.875em;
-      padding: 0 0.625em;
-      margin-top: -1px;
-    }
-    img {
-      width: 2.75em;
-      margin-bottom: 11px;
-      margin-top: -1px;
-    }
-    h3 {
-      font-weight: 700;
-      font-size: 1.189em;
-      padding: 0 0.625em;
-      margin-right: 4.8em;
-      margin-top: .05em;
-    }
-    p {
-      font-size: 0.8em;
-      font-style: italic;
-      color: #999999;
-      line-height: 1.5;
-      width: 45em;
-      margin-top: 3px;
-    }
-  }
-}
-
 .anderson-product {
-  margin-bottom: 1.3em;
-  padding-bottom: 2.625em;
-  border-bottom: 1px solid #231F20;
+  // margin-bottom: 1.3em;
+  // padding-bottom: 2.625em;
+  // border-bottom: 1px solid #231F20;
+  .anderson-product-img {
+    width: 78.438em;
+  }
   .anderson-product-info {
-    line-height: 1.4em;
     margin-left: 1.25em;
-    margin-top: 0.625em;
+    margin-top: 0.4em;
   }
   .anderson-product-fit {
+    line-height: 1em;
     font-weight: 700;
     font-family: 'Tinos', serif;
     font-size: 1.2em;
@@ -208,6 +130,7 @@
     color: #999999;
   }
   .anderson-product-price {
+    line-height: 0.7em;
     font-weight: 700;
     font-family: 'Tinos', serif;
     font-size: 1em;
@@ -215,29 +138,29 @@
   }
 }
 
-
-
-
-// .organic-product {
-//   .organic-product-info {
-//     line-height: 1.4em;
-//     margin-left: 1.25em;
-//     margin-top: 0.625em;
-//   }
-//   .organic-product-fit {
-//     font-weight: 700;
-//     font-family: 'Tinos', serif;
-//     font-size: 1.2em;
-//   }
-//   .organic-product-name, .organic-product-desc {
-//     font-family: 'Ropa Sans', sans-serif;
-//     font-size: 0.813em;
-//     color: #999999;
-//   }
-//   .organic-product-price {
-//     font-weight: 700;
-//     font-family: 'Tinos', serif;
-//     font-size: 1em;
-//     color: #C61B21;
-//   }
-// }
+.short-run-product {
+  margin-bottom: 1.3em;
+  padding-bottom: 2.625em;
+  border-bottom: 1px solid #231F20;
+  .short-run-product-info {
+    line-height: 1.4em;
+    margin-left: 1.25em;
+    margin-top: 0.625em;
+  }
+  .short-run-product-fit {
+    font-weight: 700;
+    font-family: 'Tinos', serif;
+    font-size: 1.2em;
+  }
+  .short-run-product-name {
+    font-family: 'Ropa Sans', sans-serif;
+    font-size: 0.813em;
+    color: #999999;
+  }
+  .short-run-product-price {
+    font-weight: 700;
+    font-family: 'Tinos', serif;
+    font-size: 1em;
+    color: #C61B21;
+  }
+}
