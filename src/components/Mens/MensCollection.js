@@ -29,15 +29,15 @@ class Mens extends Component {
       return product.id_text.includes("selvedge")
     }).map((product, i) => {
       return (
-        <div key={i} className="selvedge-product">
+        <div key={i} className="sel men-product">
           <Link to={`/product/men/${product.id_text}`} >
-            <img className="selvedge-product-img" src={product.img0} alt="#" />
+            <img className="sel men-product-img" src={product.img0} alt="#" />
           </Link>
-          <div className="selvedge-product-info">
-            <h2 className="selvedge-product-fit">{product.fit}</h2>
-            <p className="selvedge-product-name">{`${product.men_prod_name1} ${product.men_prod_name2}`}</p>
-            <p className="selvedge-product-price">{`£${product.price}`}</p>
-            <p className="selvedge-product-desc">{product.brief_fit_desc}</p>
+          <div className="sel men-product-info">
+            <h2 className="sel men-product-fit">{product.fit}</h2>
+            <p className="sel men-product-name">{`${product.men_prod_name1} ${product.men_prod_name2}`}</p>
+            <p className="sel men-product-price">{`£${product.price}`}</p>
+            <p className="sel men-product-desc">{product.brief_fit_desc}</p>
           </div>
         </div>
       )
@@ -47,15 +47,15 @@ class Mens extends Component {
       return product.id_text.includes("organic")
     }).map((product, i) => {
       return (
-        <div key={i} className="organic-product">
+        <div key={i} className="org men-product">
           <Link to={`/product/men/${product.id_text}`} >
             <img width="315px" src={product.img0} alt="#" />
           </Link>
-          <div className="organic-product-info">
-            <h2 className="organic-product-fit">{product.fit}</h2>
-            <p className="organic-product-name">{`${product.men_prod_name1} ${product.men_prod_name2}`}</p>
-            <p className="organic-product-price">{`£${product.price}`}</p>
-            <p className="organic-product-desc">{product.brief_fit_desc}</p>
+          <div className="org men-product-info">
+            <h2 className="org men-product-fit">{product.fit}</h2>
+            <p className="org men-product-name">{`${product.men_prod_name1} ${product.men_prod_name2}`}</p>
+            <p className="org men-product-price">{`£${product.price}`}</p>
+            <p className="org men-product-desc">{product.brief_fit_desc}</p>
           </div>
         </div>
       )
