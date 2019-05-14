@@ -121,7 +121,7 @@ class Mens extends Component {
             <div>
               <img src="https://s3.us-east-2.amazonaws.com/hiut-clone/Icons/icon-denim.png" alt="denim-icon" />
             </div>
-            <h3>Anderson Denim</h3>
+            <h3>The Anderson</h3>
             <p>This is our new fit. A wider leg. A higher rise. It is perfect for those with a bigger thigh, or just prefer to wear jeans a little looser.</p>
           </div>
           <div className="anderson-denim-products">
