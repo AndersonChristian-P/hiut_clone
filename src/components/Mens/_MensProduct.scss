@@ -1,23 +1,35 @@
-div {
+.men-prod-hero {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10em;
   .men-prod-slider {
     width: 40em;
+    .men-slides {
+      position: relative;
+      .slick-prev, .slick-next {
+        position: absolute;
+        top: 50%;
+      }
+      .slick-prev {
+        left: 5%;
+        z-index: 1;
+      }
+      .slick-next {
+        right: 5%;
+        z-index: 1;
+      }
+    }
   }
 }
 
-.men-slides {
-  position: relative;
-  .slick-prev, .slick-next {
-    position: absolute;
-    top: 50%;
-  }
-  .slick-prev {
-    left: 5%;
-    z-index: 1;
-  }
-  .slick-next {
-    right: 5%;
-    z-index: 1;
-  }
-}
+// div {
+//   .men-prod-slider {
+//     width: 40em;
+//   }
+// }
+
+
+
+
 
 // I hard coded image widths to be 640px | see line 46 in MensProduct.js
