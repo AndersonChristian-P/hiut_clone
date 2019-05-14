@@ -78,6 +78,7 @@ app.post("/charge", async (req, res) => {
       source: token
     })
 
+    console.log("THIS IS THE STRIPE STATUS:", status)
     res.sendStatus(200)
   } catch (err) {
     res.status(500).end()
