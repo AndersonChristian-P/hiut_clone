@@ -29,13 +29,13 @@ class Header extends Component {
 
   render() {
 
-    const itemsInCart = this.state.cart.map(item => item.quantity)
+    const itemsInCart = this.state.cart.map(item => +item.quantity)
       .reduce(((acc, val) => acc + val), 0)
 
-    console.log("THIS IS THE ITEMS IN CART FROM THE HEADER", itemsInCart)
+    // console.log("THIS IS THE ITEMS IN CART FROM THE HEADER", itemsInCart)
 
-    console.log("NUMBER OF ITEMS IN CART", itemsInCart)
-    console.log("THIS IS THE CART", this.state.cart)
+    // console.log("NUMBER OF ITEMS IN CART", itemsInCart)
+    // console.log("THIS IS THE CART", this.state.cart)
 
     return (
       <div>
