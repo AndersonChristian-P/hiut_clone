@@ -112,7 +112,15 @@ class Womens extends Component {
     })
 
     return (
-      <div>
+      <div className="womens-collection-hero">
+
+        <div className="womens-collection-banner partition">
+          <div className="womens-banner-title">
+            <h2 className="womens-collection-title">
+              <p>Womens</p>
+            </h2>
+          </div>
+        </div>
 
         <div className="coda-denim">
           <div className="coda-wrapper">
