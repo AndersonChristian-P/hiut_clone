@@ -2,7 +2,10 @@ import React, { Component } from "react"
 import axios from "axios"
 import { Elements, StripeProvider } from "react-stripe-elements"
 import { connect } from "react-redux"
-import { requestCart, requestTotal } from "./../../redux/cartReducer"
+import { requestCart, requestTotal, requestVat } from "./../../redux/cartReducer"
+
+import { updateUserId, updateUserEmail, updateUserFirstName, updateUserLastName, updateAuthenticated } from "./../../redux/authReducer"
+
 import Popup from "reactjs-popup"
 import CheckoutForm from "./../Forms/CheckoutForm"
 
@@ -27,7 +30,23 @@ class Cart extends Component {
   async componentDidMount() {
     await this.handleGetCart()
     await this.handleGetTotal()
-    await this.handleGetVatAmnt()
+    await this.handleGetVat()
+
+    let res = await axios.get("/auth/session")
+
+    if (!res.data.user) {
+      return null;
+    }
+
+    if (res.data.user.user_id !== this.props.user_id) {
+      const { user } = res.data
+      await this.props.updateUserEmail(user.email)
+      await this.props.updateUserId(user.user_id)
+      await this.props.updateUserFirstName(user.firstname)
+      await this.props.updateUserLastName(user.lastname)
+      await this.props.updateAuthenticated(user.authenticated)
+    }
+
   }
 
   handleGetCart = async () => {
@@ -41,14 +60,22 @@ class Cart extends Component {
 
   handleGetTotal = async () => {
     await this.props.requestTotal()
-    if (this.props.total > 0) {
+    if (+this.props.total > 0) {
       this.setState({
         total: +this.props.total
       })
     }
   }
 
-  handleGetVatAmnt = () => {
+  handleGetVat = async () => {
+    await this.props.requestVat()
+    if (+this.props.vat > 0) {
+      this.setState({
+        vat: +this.props.vat
+      })
+    }
+
+
     axios.get("/api/vat")
       .then(res => {
         this.setState({
@@ -75,13 +102,13 @@ class Cart extends Component {
     const endpoint = `/api/deletefromcart/${idText}/${size}/${quantity}/${price}`
 
     axios.delete(endpoint)
-      .then(this.handleGetCart()).then(this.handleGetTotal()).then(this.handleGetVatAmnt())
+      .then(this.handleGetCart()).then(this.handleGetTotal()).then(this.handleGetVat())
   }
 
   handleUpdateClick = () => {
     const { cart, vatAmnt } = this.state
     axios.put("/api/updatecart", { cart, vatAmnt })
-      .then(this.handleGetCart()).then(this.handleGetTotal()).then(this.handleGetVatAmnt())
+      .then(this.handleGetCart()).then(this.handleGetTotal()).then(this.handleGetVat())
   }
 
   render() {
@@ -177,14 +204,16 @@ class Cart extends Component {
 }
 
 function mapStateToProps(state) {
-  const { cart, total } = state.cart
-  const { firstname, lastname } = state.auth
+  const { cart, total, vat } = state.cart
+  const { firstname, lastname, user_id } = state.auth
   return {
     cart,
     total,
+    vat,
     firstname,
     lastname,
+    user_id
   }
 }
 
-export default connect(mapStateToProps, { requestCart, requestTotal })(Cart)
+export default connect(mapStateToProps, { requestCart, requestTotal, requestVat, updateUserId, updateUserEmail, updateUserFirstName, updateUserLastName, updateAuthenticated })(Cart)

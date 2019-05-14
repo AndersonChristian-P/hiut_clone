@@ -36,7 +36,7 @@ class CheckoutForm extends Component {
         }).then((result) => {
           if (result.value) {
             this.handleClickCoolBtn()
-            this.props.history.push("/")
+            window.location.reload()
           }
         })
       }

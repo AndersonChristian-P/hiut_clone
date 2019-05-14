@@ -65,7 +65,7 @@ module.exports = {
     }
   },
 
-  getVatAmnt: async (req, res) => {
+  getVat: async (req, res) => {
     const { vat } = req.session
     try {
       let returnVat = await vat.toString()

@@ -15,20 +15,17 @@ class Login extends Component {
 
     if (res.data.user.user_id !== this.props.user_id) {
       const { user } = res.data
-      this.props.updateUserEmail(user.email)
-      this.props.updateUserId(user.user_id)
-      this.props.updateUserFirstName(user.firstname)
-      this.props.updateUserLastName(user.lastname)
-      this.props.updateAuthenticated(user.authenticated)
-      this.props.history.push("/info")
+      await this.props.updateUserEmail(user.email)
+      await this.props.updateUserId(user.user_id)
+      await this.props.updateUserFirstName(user.firstname)
+      await this.props.updateUserLastName(user.lastname)
+      await this.props.updateAuthenticated(user.authenticated)
+      // this.props.history.push("/info")
     }
 
-
-    // if (this.props.authenticated) {
-    //   this.props.history.push("/info")
-    // } else {
-
-    // }
+    if (this.props.authenticated) {
+      this.props.history.push("/info")
+    }
   }
 
   render() {
