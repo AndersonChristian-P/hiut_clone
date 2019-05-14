@@ -17,6 +17,8 @@ class CheckoutForm extends Component {
 
   submit = async (event) => {
     let { token } = await this.props.stripe.createToken({ name: "Name" })
+
+    console.log("THIS IS THE STRIPE TOKEN ID", token.id)
     const { total, vatAmnt } = await this.state
     let cartTotal = ((total + vatAmnt) * 100)
 
