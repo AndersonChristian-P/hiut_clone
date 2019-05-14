@@ -47,6 +47,7 @@ app.get("/api/users", loginRegCtrl.getUsers)
 app.post("/auth/register", loginRegCtrl.register)
 app.post("/auth/login", loginRegCtrl.login)
 app.get("/auth/logout", loginRegCtrl.logout)
+app.get("/auth/session", loginRegCtrl.getSession)
 
 // Addresses
 app.get("/auth/addresses/:userId", loginRegCtrl.getAddresses)
@@ -65,6 +66,8 @@ app.post("/api/addtocart/:idText", cartCtrl.addToCart)
 app.put("/api/updatecart", cartCtrl.updateCart)
 app.delete("/api/deletefromcart/:idText/:size1/:size2/:quantity/:price/", cartCtrl.deleteItemFromCart)
 app.post("/api/clearcart", cartCtrl.clearCart)
+
+
 
 // Stripe
 app.post("/api/charge", stripeCtrl.stripeCharge)

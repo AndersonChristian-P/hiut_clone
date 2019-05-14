@@ -51,7 +51,10 @@ module.exports = {
       let user = await db.login({ email })
       session.user = {
         email: user[0].email,
-        user_id: user[0].login_id
+        user_id: user[0].login_id,
+        authenticated: true,
+        firstname: user[0].firstname,
+        lastname: user[0].lastname
       }
       const authenticated = bcrypt.compareSync(req.body.loginPassword, user[0].password)
       if (authenticated) {
@@ -118,6 +121,15 @@ module.exports = {
     req.session.destroy()
     // console.log(req.session)
     res.sendStatus(200)
+  },
+
+  getSession: async (req, res) => {
+    try {
+      await res.status(200).send(req.session)
+    } catch (err) {
+      res.sendStatus(400)
+    }
+
   }
 }
 
