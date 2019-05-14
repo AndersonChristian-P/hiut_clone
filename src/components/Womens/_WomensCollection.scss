@@ -3,7 +3,7 @@
   flex-direction: column;
   border-bottom: 1px solid #231F20;
   margin-bottom: 1em;
-  padding-bottom: 2.225em;
+  // padding-bottom: 2.225em;
 }
 
 .womens-collection-banner {
@@ -52,14 +52,14 @@
     }
     img {
       width: 2.75em;
-      margin-bottom: 11px;
-      margin-top: -1px;
+      margin-bottom: .438em;
+      margin-top: -.625px;
     }
     h3 {
       font-weight: 700;
       font-size: 1.189em;
       padding: 0 0.625em;
-      margin-right: 4.8em;
+      // margin-right: 4.8em;
       margin-top: .05em;
     }
     p {
@@ -71,7 +71,18 @@
       margin-top: 3px;
     }
   }
+}
 
+.coda-wrapper {
+  h3 {
+    margin-right: 7.55em;
+  }
+}
+
+.girlfriend-wrapper {
+  h3 {
+    margin-right: 3.2em;
+  }
 }
 
 .coda-denim-product, .girlfriend-denim-product, .dina-denim-product, .stelsby-denim-product, .stelsby-hw-denim-product  {
@@ -84,6 +95,7 @@
   .women-product-info {
     margin-left: 1.25em;
     margin-top: 0.4em;
+    margin-bottom: .625em;
   }
   .women-product-fit {
     line-height: 1em;
