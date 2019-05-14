@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { CardElement, injectStripe } from "react-stripe-elements"
 import Swal from "sweetalert2"
 import axios from "axios";
+import { withRouter } from "react-router-dom"
 
 
 class CheckoutForm extends Component {
@@ -35,7 +36,7 @@ class CheckoutForm extends Component {
         }).then((result) => {
           if (result.value) {
             this.handleClickCoolBtn()
-            window.location.reload()
+            this.props.history.push("/")
           }
         })
       }
@@ -82,4 +83,4 @@ class CheckoutForm extends Component {
   }
 }
 
-export default injectStripe(CheckoutForm)
+export default injectStripe(withRouter(CheckoutForm))

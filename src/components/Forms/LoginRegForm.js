@@ -77,7 +77,8 @@ class Login extends Component {
 
   render() {
 
-
+    console.log("THIS IS THE AUTHENTICATION FROM REDUCER", this.props.authenticated)
+    console.log("THIS IS THE FIRST NAME FROM REDUCER", this.props.firstname)
 
     return (
       <div>
@@ -144,4 +145,14 @@ class Login extends Component {
   }
 }
 
-export default connect(null, { updateUserEmail, updateUserId, updateUserFirstName, updateUserLastName, updateAuthenticated })(withRouter(Login))
+const mapStateToProps = (state) => {
+  const { authenticated, user_id, firstname, lastname } = state.auth
+  return {
+    authenticated,
+    user_id,
+    firstname,
+    lastname
+  }
+}
+
+export default connect(mapStateToProps, { updateUserEmail, updateUserId, updateUserFirstName, updateUserLastName, updateAuthenticated })(withRouter(Login))

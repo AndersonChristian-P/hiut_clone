@@ -124,6 +124,8 @@ module.exports = {
   clearCart: (req, res) => {
     req.session.cart = []
     req.session.total = 0
+    req.session.vat = 0
+    console.log("THIS IS THE ENTIRE SESSION", req.session)
     res.sendStatus(200)
   }
 }
