@@ -116,15 +116,16 @@ class Cart extends Component {
     const { cart, total } = this.state
 
     const cartContents = cart.map((product, i) => {
-      return <div key={i}>
-        <img width="100" src={product.img1} alt="#" />
+      return <div className="cart-content" key={i}>
+        <img className="cart-content-image" src={product.img1} alt="#" />
 
-        <span>
-          {`${product.prod_title} ${product.size}`}
-          <span><strong>£{(product.price).toFixed(2)}</strong></span>
+        <span className="cart-content-prod-info">
+          <span>{`${product.prod_title} ${product.size}`}</span>
+          {/* <br /> */}
+          <div><strong>£{(product.price).toFixed(2)}</strong></div>
         </span>
 
-        <span>
+        <span className="cart-content-item-count">
           <input
             onChange={(event) => this.handleChange(i, event)}
             type="number"
@@ -132,10 +133,12 @@ class Cart extends Component {
             value={cart[i].quantity}
             name="quantity"
           />
-          <button onClick={(event) => this.handleDelete(i)} >Remove</button>
+          <div className="cart-content-btn">
+            <button onClick={(event) => this.handleDelete(i)} >Remove</button>
+          </div>
         </span>
 
-        <span> £{(product.prodSubtotal).toFixed(2)} </span>
+        <span className="cart-content-subtotal"> £{(product.prodSubtotal).toFixed(2)} </span>
       </div>
     })
 
@@ -144,59 +147,60 @@ class Cart extends Component {
 
       <StripeProvider apiKey={stripePublicKey} >
         <Elements>
-          <div>
 
-            {total > 0 ?
-              < div >
-                <h1>This is the Cart page!</h1>
-                <div>
+          {total > 0 ?
+            <div className="items-in-cart">
 
-                  <div>
-                    <span></span>
-                    <span><strong>Item</strong></span>
-                    <span><strong>Qty</strong></span>
-                    <span><strong>Item Total</strong></span>
-                  </div>
 
-                  {cartContents}
-
-                  <hr />
-                  <div>
-                    <div>Sub-total(<i>exc. VAT</i>) = £{(this.state.total).toFixed(2)}</div>
-                    <div>VAT (<i>UK only</i>)=£{(this.state.vatAmnt).toFixed(2)}</div>
-                    <div><strong>Sub-total</strong> (<i>inc. VAT</i>)=£{(this.state.total + this.state.vatAmnt).toFixed(2)}</div>
-                    <div>Free Returns. Free Repairs For Life.</div>
-                  </div>
-                  <hr />
-
-                  <button onClick={() => this.handleUpdateClick()}>Update Cart</button>
-
-                  <Popup trigger={<button className="button"> Checkout </button>} modal>
-                    {close => (
-                      <div className="modal">
-                        <a className="close" onClick={close} >&times;</a>
-                        <div className="header" >
-                          <img src="https://s3.us-east-2.amazonaws.com/hiut-clone/Icons/owl.png" />
-                        </div>
-                        <div className="content" >
-                          {' '}
-                          <CheckoutForm total={this.state.total} vatAmnt={this.state.vatAmnt} firstname={this.props.firstname} />
-                        </div>
-                        <div className="actions" >
-                        </div>
-                      </div>
-                    )}
-                  </Popup>
-
-                </div>
-              </div> :
-
-              <div>
-                <h1>This is the Cart page!</h1>
-                <div>You don't have any items in the cart. Please click here.</div>
+              <div className="cart-headings">
+                <span className="cart-heading-empty"></span>
+                <span className="cart-heading-item"><strong>Item</strong></span>
+                <span className="cart-heading-qty"><strong>Qty</strong></span>
+                <span className="cart-heading-total"><strong>Item Total</strong></span>
               </div>
-            }
-          </div>
+
+              <div className="cart-contents">
+                {cartContents}
+              </div>
+
+
+              <div className="cart-totals">
+                <div>Sub-total(<i>exc. VAT</i>) = £{(this.state.total).toFixed(2)}</div>
+                <div>VAT (<i>UK only</i>)=£{(this.state.vatAmnt).toFixed(2)}</div>
+                <div><strong>Sub-total</strong> (<i>inc. VAT</i>)=£{(this.state.total + this.state.vatAmnt).toFixed(2)}</div>
+                <div>Free Returns. Free Repairs For Life.</div>
+              </div>
+
+
+              <div className="cart-update-checkout">
+                <button onClick={() => this.handleUpdateClick()}>Update Cart</button>
+
+                <Popup trigger={<button className="button"> Checkout </button>} modal>
+                  {close => (
+                    <div className="modal">
+                      <a className="close" onClick={close} >&times;</a>
+                      <div className="header" >
+                        <img src="https://s3.us-east-2.amazonaws.com/hiut-clone/Icons/owl.png" />
+                      </div>
+                      <div className="content" >
+                        {' '}
+                        <CheckoutForm total={this.state.total} vatAmnt={this.state.vatAmnt} firstname={this.props.firstname} />
+                      </div>
+                      <div className="actions" >
+                      </div>
+                    </div>
+                  )}
+                </Popup>
+              </div>
+
+            </div> :
+
+            <div>
+              <h1>This is the Cart page!</h1>
+              <div>You don't have any items in the cart. Please click here.</div>
+            </div>
+          }
+
         </Elements>
       </StripeProvider>
     )
