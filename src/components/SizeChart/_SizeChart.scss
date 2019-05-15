@@ -10,6 +10,7 @@
   .size-chart-wrapper {
     display: flex;
     align-items: flex-start;
+    margin-top: -1px;
     div {
       width: 4.875em;
       padding: 0 0.625em;
@@ -38,12 +39,13 @@
 }
 
 .size-chart-table {
-  margin-top: 47px;
+  margin-top: 50px;
   margin-bottom: 20px;
-  width: 100%;
+  margin: 0 10px;
 }
 
 table {
+  margin-top: 50px;
   display: table;
   text-align: center;
   font-family: 'Ropa Sans', sans-serif;
@@ -78,4 +80,18 @@ table {
     border-color: inherit;
     height: 35px;
   }
+  tr:hover {
+    background-color: #999999;
+    td:hover {
+      color: white;
+    }
+  }
 }
+
+// table {
+//   tr:hover {
+//     background-color: #999999;
+//     color: white;
+//   }
+// }
+  

@@ -1,0 +1,80 @@
+.measure-jeans {
+  margin-bottom: 50px;
+  // margin-top: -10px;
+}
+
+.measure-jeans-heading {
+  margin-top: -10px;
+  border-top: 1px solid #231F20;
+  padding-top: 29px;
+  display: flex;
+  flex-direction: column;
+  .measure-jeans-wrapper {
+    display: flex;
+    align-items: flex-start;
+    // margin-top: -7px;
+    div {
+      width: 4.875em;
+      padding: 0 0.625em;
+      margin-top: -1px;
+    }
+    img {
+      width: 2.75em;
+      margin-bottom: .438em;
+      margin-top: -.625px;
+    }
+    h3 {
+      font-family: 'Tinos', serif;
+      font-weight: 700;
+      font-size: 19px;
+      margin-top: .05em;
+      width: 310px;
+    }
+  }
+}
+
+.measure-panels {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  
+  .left-panel, .right-panel {
+    
+    width: 50%;
+    margin-bottom: 18px;
+    display: flex;
+    float: left;
+    h4 {
+      font-family: 'Tinos', serif;
+      font-size: 16px;
+      font-weight: 700;
+      width: 295px;
+      margin-top: 13px;
+    }
+    p {
+      margin-top: 20px;
+      font-family: 'Ropa Sans', sans-serif; 
+      font-size: 13px;
+      width: 295px;
+    }
+    .one, .two {
+      // width: 50%;
+      margin: 0 10px;
+      padding-bottom: 16px;
+      // border: 1px solid black;
+    }
+    img {
+      height: 180px;
+      width: auto;    
+    }
+  }
+}
+
+.panel-image {
+  // border: 1px solid red;
+  width: 222px;
+  margin-left: auto;
+  margin-right: auto;
+  // display: center;
+  // align-content: center;
+}

@@ -4,6 +4,7 @@ import Slider from "react-slick"
 import { withRouter } from "react-router-dom"
 import { Link } from "react-router-dom"
 import SizeChart from "./../SizeChart/SizeChart"
+import MeasureJeans from "./../MeasureJeans/MeasureJeans"
 
 class MensProduct extends Component {
   constructor() {
@@ -162,6 +163,8 @@ class MensProduct extends Component {
         </div>
 
         <SizeChart><a name="sizechart">Size Chart</a></SizeChart>
+
+        <MeasureJeans />
 
       </div>
     )
