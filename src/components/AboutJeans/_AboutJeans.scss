@@ -1,15 +1,16 @@
-.measure-jeans {
-  margin-bottom: 25px;
+.about-jeans {
+  margin-bottom: 16px;
+  border-bottom: 1px solid #231F20;
   // margin-top: -10px;
 }
 
-.measure-jeans-heading {
+.about-jeans-heading {
   margin-top: -10px;
   border-top: 1px solid #231F20;
   padding-top: 29px;
   display: flex;
   flex-direction: column;
-  .measure-jeans-wrapper {
+  .about-jeans-wrapper {
     display: flex;
     align-items: flex-start;
     // margin-top: -7px;
@@ -33,7 +34,7 @@
   }
 }
 
-.measure-panels {
+.about-panels {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -44,6 +45,12 @@
     margin-bottom: 18px;
     display: flex;
     float: left;
+    .about-link {
+      text-decoration: none;
+      font-family: 'Ropa Sans', sans-serif; 
+      font-size: 13px;
+      color: #C61B21;
+    }
     h4 {
       font-family: 'Tinos', serif;
       font-size: 16px;
@@ -64,13 +71,13 @@
       // border: 1px solid black;
     }
     img {
-      height: 180px;
+      height: 120px;
       width: auto;    
     }
   }
 }
 
-.panel-image {
+.about-panel-image {
   // border: 1px solid red;
   width: 222px;
   margin-left: auto;

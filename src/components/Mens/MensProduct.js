@@ -5,6 +5,7 @@ import { withRouter } from "react-router-dom"
 import { Link } from "react-router-dom"
 import SizeChart from "./../SizeChart/SizeChart"
 import MeasureJeans from "./../MeasureJeans/MeasureJeans"
+import AboutJeans from "./../AboutJeans/AboutJeans"
 
 class MensProduct extends Component {
   constructor() {
@@ -165,6 +166,8 @@ class MensProduct extends Component {
         <SizeChart><a name="sizechart">Size Chart</a></SizeChart>
 
         <MeasureJeans />
+
+        <AboutJeans />
 
       </div>
     )
