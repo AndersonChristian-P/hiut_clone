@@ -161,21 +161,42 @@ class Cart extends Component {
 
               <div className="cart-contents">
                 {cartContents}
+
+                <tfoot className="cart-totals">
+
+                  <tr className="cart-subtotal">
+                    <td>Sub-total(<i>exc. VAT</i>) = £{(this.state.total).toFixed(2)}</td>
+                  </tr>
+
+                  <tr className="cart-vat">
+                    <td>VAT (<i>UK only</i>)=£{(this.state.vatAmnt).toFixed(2)}</td>
+                  </tr>
+
+                  <tr className="cart-total">
+                    <td><strong>Sub-total</strong> (<i>inc. VAT</i>)=£{(this.state.total + this.state.vatAmnt).toFixed(2)}</td>
+                  </tr>
+
+                  <tr className="cart-repair">
+                    <td>Free Returns. Free Repairs For Life.</td>
+                  </tr>
+
+
+                </tfoot>
               </div>
 
 
-              <div className="cart-totals">
-                <div>Sub-total(<i>exc. VAT</i>) = £{(this.state.total).toFixed(2)}</div>
-                <div>VAT (<i>UK only</i>)=£{(this.state.vatAmnt).toFixed(2)}</div>
-                <div><strong>Sub-total</strong> (<i>inc. VAT</i>)=£{(this.state.total + this.state.vatAmnt).toFixed(2)}</div>
-                <div>Free Returns. Free Repairs For Life.</div>
-              </div>
+              {/* <div className="cart-totals">
+                <div className="cart-subtotal">Sub-total(<i>exc. VAT</i>) = £{(this.state.total).toFixed(2)}</div>
+                <div className="cart-vat">VAT (<i>UK only</i>)=£{(this.state.vatAmnt).toFixed(2)}</div>
+                <div className="cart-total"><strong>Sub-total</strong> (<i>inc. VAT</i>)=£{(this.state.total + this.state.vatAmnt).toFixed(2)}</div>
+                <div className="cart-repair">Free Returns. Free Repairs For Life.</div>
+              </div> */}
 
 
               <div className="cart-update-checkout">
-                <button onClick={() => this.handleUpdateClick()}>Update Cart</button>
+                <button className="update-cart-btn" onClick={() => this.handleUpdateClick()}>Update Cart</button>
 
-                <Popup trigger={<button className="button"> Checkout </button>} modal>
+                <Popup trigger={<button className="checkout-btn"> Checkout </button>} modal>
                   {close => (
                     <div className="modal">
                       <a className="close" onClick={close} >&times;</a>

@@ -1,7 +1,7 @@
 .items-in-cart {
   display: flex;
   flex-direction: column;
-  
+  margin-bottom: 30px;
   .cart-headings {
     margin-top: 2px;
     display: flex;
@@ -10,13 +10,13 @@
   font-size: 11px;
   font-weight: 700;
     .cart-heading-empty {
-      margin-right: 350px;
+      margin-right: 393px;
     }
     .cart-heading-item {
-      margin-right: 540px;
+      margin-right: 452px;
     }
     .cart-heading-qty {
-      margin-right: 145px;
+      margin-right: 170px;
     }
   }
 
@@ -35,17 +35,18 @@
   align-items: start;
   margin-bottom: 10px;
   padding-bottom: 10px;
-  border-bottom: 1px solid grey;
+  // border-bottom: 1px solid grey;
   .cart-content-image {
     width: 100px;
-    margin-right: 235px;
+    margin-right: 279px;
     
   }
   .cart-content-prod-info {
     font-family: 'Tinos', serif;
     font-size: 13px;
     color: #C61B21;
-    margin-right: 400px;
+    width: 300px;
+    margin-right: 174px;
     margin-top: -5px;
     div {
       color: black;
@@ -55,21 +56,83 @@
   .cart-content-item-count {
     font-family: 'Tinos', serif;
     font-size: 13px;
-    margin-top: -6px;
+    margin-top: -5px;
     input {
       width: 40px;
-      height: 27px;
+      height: 23px;
       padding-left: 9px;
       font-family: 'Ropa Sans', sans-serif;
       font-size: 11px;
     }
     .cart-content-btn {
-      margin-top: -10px;
+      margin-top: 9px;
+      margin-right: 145px;
+      button {
+      border: none;
+      font-family: 'Tinos', serif;
+      font-size: 13px;
+      color: #C61B21;
+      }
     }
   }   
+  .cart-content-subtotal {
+    font-family: 'Tinos', serif;
+    font-size: 13px;
+    width: 175px;
+    margin-top: -4px;
+  }
 }
 
+.cart-totals {
+  // border: 1px solid green;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: flex-end;
+  display: table-footer-group;
+  vertical-align: middle;
+  // margin-top: 2rem;
+  border-top: 1px solid lightgrey;
+  margin: 0 15px;
+  
+  
+  // margin-right: 20px;
+  font-family: 'Tinos', serif;
+  font-size: 13px;
+  tr {
+    td {
+      text-align: right;
+      width: 1240px;
+      
+    }
+  
+  }
+  .cart-repair {
+    font-size: 16px;
+  }
+}
 
+.cart-update-checkout {
+  // border-top: 1px solid grey;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 15px;
+  margin-top: 23px;
+  .update-cart-btn, .checkout-btn {
+    background-color: #C61B21;
+    color: white;
+    border: none;
+    width: 102.52px;
+    height: 39px;
+    font-family: 'Tinos', serif;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .update-cart-btn {
+    margin-right: 17.57px;
+    // width: 102.52px;
+  }
+}
 
 
 .modal {
