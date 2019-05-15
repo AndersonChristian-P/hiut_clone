@@ -20,6 +20,7 @@ class Womens extends Component {
           products: res.data,
         })
       })
+      .then(window.scrollTo(0, 0))
   }
 
   render() {
