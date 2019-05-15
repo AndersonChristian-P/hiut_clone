@@ -1,15 +1,15 @@
-.men-product-route {
+.women-product-route {
   display: flex;
   align-items: center;
   font-family: 'Tinos', serif;
-  font-size: .75em;
-  margin-left: -.45em;
-  margin-top: -.9em;
+  font-size: 12px;
+  margin-left: -7px;
+  margin-top: -14px;
   padding-bottom: 10px;
   span {
-    margin: 0 .4em;
+    margin: 0 6px;
   }
-  .mpr-home, .mpr-all {
+  .wpr-home, .wpr-all {
     text-decoration: none;
     color: #C61B21;
   }
@@ -19,17 +19,15 @@
   }
 }
 
-// -----
 .women-prod-hero {
-  // padding-bottom: 1.563em;
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 46px;
+  margin-bottom: 11px;
   width: 100%;
   .women-prod-slider {
-    width: 39.375em;
+    width: 630px;
     .women-slider-img {
-      width: 39.375em;
+      width: 630px;
     }
     .women-slides {
       position: relative;
@@ -57,34 +55,31 @@
     padding-top: 9px;
     padding-bottom: 10px;
     // padding: 9px 215px 10px 0;
-    .women-prod-info-title {
-      font-family: 'Tinos', serif;
-      font-size: 24px;
-      font-weight: 700;
-    }
-    .women-prod-info-fit {
-      margin-top: 10px;
-      font-family: 'Tinos', serif;
-      font-size: 19px;
-    }
-    .women-prod-info-price {
-      margin-top: 6px;
-      font-family: 'Tinos', serif;
-      font-size: 16px;
-    }
     p {
       margin-top: 10px;
       font-family: 'Ropa Sans', sans-serif;
       font-size: 13px;
       line-height: 20px;
     }
-    ul {
-      margin-top: 17px;
+    .women-prod-info-title {
+      font-family: 'Tinos', serif;
+      font-size: 24px;
+      font-weight: 700;
     }
-    li {
-      margin-left: 19px;
+    .women-prod-info-fit {
+      margin-top: 11px;
+      font-family: 'Tinos', serif;
+      font-size: 19px;
+    }
+    .women-prod-info-subtitle {
       font-family: 'Ropa Sans', sans-serif;
       font-size: 13px;
+      font-weight: 700;
+    }
+    .women-prod-info-price {
+      margin-top: 8px;
+      font-family: 'Tinos', serif;
+      font-size: 16px;
     }
     .women-prod-made-in {
       margin-top: 5px;
@@ -103,7 +98,6 @@
     }
   }
 }
-// -----
 
 #women-prod-size {
   border-top: 1px solid #231F20;
@@ -127,34 +121,6 @@
   }
 }
 
-
-
-
-
-
-
-
-// div {
-//   .women-prod-slider {
-//     width: 40em;
-//   }
-// }
-
-// .women-slides {
-//   position: relative;
-//   .slick-prev, .slick-next {
-//     position: absolute;
-//     top: 50%;
-//   }
-//   .slick-prev {
-//     left: 5%;
-//     z-index: 1;
-//   }
-//   .slick-next {
-//     right: 5%;
-//     z-index: 1;
-//   }
-// }
 
 
 // I hard coded image widths to be 640px | see line 46 in MensProduct.js

@@ -62,7 +62,7 @@ class WomensProduct extends Component {
     const imagesArr = [product[0].img1, product[0].img2, product[0].img3]
 
     const images = imagesArr.map((image, i) => {
-      return <div key={i} ><img className="men-slider-img" src={image} alt="#" /></div>
+      return <div key={i} ><img className="women-slider-img" src={image} alt="#" /></div>
     })
 
     return (
@@ -95,15 +95,15 @@ class WomensProduct extends Component {
           <div className="women-prod-info">
 
             <div className="women-prod-info-purchase">
-              <h1>{product[0].prod_title}</h1>
-              <p>{product[0].fit}</p>
-              <p>{`£${product[0].price}.00`}</p>
-              <p><strong>The Fit:</strong></p>
+              <h1 className="women-prod-info-title">{product[0].prod_title}</h1>
+              <p className="women-prod-info-fit">{product[0].fit}</p>
+              <p className="women-prod-info-price">{`£${product[0].price}.00`}</p>
+              <p className="women-prod-info-subtitle"><strong>The Fit:</strong></p>
               <p>{product[0].fit_long_desc1}</p>
               <p>{product[0].fit_long_desc2}</p>
-              <p><strong>The Denim:</strong></p>
+              <p className="women-prod-info-subtitle"><strong>The Denim:</strong></p>
               <p>{product[0].denim_long_desc}</p>
-              <p><strong>Details:</strong></p>
+              <p className="women-prod-info-subtitle"><strong>Details:</strong></p>
               <p>{product[0].details_long_desc}</p>
 
               <div className="women-prod-made-in">
@@ -111,8 +111,8 @@ class WomensProduct extends Component {
                 <p><i>If your size is not in stock, your jeans will be cut to order, with expected delivery in 4-6 weeks. Payment is taken when ordered.</i></p>
               </div>
 
-              <div>
-                <select onChange={this.handleSizeSelection} id="women-prod-size">
+              <div id="women-prod-size">
+                <select onChange={this.handleSizeSelection}>
                   <option hidden value="">Please select a size</option>
                   <option value="UK12-30/28">UK12-30 / 28 (Waist / Leg) In Stock</option>
                   <option value="UK12-30/30">UK12-30 / 30 (Waist / Leg) In Stock</option>
@@ -152,7 +152,7 @@ class WomensProduct extends Component {
 
         <AboutJeans />
 
-      </div>
+      </div >
     )
   }
 }
