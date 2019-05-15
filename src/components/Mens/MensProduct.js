@@ -26,6 +26,8 @@ class MensProduct extends Component {
           product: res.data
         })
       })
+      .then(window.scrollTo(0, 0))
+
   }
 
   handleSizeSelection = (event) => {
