@@ -3,6 +3,7 @@ import axios from "axios"
 import Slider from "react-slick"
 import { withRouter } from "react-router-dom"
 import { Link } from "react-router-dom"
+import SizeChart from "./../SizeChart/SizeChart"
 
 class MensProduct extends Component {
   constructor() {
@@ -160,9 +161,7 @@ class MensProduct extends Component {
           </div>
         </div>
 
-        <div>
-          <a name="sizechart">Size Chart</a>
-        </div>
+        <SizeChart><a name="sizechart">Size Chart</a></SizeChart>
 
       </div>
     )

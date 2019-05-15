@@ -1,0 +1,42 @@
+.size-chart {
+  margin-bottom: 50px;
+}
+
+.size-chart-heading {
+  border-top: 1px solid #231F20;
+  padding-top: 2.2em;
+  display: flex;
+  flex-direction: column;
+  .size-chart-wrapper {
+    display: flex;
+    align-items: flex-start;
+    div {
+      width: 4.875em;
+      padding: 0 0.625em;
+      margin-top: -1px;
+    }
+    img {
+      width: 2.75em;
+      margin-bottom: .438em;
+      margin-top: -.625px;
+    }
+    h3 {
+      font-family: 'Tinos', serif;
+      font-weight: 700;
+      font-size: 19px;
+      margin-top: .05em;
+      width: 120px;
+    }
+    p {
+      font-family: 'Ropa Sans', sans-serif;
+      font-size: 13px;
+      line-height: 1.5;
+      width: 450px;
+      // margin-top: 3px;
+    }
+  }
+}
+
+.coda-wrapper {
+
+}
