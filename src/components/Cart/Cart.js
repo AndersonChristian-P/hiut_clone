@@ -3,6 +3,7 @@ import axios from "axios"
 import { Elements, StripeProvider } from "react-stripe-elements"
 import { connect } from "react-redux"
 import { requestCart, requestTotal, requestVat } from "./../../redux/cartReducer"
+import { Link } from "react-router-dom"
 
 import { updateUserId, updateUserEmail, updateUserFirstName, updateUserLastName, updateAuthenticated } from "./../../redux/authReducer"
 
@@ -207,9 +208,11 @@ class Cart extends Component {
 
               </div> :
 
-              <div>
-                <h1>This is the Cart page!</h1>
-                <div>You don't have any items in the cart. Please click here.</div>
+              <div className="empty-cart">
+                <h1>Your Cart is empty...</h1>
+                <p>That's okay,
+                  <Link className="link-to-all" to="/collections/all"> head over here & check out our stuff >></Link>
+                </p>
               </div>
             }
 
@@ -223,7 +226,9 @@ class Cart extends Component {
 
                 <div className="cart-info-left-seconday">
                   <h3>Free Returns</h3>
-                  <p>We make returns super easy. No dumb rules. No small print. Because unless you are happy, you will never try us again. So just use the Freepost sticker (UK only) that comes with each invoice and send them back to us for a quick refund.<br />Read more »</p>
+                  <p>We make returns super easy. No dumb rules. No small print. Because unless you are happy, you will never try us again. So just use the Freepost sticker (UK only) that comes with each invoice and send them back to us for a quick refund.<br />
+                    <Link className="link-to-faq" to="/faq">Read more »</Link>
+                  </p>
                 </div>
               </div>
 
@@ -236,7 +241,8 @@ class Cart extends Component {
 
                 <div className="cart-info-right-secondary">
                   <h3>Free Repairs For Life</h3>
-                  <p>We stand by everything we make. And we keep standing by them. Our jeans aren’t indestructible, they are made of cotton after all. But, if they ever fail you and can be repaired, we will do that free of charge. So your favourites keep going.<br />Read more »</p>
+                  <p>We stand by everything we make. And we keep standing by them. Our jeans aren’t indestructible, they are made of cotton after all. But, if they ever fail you and can be repaired, we will do that free of charge. So your favourites keep going.<br />
+                    <Link className="link-to-faq" to="/faq">Read more »</Link></p>
                 </div>
               </div>
 
