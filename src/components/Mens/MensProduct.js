@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import axios from "axios"
 import Slider from "react-slick"
 import { withRouter } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 class MensProduct extends Component {
   constructor() {
@@ -57,11 +58,28 @@ class MensProduct extends Component {
     const imagesArr = [product[0].img1, product[0].img2, product[0].img3, product[0].img4, product[0].img5, product[0].img6, product[0].img7]
 
     const images = imagesArr.map((image, i) => {
-      return <div key={i}><img width="640px" src={image} alt="#" /></div>
+      return <div key={i}><img className="men-slider-img" src={image} alt="#" /></div>
     })
 
     return (
       <div>
+
+        <div className="men-product-route">
+          <span>
+            <Link className="mpr-home" to="/">
+              home
+            </Link>
+          </span>
+          <span>  >  </span>
+          <span>
+            <Link className="mpr-all" to="/collections/all">
+              products
+            </Link>
+          </span>
+          <span>  >  </span>
+          <span class="route-prod-name">{product[0].prod_title}</span>
+        </div>
+
         <div className="men-prod-hero">
           <div className="men-prod-slider">
             <Slider {...sliderSettings} >
@@ -70,10 +88,13 @@ class MensProduct extends Component {
           </div>
           <br />
 
-          <div className="men-prod-info-purchase">
-            <h1>{product[0].prod_title}</h1>
-            <p>{`${product[0].fit} fit`}</p>
-            <p>{`£${product[0].price}.00`}</p>
+          <div className="men-prod-info">
+
+            <h1 className="men-prod-info-title">{product[0].prod_title}</h1>
+            <p className="men-prod-info-fit">{`${product[0].fit} fit`}</p>
+            <p className="men-prod-info-price">{`£${product[0].price}.00`}</p>
+
+
             <p>{product[0].long_desc}</p>
             <ul>
               <li>{product[0].prod_desc1}</li>
@@ -83,54 +104,64 @@ class MensProduct extends Component {
               <li>{product[0].prod_desc5}</li>
               <li>{product[0].prod_desc6}</li>
             </ul>
-            <p>Made in Wales.</p>
-            <p><i>If your size is not in stock, your jeans will be cut to order, with expected delivery in 4-6 weeks. Payment is taken when ordered.</i></p>
-            <hr />
 
-            <select onChange={this.handleSizeSelection} id="men-prod-size">
-              <option hidden value="">Please select a size</option>
-              <option value="30/30">30 / 30 (Waist/Leg) In Stock</option>
-              <option value="30/32">30 / 32 (Waist/Leg) In Stock</option>
-              <option value="30/34">30 / 34 (Waist/Leg) In Stock</option>
-              <option value="30/36">30 / 36 (Waist/Leg) In Stock</option>
-              <option value="31/30">31 / 30 (Waist/Leg) In Stock</option>
-              <option value="31/32">31 / 32 (Waist/Leg) In Stock</option>
-              <option value="31/34">31 / 34 (Waist/Leg) In Stock</option>
-              <option value="31/36">31 / 36 (Waist/Leg) In Stock</option>
-              <option value="32/30">32 / 30 (Waist/Leg) In Stock</option>
-              <option value="32/32">32 / 32 (Waist/Leg) In Stock</option>
-              <option value="32/34">32 / 34 (Waist/Leg) In Stock</option>
-              <option value="32/36">32 / 36 (Waist/Leg) In Stock</option>
-              <option value="33/30">33 / 30 (Waist/Leg) In Stock</option>
-              <option value="33/32">33 / 32 (Waist/Leg) In Stock</option>
-              <option value="33/34">33 / 34 (Waist/Leg) In Stock</option>
-              <option value="33/36">33 / 36 (Waist/Leg) In Stock</option>
-              <option value="34/30">34 / 30 (Waist/Leg) In Stock</option>
-              <option value="34/32">34 / 32 (Waist/Leg) In Stock</option>
-              <option value="34/34">34 / 34 (Waist/Leg) In Stock</option>
-              <option value="34/36">34 / 36 (Waist/Leg) In Stock</option>
-              <option value="35/30">35 / 30 (Waist/Leg) In Stock</option>
-              <option value="35/32">35 / 32 (Waist/Leg) In Stock</option>
-              <option value="35/34">35 / 34 (Waist/Leg) In Stock</option>
-              <option value="35/36">35 / 36 (Waist/Leg) In Stock</option>
-              <option value="36/30">36 / 30 (Waist/Leg) In Stock</option>
-              <option value="36/32">36 / 32 (Waist/Leg) In Stock</option>
-              <option value="36/34">36 / 34 (Waist/Leg) In Stock</option>
-              <option value="36/36">36 / 36 (Waist/Leg) In Stock</option>
-              <option value="37/30">37 / 30 (Waist/Leg) In Stock</option>
-              <option value="37/32">37 / 32 (Waist/Leg) In Stock</option>
-              <option value="37/34">37 / 34 (Waist/Leg) In Stock</option>
-              <option value="37/36">37 / 36 (Waist/Leg) In Stock</option>
-              <option value="38/30">38 / 30 (Waist/Leg) In Stock</option>
-              <option value="38/32">38 / 32 (Waist/Leg) In Stock</option>
-              <option value="38/34">38 / 34 (Waist/Leg) In Stock</option>
-              <option value="38/36">38 / 36 (Waist/Leg) In Stock</option>
-            </select>
-            <hr />
+            <div className="men-prod-made-in">
+              <p>Made in Wales.</p>
+              <p><i>If your size is not in stock, your jeans will be cut to order, with expected delivery in 4-6 weeks. Payment is taken when ordered.</i></p>
+            </div>
 
-            <button onClick={this.handleAddToCart}>Add to basket</button>
+            <div id="men-prod-size">
+              <select onChange={this.handleSizeSelection}>
+                <option hidden value="">Please select a size</option>
+                <option value="30/30">30 / 30 (Waist/Leg) In Stock</option>
+                <option value="30/32">30 / 32 (Waist/Leg) In Stock</option>
+                <option value="30/34">30 / 34 (Waist/Leg) In Stock</option>
+                <option value="30/36">30 / 36 (Waist/Leg) In Stock</option>
+                <option value="31/30">31 / 30 (Waist/Leg) In Stock</option>
+                <option value="31/32">31 / 32 (Waist/Leg) In Stock</option>
+                <option value="31/34">31 / 34 (Waist/Leg) In Stock</option>
+                <option value="31/36">31 / 36 (Waist/Leg) In Stock</option>
+                <option value="32/30">32 / 30 (Waist/Leg) In Stock</option>
+                <option value="32/32">32 / 32 (Waist/Leg) In Stock</option>
+                <option value="32/34">32 / 34 (Waist/Leg) In Stock</option>
+                <option value="32/36">32 / 36 (Waist/Leg) In Stock</option>
+                <option value="33/30">33 / 30 (Waist/Leg) In Stock</option>
+                <option value="33/32">33 / 32 (Waist/Leg) In Stock</option>
+                <option value="33/34">33 / 34 (Waist/Leg) In Stock</option>
+                <option value="33/36">33 / 36 (Waist/Leg) In Stock</option>
+                <option value="34/30">34 / 30 (Waist/Leg) In Stock</option>
+                <option value="34/32">34 / 32 (Waist/Leg) In Stock</option>
+                <option value="34/34">34 / 34 (Waist/Leg) In Stock</option>
+                <option value="34/36">34 / 36 (Waist/Leg) In Stock</option>
+                <option value="35/30">35 / 30 (Waist/Leg) In Stock</option>
+                <option value="35/32">35 / 32 (Waist/Leg) In Stock</option>
+                <option value="35/34">35 / 34 (Waist/Leg) In Stock</option>
+                <option value="35/36">35 / 36 (Waist/Leg) In Stock</option>
+                <option value="36/30">36 / 30 (Waist/Leg) In Stock</option>
+                <option value="36/32">36 / 32 (Waist/Leg) In Stock</option>
+                <option value="36/34">36 / 34 (Waist/Leg) In Stock</option>
+                <option value="36/36">36 / 36 (Waist/Leg) In Stock</option>
+                <option value="37/30">37 / 30 (Waist/Leg) In Stock</option>
+                <option value="37/32">37 / 32 (Waist/Leg) In Stock</option>
+                <option value="37/34">37 / 34 (Waist/Leg) In Stock</option>
+                <option value="37/36">37 / 36 (Waist/Leg) In Stock</option>
+                <option value="38/30">38 / 30 (Waist/Leg) In Stock</option>
+                <option value="38/32">38 / 32 (Waist/Leg) In Stock</option>
+                <option value="38/34">38 / 34 (Waist/Leg) In Stock</option>
+                <option value="38/36">38 / 36 (Waist/Leg) In Stock</option>
+              </select>
+              <div className="men-size-chart">
+                <a className="men-size-chart" href="#sizechart">Size Chart</a>
+              </div>
+            </div>
+
+            <button className="men-add-cart-btn" onClick={this.handleAddToCart}>Add to basket</button>
             <p>What if they don't fit? You can exchange or return your jeans up to 90 days after purchase</p>
           </div>
+        </div>
+
+        <div>
+          <a name="sizechart">Size Chart</a>
         </div>
 
       </div>
