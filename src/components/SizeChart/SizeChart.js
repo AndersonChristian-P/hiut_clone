@@ -17,53 +17,87 @@ const SizeChart = () => {
         </div>
       </div>
 
-      <div>
-        <table>
-          <tbody>
+      <div id="size-table">
+        <div className="size-chart-table">
+          <table>
+            <tbody>
 
-            <tr>
-              <td>waist</td>
-              <td>waist flat cm</td>
-              <td>hem flat cm</td>
-              <td>front rise cm ( 30/32 leg )</td>
-              <td>front rise cm ( 34 leg )</td>
-            </tr>
+              <tr className="titles">
+                <td>waist</td>
+                <td>waist flat cm</td>
+                <td>hem flat cm</td>
+                <td>front rise cm <br />( 30 / 32 leg )</td>
+                <td>front rise cm <br />( 34 leg )</td>
+              </tr>
 
-          </tbody>
-        </table>
+              <tr>
+                <td>30</td>
+                <td>41.00</td>
+                <td>21.60</td>
+                <td>25.50</td>
+                <td>26.50</td>
+              </tr>
+              <tr>
+                <td>31</td>
+                <td>42.25</td>
+                <td>21.95</td>
+                <td>26.00</td>
+                <td>27.00</td>
+              </tr>
+              <tr>
+                <td>32</td>
+                <td>43.50</td>
+                <td>22.30</td>
+                <td>26.50</td>
+                <td>27.50</td>
+              </tr>
+              <tr>
+                <td>33</td>
+                <td>44.75</td>
+                <td>22.65</td>
+                <td>27.00</td>
+                <td>28.00</td>
+              </tr>
+              <tr>
+                <td>34</td>
+                <td>46.00</td>
+                <td>23.00</td>
+                <td>27.50</td>
+                <td>28.50</td>
+              </tr>
+              <tr>
+                <td>35</td>
+                <td>47.25</td>
+                <td>23.35</td>
+                <td>28.00</td>
+                <td>29.00</td>
+              </tr>
+              <tr>
+                <td>36</td>
+                <td>48.50</td>
+                <td>23.70</td>
+                <td>28.50</td>
+                <td>29.50</td>
+              </tr>
+              <tr>
+                <td>37</td>
+                <td>49.75</td>
+                <td>24.05</td>
+                <td>27.50</td>
+                <td>30.00</td>
+              </tr>
+              <tr>
+                <td>38</td>
+                <td>51.00</td>
+                <td>24.40</td>
+                <td>29.50</td>
+                <td>30.50</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
       </div>
-
-
-      {/* <table className="size-chart-grid">
-        <div className="column-titles">
-          <div className="column-1">waist</div>
-          <div className="column-2">waist flat cm</div>
-          <div className="column-3">hem flat cm</div>
-          <div className="column-4">front rise cm ( 30/32 leg )</div>
-          <div className="column-5">front rise cm ( 34 leg )</div>
-        </div>
-
-        <div className="row-size">
-          <div className="column-1">30</div>
-          <div className="column-2">41.00</div>
-          <div className="column-3">21.60</div>
-          <div className="column-4">25.50</div>
-          <div className="column-5">26.50</div>
-        </div>
-
-        <div className="row-size">
-          <div className="column-1">31</div>
-          <div className="column-2">42.25</div>
-          <div className="column-3">21.95</div>
-          <div className="column-4">26.00</div>
-          <div className="column-5">27.00</div>
-        </div>
-
-
-      </table> */}
-
-
-
 
     </div>
   )
