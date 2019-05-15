@@ -147,81 +147,103 @@ class Cart extends Component {
 
       <StripeProvider apiKey={stripePublicKey} >
         <Elements>
+          <div className="cart-hero">
+            {total > 0 ?
+              <div className="items-in-cart">
 
-          {total > 0 ?
-            <div className="items-in-cart">
+
+                <div className="cart-headings">
+                  <span className="cart-heading-empty"></span>
+                  <span className="cart-heading-item"><strong>Item</strong></span>
+                  <span className="cart-heading-qty"><strong>Qty</strong></span>
+                  <span className="cart-heading-total"><strong>Item Total</strong></span>
+                </div>
+
+                <div className="cart-contents">
+                  {cartContents}
+
+                  <tfoot className="cart-totals">
+
+                    <tr className="cart-subtotal">
+                      <td>Sub-total(<i>exc. VAT</i>) = £{(this.state.total).toFixed(2)}</td>
+                    </tr>
+
+                    <tr className="cart-vat">
+                      <td>VAT (<i>UK only</i>)=£{(this.state.vatAmnt).toFixed(2)}</td>
+                    </tr>
+
+                    <tr className="cart-total">
+                      <td><strong>Sub-total</strong> (<i>inc. VAT</i>)=£{(this.state.total + this.state.vatAmnt).toFixed(2)}</td>
+                    </tr>
+
+                    <tr className="cart-repair">
+                      <td>Free Returns. Free Repairs For Life.</td>
+                    </tr>
+
+                  </tfoot>
+                </div>
 
 
-              <div className="cart-headings">
-                <span className="cart-heading-empty"></span>
-                <span className="cart-heading-item"><strong>Item</strong></span>
-                <span className="cart-heading-qty"><strong>Qty</strong></span>
-                <span className="cart-heading-total"><strong>Item Total</strong></span>
+                <div className="cart-update-checkout">
+                  <button className="update-cart-btn" onClick={() => this.handleUpdateClick()}>Update Cart</button>
+
+                  <Popup trigger={<button className="checkout-btn"> Checkout </button>} modal>
+                    {close => (
+                      <div className="modal">
+                        <a className="close" onClick={close} >&times;</a>
+                        <div className="header" >
+                          <img src="https://s3.us-east-2.amazonaws.com/hiut-clone/Icons/owl.png" />
+                        </div>
+                        <div className="content" >
+                          {' '}
+                          <CheckoutForm total={this.state.total} vatAmnt={this.state.vatAmnt} firstname={this.props.firstname} />
+                        </div>
+                        <div className="actions" >
+                        </div>
+                      </div>
+                    )}
+                  </Popup>
+                </div>
+
+              </div> :
+
+              <div>
+                <h1>This is the Cart page!</h1>
+                <div>You don't have any items in the cart. Please click here.</div>
+              </div>
+            }
+
+            <div className="cart-info">
+
+              <div className="cart-info-left">
+                <div className="cart-info-left-primary">
+                  <h3>Good to know</h3>
+                  <p>The Hiut Denim Co. is here to make the best jeans we can, not the most jeans we can. We believe in quality and the skill of the maker. And we believe in ideas and the people who have them. They move this world forward. We just want to make jeans for them.</p>
+                </div>
+
+                <div className="cart-info-left-seconday">
+                  <h3>Free Returns</h3>
+                  <p>We make returns super easy. No dumb rules. No small print. Because unless you are happy, you will never try us again. So just use the Freepost sticker (UK only) that comes with each invoice and send them back to us for a quick refund.<br />Read more »</p>
+                </div>
               </div>
 
-              <div className="cart-contents">
-                {cartContents}
 
-                <tfoot className="cart-totals">
+              <div className="cart-info-right">
+                <div className="cart-info-right-primary">
+                  <h3>Fast Delivery</h3>
+                  <p>Your order will be shipped within 48 hours when in stock. All UK orders are shipped using Royal Mail Tracked so you can track them as they leave us. For International orders we use the Royal Mail’s Airmail service. Again, you can track them along the way.</p>
+                </div>
 
-                  <tr className="cart-subtotal">
-                    <td>Sub-total(<i>exc. VAT</i>) = £{(this.state.total).toFixed(2)}</td>
-                  </tr>
-
-                  <tr className="cart-vat">
-                    <td>VAT (<i>UK only</i>)=£{(this.state.vatAmnt).toFixed(2)}</td>
-                  </tr>
-
-                  <tr className="cart-total">
-                    <td><strong>Sub-total</strong> (<i>inc. VAT</i>)=£{(this.state.total + this.state.vatAmnt).toFixed(2)}</td>
-                  </tr>
-
-                  <tr className="cart-repair">
-                    <td>Free Returns. Free Repairs For Life.</td>
-                  </tr>
-
-
-                </tfoot>
+                <div className="cart-info-right-secondary">
+                  <h3>Free Repairs For Life</h3>
+                  <p>We stand by everything we make. And we keep standing by them. Our jeans aren’t indestructible, they are made of cotton after all. But, if they ever fail you and can be repaired, we will do that free of charge. So your favourites keep going.<br />Read more »</p>
+                </div>
               </div>
 
-
-              {/* <div className="cart-totals">
-                <div className="cart-subtotal">Sub-total(<i>exc. VAT</i>) = £{(this.state.total).toFixed(2)}</div>
-                <div className="cart-vat">VAT (<i>UK only</i>)=£{(this.state.vatAmnt).toFixed(2)}</div>
-                <div className="cart-total"><strong>Sub-total</strong> (<i>inc. VAT</i>)=£{(this.state.total + this.state.vatAmnt).toFixed(2)}</div>
-                <div className="cart-repair">Free Returns. Free Repairs For Life.</div>
-              </div> */}
-
-
-              <div className="cart-update-checkout">
-                <button className="update-cart-btn" onClick={() => this.handleUpdateClick()}>Update Cart</button>
-
-                <Popup trigger={<button className="checkout-btn"> Checkout </button>} modal>
-                  {close => (
-                    <div className="modal">
-                      <a className="close" onClick={close} >&times;</a>
-                      <div className="header" >
-                        <img src="https://s3.us-east-2.amazonaws.com/hiut-clone/Icons/owl.png" />
-                      </div>
-                      <div className="content" >
-                        {' '}
-                        <CheckoutForm total={this.state.total} vatAmnt={this.state.vatAmnt} firstname={this.props.firstname} />
-                      </div>
-                      <div className="actions" >
-                      </div>
-                    </div>
-                  )}
-                </Popup>
-              </div>
-
-            </div> :
-
-            <div>
-              <h1>This is the Cart page!</h1>
-              <div>You don't have any items in the cart. Please click here.</div>
             </div>
-          }
 
+
+          </div>
         </Elements>
       </StripeProvider>
     )
