@@ -21,7 +21,7 @@ class CheckoutForm extends Component {
 
     console.log("THIS IS THE STRIPE TOKEN ID", token.id)
     const { total, vatAmnt } = await this.state
-    let cartTotal = ((total + vatAmnt) * 100)
+    const cartTotal = ((total + vatAmnt) * 100)
 
     if (token) {
       let response = await axios.post("/api/charge", { cartTotal, token: token.id })
