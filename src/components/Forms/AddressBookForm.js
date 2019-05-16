@@ -42,36 +42,50 @@ class AddressBookForm extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleAddressFormSubmit}>
-          <input
-            onChange={this.handleChange}
-            type="text"
-            name="street"
-            placeholder="Street"
-            value={this.state.street}
-          />
-          <input
-            onChange={this.handleChange}
-            type="text"
-            name="city"
-            placeholder="City"
-            value={this.state.city}
-          />
-          <input
-            onChange={this.handleChange}
-            type="text"
-            name="state"
-            placeholder="State"
-            value={this.state.state} />
-          <input
-            onChange={this.handleChange}
-            type="number"
-            name="zip"
-            placeholder="Zip Code"
-            value={this.state.zip}
-          />
-          <button>Add Address</button>
-        </form>
+
+        <div className="address-book-hero">
+          <h1>Delivery Address</h1>
+          <h2>Please fill out your shipping address information below</h2>
+
+          <form onSubmit={this.handleAddressFormSubmit}>
+            <p>Street</p>
+            <input
+              onChange={this.handleChange}
+              type="text"
+              name="street"
+              className="address-street"
+              value={this.state.street}
+            />
+            <p>City</p>
+            <input
+              onChange={this.handleChange}
+              type="text"
+              name="city"
+              className="address-city"
+              value={this.state.city}
+            />
+            <p>State</p>
+            <input
+              onChange={this.handleChange}
+              type="text"
+              name="state"
+              className="address-state"
+              maxlength="2"
+              value={this.state.state}
+            />
+            <p>Zip</p>
+            <input
+              onChange={this.handleChange}
+              type="number"
+              name="zip"
+              className="address-zip"
+              maxlength="5"
+              value={this.state.zip}
+            />
+            <button>Add Address</button>
+          </form>
+        </div>
+
       </div>
     )
   }
