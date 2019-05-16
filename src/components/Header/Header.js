@@ -18,14 +18,19 @@ class Header extends Component {
       // console.log("THIS IS THE CART ON REDUX", this.props.cart)
       // console.log("THIS IS THE TOTAL ON REDUX", this.props.total, typeof this.props.total)
 
+      // if (this.props.total === 0 && this.props.cart.length === 0) {
+      //   return null
+      // } else {}
+
       this.setState({
         cart: this.props.cart,
         total: this.props.total
       })
+
+
+
     }
   }
-
-
 
   render() {
 
