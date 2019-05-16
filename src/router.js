@@ -14,7 +14,7 @@ import CustomerService from "./components/Pages/CustomerService/CustomerService"
 import Faq from "./components/Pages/Faq/Faq"
 import FitGuide from "./components/Pages/FitGuide/FitGuide"
 import HowToWash from "./components/Pages/HowToWash/HowToWash"
-import OurStory from "./components/Pages/OurStory/OurStory"
+import Documentary from "./components/Pages/Documentary/Documentary"
 import Repairs from "./components/Pages/Repairs/Repairs"
 import StoreLocations from "./components/Pages/StoreLocations/StoreLocations"
 import TermsAndConditions from "./components/Pages/TermsAndConditions/TermsAndConditions"
@@ -38,7 +38,7 @@ export default (
     <Route path="/faq" component={Faq} />
     <Route path="/fit-guide" component={FitGuide} />
     <Route path="/how-to-wash" component={HowToWash} />
-    <Route path="/our-story" component={OurStory} />
+    <Route path="/documentary" component={Documentary} />
     <Route path="/repairs" component={Repairs} />
     <Route path="/store-locations" component={StoreLocations} />
     <Route path="/terms-and-conditions" component={TermsAndConditions} />

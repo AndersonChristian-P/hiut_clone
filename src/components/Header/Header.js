@@ -72,7 +72,7 @@ class Header extends Component {
             <ul>
               <li><Link className="nav" to="/collections/mens" >Shop Men's</Link></li>
               <li><Link className="nav" to="/collections/womens" >Shop Women's</Link></li>
-              <li><Link className="nav" to="/our-story">Our Story</Link></li>
+              <li><Link className="nav" to="/documentary">Documentary</Link></li>
               <li><Link className="nav" to="/repairs" >Repairs</Link></li>
               <li><Link className="nav" to="/fit-guide" >Fit Guide</Link></li>
               <li><Link className="nav" to="/faq" >FAQ</Link></li>
