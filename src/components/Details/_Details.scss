@@ -28,3 +28,20 @@
     color: #fff;
   }
 }
+
+.no-address-on-file {
+  div {
+    margin-top: 10px;
+    color: #C61B21;
+    font-family: 'Tinos', serif;
+    font-size: 16px;
+  }
+  button {
+      margin-top: 20px;
+      width: 101px;
+      height: 40px;
+      font-size: 14px;
+      border-color: black;
+      // color: #fff;
+  }
+}
