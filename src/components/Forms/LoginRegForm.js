@@ -81,63 +81,81 @@ class Login extends Component {
     console.log("THIS IS THE FIRST NAME FROM REDUCER", this.props.firstname)
 
     return (
-      <div>
+      <div id="login-reg-hero">
 
-        <div>
+        <div id="login">
           <h1>Sign in</h1>
-          <form onSubmit={this.handleLoginFormSubmit}>
+
+          <form className="login-form" onSubmit={this.handleLoginFormSubmit}>
+            <p>Email Address</p>
             <input
               onChange={this.handleFormsInputUpdate}
               type="text"
               name="loginEmail"
-              placeholder="Email Address"
+              className="login-input"
               value={this.state.loginEmail}
             />
+            <p className="login-password">Password</p>
             <input
               onChange={this.handleFormsInputUpdate}
               type="password"
               name="loginPassword"
-              placeholder="Password"
+              className="login-input"
               value={this.state.loginPassword}
             />
-            <button>Sign In</button>
+            <div>
+              <button>Sign In</button>
+            </div>
           </form>
-          {this.state.loginError && <h3>{this.state.loginMessage}</h3>}
+
+          <div className="login-error">
+            {this.state.loginError && <h3>{this.state.loginMessage}</h3>}
+          </div>
         </div>
 
-        <div>
+        <div id="register">
           <h1>Sign Up</h1>
-          <form onSubmit={this.handleRegistrationFormSubmit}>
+          <form className="register-form" onSubmit={this.handleRegistrationFormSubmit}>
+            <p className="register-firstname">First Name</p>
             <input
               onChange={this.handleFormsInputUpdate}
               type="text"
               name="firstname"
-              placeholder="First Name"
+              className="register-input"
               value={this.state.firstname}
             />
+            <p className="register-lastname">Last Name</p>
             <input
               onChange={this.handleFormsInputUpdate}
               type="text"
               name="lastname"
-              placeholder="Last Name"
+              className="register-input"
               value={this.state.lastname}
             />
+            <p className="register-email">Email Address</p>
             <input
               onChange={this.handleFormsInputUpdate}
               type="text"
               name="email"
-              placeholder="Email Address"
+              className="register-input"
               value={this.state.email}
             />
+            <p className="register-password">Password</p>
             <input
               onChange={this.handleFormsInputUpdate}
               type="password"
               name="password"
-              placeholder="Password"
+              className="register-input"
               value={this.state.password} />
-            <button>Create</button>
+            <div>
+              <button>Create</button>
+            </div>
+
           </form>
-          {this.state.registerError && <h3>{this.state.registerMessage}</h3>}
+
+          <div className="register-error">
+            {this.state.registerError && <h3>{this.state.registerMessage}</h3>}
+          </div>
         </div>
 
       </div>
