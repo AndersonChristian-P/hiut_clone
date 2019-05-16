@@ -8,8 +8,10 @@ class Repairs extends Component {
 
   render() {
     return (
-      <div>
-        <h1>This is the Repairs page.</h1>
+      <div className="page-under-construction-hero">
+        <div className="page-under-construction">
+          <h1>Sorry...this page is under construction</h1>
+        </div>
       </div>
     )
   }
