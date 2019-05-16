@@ -161,7 +161,8 @@ class MensProduct extends Component {
                 <option value="38/36">38 / 36 (Waist/Leg) In Stock</option>
               </select>
               <div className="men-size-chart">
-                <a className="men-size-chart" href="#sizechart">Size Chart</a>
+                {/* <a className="men-size-chart" href="#sizechart">Size Chart</a> */}
+                <span className="men-size-chart">Size Chart</span>
               </div>
             </div>
 
@@ -170,7 +171,8 @@ class MensProduct extends Component {
           </div>
         </div>
 
-        <SizeChart><a name="sizechart">Size Chart</a></SizeChart>
+        {/* <SizeChart><a name="sizechart"></a></SizeChart> */}
+        <SizeChart />
 
         <MeasureJeans />
 
