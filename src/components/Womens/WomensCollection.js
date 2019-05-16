@@ -33,7 +33,7 @@ class Womens extends Component {
       return (
         <div key={i} className="coda women-product">
           <Link to={`/product/women/${product.id_text}`} >
-            <img className="coda women-product-img" width="1260" src={product.img0} alt="#" />
+            <img className="coda women-product-img" width="1260" src={product.img0} alt="coda jeans" />
           </Link>
           <div className="coda women-product-info">
             <h2 className="coda women-product-fit">{product.fit_desc}</h2>
@@ -50,7 +50,7 @@ class Womens extends Component {
       return (
         <div key={i} className="girlfriend women-product" >
           <Link to={`/product/women/${product.id_text}`} >
-            <img className="coda women-product-img" width="1260" src={product.img0} alt="#" />
+            <img className="coda women-product-img" width="1260" src={product.img0} alt="the girlfriend jean" />
           </Link>
           <div className="coda women-product-info">
             <h2 className="coda women-product-fit">{product.fit_desc}</h2>
@@ -67,7 +67,7 @@ class Womens extends Component {
       return (
         <div key={i} className="dina women-product" >
           <Link to={`/product/women/${product.id_text}`} >
-            <img className="dina women-product-img" width="1260" src={product.img0} alt="#" />
+            <img className="dina women-product-img" width="1260" src={product.img0} alt="dina jeans" />
           </Link>
           <div className="dina women-product-info">
             <h2 className="dina women-product-fit">{product.fit_desc}</h2>
@@ -84,7 +84,7 @@ class Womens extends Component {
       return (
         <div key={i} className="stelsby women-product" >
           <Link to={`/product/women/${product.id_text}`} >
-            <img className="stelsby women-product-img" width="1260" src={product.img0} alt="#" />
+            <img className="stelsby women-product-img" width="1260" src={product.img0} alt="stelsby jeans" />
           </Link>
           <div className="stelsby women-product-info">
             <h2 className="stelsby women-product-fit">{product.fit_desc}</h2>
@@ -101,7 +101,7 @@ class Womens extends Component {
       return (
         <div key={i} className="stelsby-hw women-product" >
           <Link to={`/product/women/${product.id_text}`} >
-            <img className="stelsby-hw women-product-img" width="1260" src={product.img0} alt="#" />
+            <img className="stelsby-hw women-product-img" width="1260" src={product.img0} alt="stelsby high waist jeans" />
           </Link>
           <div className="stelsby-hw women-product-info">
             <h2 className="stelsby-hw women-product-fit">{product.fit_desc}</h2>

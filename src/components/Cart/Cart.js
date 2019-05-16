@@ -120,7 +120,7 @@ class Cart extends Component {
 
     const cartContents = cart.map((product, i) => {
       return <div className="cart-content" key={i}>
-        <img className="cart-content-image" src={product.img1} alt="#" />
+        <img className="cart-content-image" src={product.img1} alt="mini shopping cart" />
 
         <span className="cart-content-prod-info">
           <span>{`${product.prod_title} ${product.size}`}</span>

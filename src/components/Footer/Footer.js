@@ -6,7 +6,7 @@ const Footer = () => {
     <div>
       <div className="footer">
         <div id="footer-logo-container" >
-          <img id="footer-logo" src="https://s3.us-east-2.amazonaws.com/hiut-clone/Icons/owl.png" alt="#" />
+          <img id="footer-logo" src="https://s3.us-east-2.amazonaws.com/hiut-clone/Icons/owl.png" alt="owl icon" />
         </div>
 
 

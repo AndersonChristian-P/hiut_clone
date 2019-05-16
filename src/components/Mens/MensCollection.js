@@ -32,7 +32,7 @@ class Mens extends Component {
       return (
         <div key={i} className="sel men-product">
           <Link to={`/product/men/${product.id_text}`} >
-            <img className="sel men-product-img" src={product.img0} alt="#" />
+            <img className="sel men-product-img" src={product.img0} alt="selvedge product" />
           </Link>
           <div className="sel men-product-info">
             <h2 className="sel men-product-fit">{product.fit}</h2>
@@ -50,7 +50,7 @@ class Mens extends Component {
       return (
         <div key={i} className="org men-product">
           <Link to={`/product/men/${product.id_text}`} >
-            <img className="org men-product-img" src={product.img0} alt="#" />
+            <img className="org men-product-img" src={product.img0} alt="organic product" />
           </Link>
           <div className="org men-product-info">
             <h2 className="org men-product-fit">{product.fit}</h2>
@@ -68,7 +68,7 @@ class Mens extends Component {
       return (
         <div key={i} className="anderson-product">
           <Link to={`/product/men/${product.id_text}`} >
-            <img className="anderson-product-img" src={product.img0} alt="#" />
+            <img className="anderson-product-img" src={product.img0} alt="anderson product" />
           </Link>
           <div className="anderson-product-info">
             <h2 className="anderson-product-fit">{product.fit}</h2>
@@ -140,7 +140,7 @@ class Mens extends Component {
           </div>
           <div className="short-run-denim-products">
             <div className="short-run-product">
-              <img width="1255px" src="https://s3.us-east-2.amazonaws.com/hiut-clone/Pages/mens_collection/JSWSS.jpg" alt="#" />
+              <img src="https://s3.us-east-2.amazonaws.com/hiut-clone/Pages/mens_collection/JSWSS.jpg" alt="japanese summer weight stretch selvedge sold out" />
               <div className="short-run-product-info">
                 <h2 className="short-run-product-fit">Japanese Summer Weight Stretch Selvedge</h2>
                 <p className="short-run-product-name">Limited Edition. 150 Only.</p>

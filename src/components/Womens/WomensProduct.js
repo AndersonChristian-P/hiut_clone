@@ -67,7 +67,7 @@ class WomensProduct extends Component {
     const imagesArr = [product[0].img1, product[0].img2, product[0].img3]
 
     const images = imagesArr.map((image, i) => {
-      return <div key={i} ><img className="women-slider-img" src={image} alt="#" /></div>
+      return <div key={i} ><img className="women-slider-img" src={image} alt="alternative view of product" /></div>
     })
 
     return (
