@@ -23,6 +23,10 @@ class Login extends Component {
     }
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
+
   handleFormsInputUpdate = (event) => {
     const { name, value } = event.target
     this.setState({

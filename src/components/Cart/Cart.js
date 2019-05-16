@@ -33,6 +33,8 @@ class Cart extends Component {
     await this.handleGetTotal()
     await this.handleGetVat()
 
+    window.scrollTo(0, 0)
+
     let res = await axios.get("/auth/session")
 
     if (!res.data.user) {
