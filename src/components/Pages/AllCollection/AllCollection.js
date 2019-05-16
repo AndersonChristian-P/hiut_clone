@@ -10,7 +10,22 @@ class AllCollection extends Component {
   render() {
     return (
       <div>
-        <h1>This is the All Collection Page</h1>
+
+        <div className="our-denim">
+          <div className="our-denim-heading">
+            <div>
+              <img src="https://s3.us-east-2.amazonaws.com/hiut-clone/Icons/icon-denim.png" alt="denim-icon" />
+            </div>
+            <h3>Our Denim</h3>
+          </div>
+          <div className="left-right-panes">
+
+          </div>
+        </div>
+
+
+
+
       </div>
     )
   }
