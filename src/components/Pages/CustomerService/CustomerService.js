@@ -1,11 +1,19 @@
-import React from "react"
+import React, { Component } from "react"
 
-const CustomerService = () => {
-  return (
-    <div>
-      <h1>This is the Customer Service page.</h1>
-    </div>
-  )
+class CustomerService extends Component {
+
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>This is the Customer Service page.</h1>
+      </div>
+    )
+  }
+
 }
 
 export default CustomerService

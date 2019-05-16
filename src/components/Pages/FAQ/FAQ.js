@@ -1,11 +1,18 @@
-import React from "react"
+import React, { Component } from "react"
 
-const FAQ = () => {
-  return (
-    <div>
-      <h1>This is the FAQ page.</h1>
-    </div>
-  )
+class Faq extends Component {
+
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>This is the Customer Service page.</h1>
+      </div>
+    )
+  }
 }
 
-export default FAQ
+export default Faq

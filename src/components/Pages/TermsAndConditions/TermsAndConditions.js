@@ -1,11 +1,17 @@
-import React from "react"
+import React, { Component } from "react"
 
-const TermsAndConditions = () => {
-  return (
-    <div>
-      <h1>This is the Terms & Conditions page.</h1>
-    </div>
-  )
+class TermsAndConditions extends Component {
+
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>This is the Terms and Conditions page.</h1>
+      </div>
+    )
+  }
 }
-
 export default TermsAndConditions
