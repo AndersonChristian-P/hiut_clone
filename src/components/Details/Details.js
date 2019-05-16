@@ -14,17 +14,17 @@ class Details extends Component {
       street: "",
       city: "",
       state: "",
-      zip: null,
+      zip: "",
       haveAddress: false
     }
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     window.scrollTo(0, 0)
     if (this.props.authenticated) {
       const userId = this.props.user_id
       console.log(userId)
-      axios.get(`/auth/addresses/${userId}`)
+      await axios.get(`/auth/addresses/${userId}`)
         .then(res => {
           console.log(res.data)
           if (res.data) {
@@ -51,7 +51,7 @@ class Details extends Component {
           street: "",
           city: "",
           state: "",
-          zip: null,
+          zip: "",
           haveAddress: false
         })
         this.props.history.push("/account")

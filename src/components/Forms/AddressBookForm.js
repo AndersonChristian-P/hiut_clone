@@ -11,7 +11,7 @@ class AddressBookForm extends Component {
       street: "",
       city: "",
       state: "",
-      zip: 0
+      zip: ""
     }
   }
 
@@ -41,9 +41,9 @@ class AddressBookForm extends Component {
 
   render() {
     return (
-      <div>
+      <div id="address-book-hero">
 
-        <div className="address-book-hero">
+        <div id="address-book">
           <h1>Delivery Address</h1>
           <h2>Please fill out your shipping address information below</h2>
 
@@ -64,25 +64,27 @@ class AddressBookForm extends Component {
               className="address-city"
               value={this.state.city}
             />
-            <p>State</p>
+            <p>State (e.g. AK)</p>
             <input
               onChange={this.handleChange}
               type="text"
               name="state"
               className="address-state"
-              maxlength="2"
+              maxLength="2"
               value={this.state.state}
             />
             <p>Zip</p>
             <input
               onChange={this.handleChange}
-              type="number"
+              type="text"
               name="zip"
               className="address-zip"
-              maxlength="5"
+              maxLength="10"
               value={this.state.zip}
             />
-            <button>Add Address</button>
+            <div>
+              <button>Add Address</button>
+            </div>
           </form>
         </div>
 
