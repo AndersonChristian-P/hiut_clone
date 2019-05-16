@@ -89,6 +89,10 @@ class Cart extends Component {
 
   handleChange = (i, event) => {
     let { value } = event.target
+
+    if (value < 1) {
+      return value = 1
+    }
     let currentCart = [...this.state.cart]
     currentCart[i].quantity = value
     this.setState({

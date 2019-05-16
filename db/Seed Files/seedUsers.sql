@@ -38,7 +38,7 @@ CREATE TABLE addresses (
   street VARCHAR(150),
   city VARCHAR(50),
   state VARCHAR(2),
-  zip INTEGER,
+  zip VARCHAR(10),
   user_id INTEGER references users
 );
 
@@ -46,13 +46,13 @@ INSERT INTO addresses (street, city, state, zip, user_id)
 VALUES (
   '123 Elm',
   'Lehi',
-  'UT',
-  22222,
+  'VT',
+  '00501',
   1
 ), (
   '567 Cutty',
   'Felton',
   'PA',
-  33333,
+  '33333',
   1
 );
