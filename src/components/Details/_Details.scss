@@ -1,0 +1,30 @@
+.details-hero {
+  color: #231F20;
+  font-family: 'Tinos', serif;
+  margin-bottom: 20px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #231F20;
+  h1 {
+    margin-top: 26px;
+    font-size: 32px;
+    font-weight: 200;
+  }
+  h2 {
+    margin-top: 40px;
+    font-size: 19px;
+    font-weight: 700;
+  }
+  p {
+    margin-top: 16px;
+    font-size: 16px;
+  }
+  .logout-btn {
+    margin-top: 40px;
+    width: 91px;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 700;
+    background-color: #C61B21;
+    color: #fff;
+  }
+}

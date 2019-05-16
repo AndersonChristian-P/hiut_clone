@@ -20,6 +20,7 @@ class Details extends Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0)
     if (this.props.authenticated) {
       const userId = this.props.user_id
       console.log(userId)
@@ -61,26 +62,39 @@ class Details extends Component {
   render() {
     return (
       <div>
-        <h1>This is the User info</h1>
-        <h2>{`Hi ${this.props.firstname} ${this.props.lastname}`}</h2>
+        <div className="details-hero">
+          <h1>Account Details</h1>
+          <h2>Delivery Address</h2>
+          <p>{this.props.firstname} {this.props.lastname}</p>
 
-        {this.state.haveAddress ?
+          {this.state.haveAddress ?
 
-          <div>
-            <h2>Your shipping address on file is...</h2>
+            <div className="address-on-file">
+              <div>
+                {this.state.street}
+              </div>
+              <div>
+                {`${this.state.city}, ${this.state.state} ${this.state.zip}`}
+              </div>
+
+              {/* 
             <h3>{this.state.street}</h3>
-            <h3>{`${this.state.city}, ${this.state.state} ${this.state.zip}`}</h3>
-          </div> :
+            <h3>{`${this.state.city}, ${this.state.state} ${this.state.zip}`}</h3> */}
+            </div> :
 
-          <div>
-            <h2>You do not have a shipping address on file.</h2>
-            <Link to="/address-book">
-              <button>Add Address</button>
-            </Link>
-          </div>
-        }
-        <button onClick={this.handleUserLogOut} >Logout</button>
+            <div className="no-address-on-file">
 
+              <div>You have 0 Addresses stored</div>
+              {/* <h2>You do not have a shipping address on file.</h2> */}
+              <Link to="/address-book">
+                <button>Add Address</button>
+              </Link>
+            </div>
+          }
+
+          <button className="logout-btn" onClick={this.handleUserLogOut} >Logout</button>
+
+        </div>
       </div>
     )
   }
