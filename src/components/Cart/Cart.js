@@ -196,7 +196,7 @@ class Cart extends Component {
                   <Popup trigger={<button className="checkout-btn"> Checkout </button>} modal>
                     {close => (
                       <div className="modal">
-                        <a className="close" onClick={close} >&times;</a>
+                        <span className="close" onClick={close} >&times;</span>
                         <div className="header" >
                           <img src="https://s3.us-east-2.amazonaws.com/hiut-clone/Icons/owl.png" alt="owl icon" />
                         </div>
