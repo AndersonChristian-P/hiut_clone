@@ -54,23 +54,34 @@ class Login extends Component {
   handleRegistrationFormSubmit = async (event) => {
     event.preventDefault()
     const { firstname, lastname, email, password } = this.state
-    try {
-      const res = await axios.post("/auth/register", { firstname, lastname, email, password })
-      this.props.updateAuthenticated(res.data.authenticated)
-      console.log("IS THIS USER AUTHENTICATED AFTER REGISTRATION", res.data.authenticated)
-      this.props.updateUserEmail(res.data.email)
-      this.props.updateUserId(res.data.user_id)
-      this.props.updateUserFirstName(res.data.firstname)
-      this.props.updateUserLastName(res.data.lastname)
-      this.props.history.push("/info")
-    } catch (err) {
-      this.setState({
+
+    if (firstname === "" || lastname === "" || email === "" || password === "") {
+      return this.setState({
         firstname: "",
         lastname: "",
         email: "",
         password: "",
         registerError: true
       })
+    } else {
+      try {
+        const res = await axios.post("/auth/register", { firstname, lastname, email, password })
+        this.props.updateAuthenticated(res.data.authenticated)
+        console.log("IS THIS USER AUTHENTICATED AFTER REGISTRATION", res.data.authenticated)
+        this.props.updateUserEmail(res.data.email)
+        this.props.updateUserId(res.data.user_id)
+        this.props.updateUserFirstName(res.data.firstname)
+        this.props.updateUserLastName(res.data.lastname)
+        this.props.history.push("/info")
+      } catch (err) {
+        this.setState({
+          firstname: "",
+          lastname: "",
+          email: "",
+          password: "",
+          registerError: true
+        })
+      }
     }
   }
 
@@ -109,7 +120,7 @@ class Login extends Component {
           </form>
 
           <div className="login-error">
-            {this.state.loginError && <h3>{this.state.loginMessage}</h3>}
+            {this.state.loginError && <h5>{this.state.loginMessage}</h5>}
           </div>
         </div>
 
@@ -154,7 +165,7 @@ class Login extends Component {
           </form>
 
           <div className="register-error">
-            {this.state.registerError && <h3>{this.state.registerMessage}</h3>}
+            {this.state.registerError && <h5>{this.state.registerMessage}</h5>}
           </div>
         </div>
 
