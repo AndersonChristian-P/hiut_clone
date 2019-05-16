@@ -39,7 +39,7 @@
   margin-top: 15px;
   margin-left: 15px;
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   margin-bottom: 3px;
   padding-bottom: 10px;
   // border-bottom: 1px solid grey;
@@ -97,8 +97,8 @@
   margin: 0 10px;
   font-family: 'Tinos', serif;
   font-size: 13px;
-  tr {
-    td {
+  .cart-subtotal, .cart-vat, .cart-total, .cart-repair {
+    div {
       text-align: right;
       width: 1240px;
       

@@ -133,6 +133,7 @@ class Cart extends Component {
             placeholder={product.quantity}
             value={cart[i].quantity}
             name="quantity"
+            min="1"
           />
           <div className="cart-content-btn">
             <button onClick={(event) => this.handleDelete(i)} >Remove</button>
@@ -163,25 +164,25 @@ class Cart extends Component {
                 <div className="cart-contents">
                   {cartContents}
 
-                  <tfoot className="cart-totals">
+                  <div className="cart-totals">
 
-                    <tr className="cart-subtotal">
-                      <td>Sub-total(<i>exc. VAT</i>) = £{(this.state.total).toFixed(2)}</td>
-                    </tr>
+                    <div className="cart-subtotal">
+                      <div>Sub-total(<i>exc. VAT</i>) = £{(this.state.total).toFixed(2)}</div>
+                    </div>
 
-                    <tr className="cart-vat">
-                      <td>VAT (<i>UK only</i>)=£{(this.state.vatAmnt).toFixed(2)}</td>
-                    </tr>
+                    <div className="cart-vat">
+                      <div>VAT (<i>UK only</i>)=£{(this.state.vatAmnt).toFixed(2)}</div>
+                    </div>
 
-                    <tr className="cart-total">
-                      <td><strong>Sub-total</strong> (<i>inc. VAT</i>)=£{(this.state.total + this.state.vatAmnt).toFixed(2)}</td>
-                    </tr>
+                    <div className="cart-total">
+                      <div><strong>Sub-total</strong> (<i>inc. VAT</i>)=£{(this.state.total + this.state.vatAmnt).toFixed(2)}</div>
+                    </div>
 
-                    <tr className="cart-repair">
-                      <td>Free Returns. Free Repairs For Life.</td>
-                    </tr>
+                    <div className="cart-repair">
+                      <div>Free Returns. Free Repairs For Life.</div>
+                    </div>
 
-                  </tfoot>
+                  </div>
                 </div>
 
 
@@ -193,7 +194,7 @@ class Cart extends Component {
                       <div className="modal">
                         <a className="close" onClick={close} >&times;</a>
                         <div className="header" >
-                          <img src="https://s3.us-east-2.amazonaws.com/hiut-clone/Icons/owl.png" />
+                          <img src="https://s3.us-east-2.amazonaws.com/hiut-clone/Icons/owl.png" alt="owl icon" />
                         </div>
                         <div className="content" >
                           {' '}
