@@ -39,13 +39,32 @@
     font-family: 'Tinos', serif;
     font-size: 14px;
   }
-  span {
+  .login-forgot-password {
     cursor: pointer;
     color: #C61B21;
     font-family: 'Tinos', serif;
     font-size: 16px;
   }
 }
+
+.forgot-password-btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  .forgot-password-cancel-btn {
+    background-color: #C61B21;
+    border: none;
+    color: #fff;
+  }
+  .forgot-password-span {
+    margin-top: 36px;
+    color: black; 
+    font-family: 'Tinos', serif;
+    font-size: 16px;
+  }
+}
+
+
 
 #register {
   margin-left: 250px;

@@ -5,9 +5,9 @@ const nodemailer = require("nodemailer")
 
 module.exports = {
   passwordReset: async (req, res) => {
-    const { loginEmail, message } = req.body
+    const { forgotPasswordEmail: email, message } = req.body
 
-    console.log(loginEmail, typeof loginEmail)
+    console.log(email, typeof email)
 
     console.log(message, typeof message)
 
@@ -22,7 +22,7 @@ module.exports = {
 
     let mailOptions = {
       from: '"Charley Andrews" <hiutclone@gmail.com>',
-      to: loginEmail,
+      to: email,
       subject: 'Reset Password - Hiut Clone',
       text: message
     }
@@ -36,5 +36,6 @@ module.exports = {
       }
     })
 
+    res.sendStatus(200)
   }
 }

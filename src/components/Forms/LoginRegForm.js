@@ -16,6 +16,8 @@ class Login extends Component {
       loginPassword: "",
       loginError: false,
       loginMessage: "Username or password is incorrect. Please try again.",
+      forgotPassword: false,
+      forgotPasswordEmail: "",
       firstname: "",
       lastname: "",
       email: "",
@@ -107,17 +109,23 @@ class Login extends Component {
     }
   }
 
-  handleForgotPassword = async () => {
 
-    const { loginEmail } = this.state
+  handleForgotPassword = () => {
+    this.setState({
+      forgotPassword: !this.state.forgotPassword
+    })
+  }
+
+  forgotPasswordSubmit = async (e) => {
+    e.preventDefault()
+    const { forgotPasswordEmail } = this.state
     const message = "We got a request that you wanted to reset your password. Please click here to continue."
-    // let response = await axios.post("/api/passwordreset", { loginEmail, message })
+    await axios.post("/api/passwordreset", { forgotPasswordEmail, message })
+      .then(this.setState({
+        forgotPassword: false,
+        forgotPasswordEmail: ""
+      }))
 
-    await axios.post("/api/passwordreset", { loginEmail, message })
-
-    // if (response.data) {
-    //   return console.log("here is the response", response)
-    // }
   }
 
 
@@ -125,44 +133,81 @@ class Login extends Component {
 
 
   render() {
-
-    console.log("THIS IS THE AUTHENTICATION FROM REDUCER", this.props.authenticated)
-    console.log("THIS IS THE FIRST NAME FROM REDUCER", this.props.firstname)
+    console.log("LOGIN REQ FORM RE-RENDERED")
+    // console.log("THIS IS THE AUTHENTICATION FROM REDUCER", this.props.authenticated)
+    // console.log("THIS IS THE FIRST NAME FROM REDUCER", this.props.firstname)
 
     return (
       <div id="login-reg-hero">
 
         <div id="login">
-          <h1>Sign in</h1>
 
-          <form className="login-form" onSubmit={this.handleLoginFormSubmit}>
-            <p>Email Address</p>
-            <input
-              onChange={this.handleFormsInputUpdate}
-              type="text"
-              name="loginEmail"
-              className="login-input"
-              value={this.state.loginEmail}
-            />
-            <p className="login-password">Password</p>
-            <input
-              onChange={this.handleFormsInputUpdate}
-              type="password"
-              name="loginPassword"
-              className="login-input"
-              value={this.state.loginPassword}
-            />
-            <div>
-              <button>Sign In</button>
-            </div>
-            <div>
-              <span onClick={this.handleForgotPassword}>Forgot your password?</span>
-            </div>
-          </form>
+          {!this.state.forgotPassword ?
 
-          <div className="login-error">
-            {this.state.loginError && <h5>{this.state.loginMessage}</h5>}
-          </div>
+            <span>
+              <h1>Sign in</h1>
+
+              <form className="login-form" onSubmit={this.handleLoginFormSubmit}>
+                <p>Email Address</p>
+                <input
+                  onChange={this.handleFormsInputUpdate}
+                  type="text"
+                  name="loginEmail"
+                  className="login-input"
+                  value={this.state.loginEmail}
+                />
+                <p className="login-password">Password</p>
+                <input
+                  onChange={this.handleFormsInputUpdate}
+                  type="password"
+                  name="loginPassword"
+                  className="login-input"
+                  value={this.state.loginPassword}
+                />
+                <div>
+                  <button>Sign In</button>
+                </div>
+                <div>
+                  <span className="login-forgot-password" onClick={this.handleForgotPassword}>Forgot your password?</span>
+                </div>
+              </form>
+
+              <div className="login-error">
+                {this.state.loginError && <h5>{this.state.loginMessage}</h5>}
+              </div>
+            </span> :
+
+            <span>
+              <h1>Reset Password</h1>
+              <p>We will send you an email to reset your password</p>
+
+              <form className="login-form" /*onSubmit={this.forgotPasswordSubmit}*/>
+                <p>Email</p>
+                <input
+                  onChange={this.handleFormsInputUpdate}
+                  type="text"
+                  name="forgotPasswordEmail"
+                  className="login-input"
+                  value={this.state.forgotPasswordEmail}
+                />
+
+
+
+                <div className="forgot-password-btns">
+                  <div>
+                    <button className="forgot-password-submit-btn" onClick={this.forgotPasswordSubmit}>Submit</button>
+                  </div>
+                  <span className="forgot-password-span">or</span>
+                  <div>
+                    <button className="forgot-password-cancel-btn" onClick={this.handleForgotPassword}>Cancel</button>
+                  </div>
+                </div>
+              </form>
+
+            </span>
+
+
+          }
         </div>
 
         <div id="register">
