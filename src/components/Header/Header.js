@@ -11,7 +11,8 @@ class Header extends Component {
     this.state = {
       cart: [],
       quantity: 0,
-      total: 0
+      total: 0,
+      firstname: ""
     }
   }
 
@@ -31,19 +32,6 @@ class Header extends Component {
   async componentDidUpdate(prevProps, prevState) {
     if (this.props.total !== prevState.total) {
 
-      // console.log("THIS IS THE CART ON REDUX", this.props.cart)
-      // console.log("THIS IS THE TOTAL ON REDUX", this.props.total, typeof this.props.total)
-
-      // if (this.props.total === 0 && this.props.cart.length === 0) {
-      //   return null
-      // } else {}
-
-
-
-      // await this.handleGetCart()
-      // await this.handleGetTotal()
-      // await this.handleQuantity()
-
       const itemsInCart = await this.props.cart.map(item => +item.quantity)
         .reduce(((acc, val) => acc + val), 0)
 
@@ -52,7 +40,6 @@ class Header extends Component {
         quantity: itemsInCart,
         total: this.props.total
       })
-
     }
   }
 
@@ -61,11 +48,6 @@ class Header extends Component {
     this.setState({
       cart: this.props.cart
     })
-    // if (this.props.cart.length > 0) {
-    //   this.setState({
-    //     cart: this.props.cart
-    //   })
-    // }
   }
 
   handleGetTotal = async () => {
@@ -73,11 +55,6 @@ class Header extends Component {
     this.setState({
       total: +this.props.total
     })
-    // if (+this.props.total > 0) {
-    //   this.setState({
-    //     total: +this.props.total
-    //   })
-    // }
   }
 
   handleQuantity = async () => {
@@ -91,11 +68,6 @@ class Header extends Component {
 
   render() {
 
-
-    // const itemsInCart = this.state.cart.map(item => +item.quantity)
-    //   .reduce(((acc, val) => acc + val), 0)
-
-
     console.log("--- THIS IS CART ON STATE ---", this.state.cart)
     console.log("--- THIS IS THE TOTAL ON STATE ---", this.state.total)
     console.log("--- THIS IS THE QUANTITY ON STATE ---", this.state.quantity)
@@ -103,15 +75,34 @@ class Header extends Component {
     return (
       <div>
         <div className="header-top-bar">
+
           <div>
-            <Link to="/account" className="header-sign-in">
-              Sign In
-          </Link>
-            <span> | </span>
-            <Link to="/account" className="header-reg">
-              Register
-          </Link>
+            {!this.props.firstname ?
+
+              <span>
+                <Link to="/account" className="header-sign-in">
+                  Sign In
+                </Link>
+                <span> | </span>
+                <Link to="/account" className="header-reg">
+                  Register
+              </Link>
+              </span>
+
+              :
+
+              <span>
+                <Link to="/account" className="header-sign-in">
+                  Hi, {this.props.firstname}
+                </Link>
+                <span> | </span>
+                <Link to="/account" className="header-reg">
+                  Address Book
+                </Link>
+              </span>
+            }
           </div>
+
           <Link to="/cart" className="header-cart">
             <div>
               <img className="bag-icon" src="https://s3.us-east-2.amazonaws.com/hiut-clone/Icons/bag.svg" alt="bag-icon" />
@@ -148,9 +139,11 @@ class Header extends Component {
 
 function mapStateToProps(state) {
   const { cart, total } = state.cart
+  const { firstname } = state.auth
   return {
     cart,
-    total
+    total,
+    firstname
   }
 }
 
