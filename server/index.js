@@ -8,6 +8,7 @@ const loginRegCtrl = require("./controllers/loginRegCtrl")
 const prodCtrl = require("./controllers/productsCtrl")
 const cartCtrl = require("./controllers/cartCtrl")
 const stripeCtrl = require("./controllers/stripeCtrl")
+const nmCtrl = require("./controllers/nodeMailerCtrl")
 
 // -- MIDDLEWARE -- //
 app.use(express.json())
@@ -67,7 +68,8 @@ app.put("/api/updatecart", cartCtrl.updateCart)
 app.delete("/api/deletefromcart/:idText/:size1/:size2/:quantity/:price/", cartCtrl.deleteItemFromCart)
 app.post("/api/clearcart", cartCtrl.clearCart)
 
-
-
 // Stripe
 app.post("/api/charge", stripeCtrl.stripeCharge)
+
+// NodeMailer
+app.post("/api/passwordreset", nmCtrl.passwordReset)

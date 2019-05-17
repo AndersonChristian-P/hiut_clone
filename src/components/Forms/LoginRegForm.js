@@ -5,6 +5,7 @@ import { updateUserId, updateUserEmail, updateUserFirstName, updateUserLastName,
 import axios from "axios"
 
 
+
 class Login extends Component {
 
   constructor() {
@@ -106,6 +107,22 @@ class Login extends Component {
     }
   }
 
+  handleForgotPassword = async () => {
+
+    const { loginEmail } = this.state
+    const message = "We got a request that you wanted to reset your password. Please click here to continue."
+    // let response = await axios.post("/api/passwordreset", { loginEmail, message })
+
+    await axios.post("/api/passwordreset", { loginEmail, message })
+
+    // if (response.data) {
+    //   return console.log("here is the response", response)
+    // }
+  }
+
+
+
+
 
   render() {
 
@@ -137,6 +154,9 @@ class Login extends Component {
             />
             <div>
               <button>Sign In</button>
+            </div>
+            <div>
+              <span onClick={this.handleForgotPassword}>Forgot your password?</span>
             </div>
           </form>
 
