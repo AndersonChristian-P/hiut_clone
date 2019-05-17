@@ -1,8 +1,9 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
-import { updateUserId, updateUserEmail, updateUserFirstName, updateUserLastName, updateAuthenticated } from "./../../redux/authReducer"
-import axios from "axios";
+import { updateUserId, updateUserEmail, updateUserFirstName, updateUserLastName, updateAuthenticated, updateStreet, updateCity, updateState, updateZip, updateValidAddress } from "./../../redux/authReducer"
+import axios from "axios"
+
 
 class Login extends Component {
 
@@ -25,6 +26,11 @@ class Login extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0)
+    if (this.props.authenticated) {
+      this.props.history.push("/info")
+    } else {
+      return null
+    }
   }
 
   handleFormsInputUpdate = (event) => {
@@ -45,6 +51,17 @@ class Login extends Component {
       this.props.updateUserFirstName(res.data.firstname)
       this.props.updateUserLastName(res.data.lastname)
       this.props.updateAuthenticated(res.data.authenticated)
+
+      // const userAddress = await axios.get(`/auth/addresses/${res.data.user.user_id}`)
+      // if (userAddress.data) {
+      //   await this.props.updateStreet(userAddress.data.street)
+      //   await this.props.updateCity(userAddress.data.city)
+      //   await this.props.updateState(userAddress.data.state)
+      //   await this.props.updateZip(userAddress.data.zip)
+      //   await this.props.updateValidAddress(userAddress.data.validAddress)
+
+      // }
+
       this.props.history.push("/info")
     } catch (err) {
       this.setState({
@@ -188,4 +205,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { updateUserEmail, updateUserId, updateUserFirstName, updateUserLastName, updateAuthenticated })(withRouter(Login))
+export default connect(mapStateToProps, { updateUserEmail, updateUserId, updateUserFirstName, updateUserLastName, updateAuthenticated, updateStreet, updateCity, updateState, updateZip, updateValidAddress })(withRouter(Login))

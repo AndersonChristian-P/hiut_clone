@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
 import { connect } from "react-redux"
+import { requestCart, requestTotal } from "./../../redux/cartReducer"
+import axios from "axios"
 
 class Header extends Component {
   constructor() {
@@ -8,11 +10,25 @@ class Header extends Component {
 
     this.state = {
       cart: [],
+      quantity: 0,
       total: 0
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
+
+  async componentDidMount() {
+    let res = await axios.get("/auth/session")
+
+    if (res.data.cart.length === 0) {
+      return null
+    } else {
+      this.handleGetCart()
+      this.handleGetTotal()
+      this.handleQuantity()
+    }
+  }
+
+  async componentDidUpdate(prevProps, prevState) {
     if (this.props.total !== prevState.total) {
 
       // console.log("THIS IS THE CART ON REDUX", this.props.cart)
@@ -22,25 +38,67 @@ class Header extends Component {
       //   return null
       // } else {}
 
-      this.setState({
+
+
+      // await this.handleGetCart()
+      // await this.handleGetTotal()
+      // await this.handleQuantity()
+
+      const itemsInCart = await this.props.cart.map(item => +item.quantity)
+        .reduce(((acc, val) => acc + val), 0)
+
+      await this.setState({
         cart: this.props.cart,
+        quantity: itemsInCart,
         total: this.props.total
       })
-
-
 
     }
   }
 
+  handleGetCart = async () => {
+    await this.props.requestCart()
+    this.setState({
+      cart: this.props.cart
+    })
+    // if (this.props.cart.length > 0) {
+    //   this.setState({
+    //     cart: this.props.cart
+    //   })
+    // }
+  }
+
+  handleGetTotal = async () => {
+    await this.props.requestTotal()
+    this.setState({
+      total: +this.props.total
+    })
+    // if (+this.props.total > 0) {
+    //   this.setState({
+    //     total: +this.props.total
+    //   })
+    // }
+  }
+
+  handleQuantity = async () => {
+    const itemsInCart = await this.state.cart.map(item => +item.quantity)
+      .reduce(((acc, val) => acc + val), 0)
+    this.setState({
+      quantity: itemsInCart
+    })
+  }
+
+
   render() {
 
-    const itemsInCart = this.state.cart.map(item => +item.quantity)
-      .reduce(((acc, val) => acc + val), 0)
 
-    // console.log("THIS IS THE ITEMS IN CART FROM THE HEADER", itemsInCart)
+    // const itemsInCart = this.state.cart.map(item => +item.quantity)
+    //   .reduce(((acc, val) => acc + val), 0)
 
-    // console.log("NUMBER OF ITEMS IN CART", itemsInCart)
-    // console.log("THIS IS THE CART", this.state.cart)
+
+    console.log("--- THIS IS CART ON STATE ---", this.state.cart)
+    console.log("--- THIS IS THE TOTAL ON STATE ---", this.state.total)
+    console.log("--- THIS IS THE QUANTITY ON STATE ---", this.state.quantity)
 
     return (
       <div>
@@ -58,7 +116,7 @@ class Header extends Component {
             <div>
               <img className="bag-icon" src="https://s3.us-east-2.amazonaws.com/hiut-clone/Icons/bag.svg" alt="bag-icon" />
               <span>
-                {itemsInCart} {this.state.cart.length === 0 || itemsInCart === 1 ? "item" : "items"} {`£${this.state.total}.00`}
+                {this.state.quantity} {this.state.cart.length === 0 || this.state.quantity === 1 ? "item" : "items"} {`£${this.state.total}.00`}
               </span>
             </div>
           </Link>
@@ -96,4 +154,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(Header)
+export default connect(mapStateToProps, { requestCart, requestTotal })(Header)

@@ -29,19 +29,21 @@ class Cart extends Component {
   }
 
   async componentDidMount() {
-    await this.handleGetCart()
-    await this.handleGetTotal()
-    await this.handleGetVat()
+    // await this.handleGetCart()
+    // await this.handleGetTotal()
+    // await this.handleGetVat()
 
     window.scrollTo(0, 0)
 
     let res = await axios.get("/auth/session")
 
-    if (!res.data.user) {
-      return null;
-    }
+    console.log(res.data.user)
 
-    if (res.data.user.user_id !== this.props.user_id) {
+    // if (!res.data.user && res.data.cart.length === 0) {
+    //   return null;
+    // }
+
+    if (res.data.user) {
       const { user } = res.data
       await this.props.updateUserEmail(user.email)
       await this.props.updateUserId(user.user_id)
@@ -50,41 +52,78 @@ class Cart extends Component {
       await this.props.updateAuthenticated(user.authenticated)
     }
 
+    // if (res.data.cart.length !== 0) {
+    //   await this.handleGetCart()
+    //   await this.handleGetTotal()
+    //   await this.handleGetVat()
+    // }
+
+    if (res.data.cart.length === 0) {
+
+      return null
+    } else {
+      await this.handleGetCart()
+      await this.handleGetTotal()
+      await this.handleGetVat()
+    }
+
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.total !== prevState.total) {
+      this.setState({
+        cart: this.props.cart,
+        total: this.props.total,
+        vatAmnt: this.props.vat
+      })
+    }
   }
 
   handleGetCart = async () => {
     await this.props.requestCart()
-    if (this.props.cart.length > 0) {
-      this.setState({
-        cart: this.props.cart
-      })
-    }
+    await this.setState({
+      cart: this.props.cart
+    })
+
+    // if (this.props.cart.length > 0) {
+    //   this.setState({
+    //     cart: this.props.cart
+    //   })
+    // }
   }
 
   handleGetTotal = async () => {
     await this.props.requestTotal()
-    if (+this.props.total > 0) {
-      this.setState({
-        total: +this.props.total
-      })
-    }
+    await this.setState({
+      total: +this.props.total
+    })
+
+    // if (+this.props.total > 0) {
+    //   this.setState({
+    //     total: +this.props.total
+    //   })
+    // }
   }
 
   handleGetVat = async () => {
     await this.props.requestVat()
-    if (+this.props.vat > 0) {
-      this.setState({
-        vat: +this.props.vat
-      })
-    }
+    await this.setState({
+      vatAmnt: +this.props.vat
+    })
+
+    // if (this.props.vat > 0) {
+    //   this.setState({
+    //     vatAmnt: +this.props.vat
+    //   })
+    // }
 
 
-    axios.get("/api/vat")
-      .then(res => {
-        this.setState({
-          vatAmnt: +res.data
-        })
-      })
+    // axios.get("/api/vat")
+    //   .then(res => {
+    //     this.setState({
+    //       vatAmnt: +res.data
+    //     })
+    //   })
   }
 
   handleChange = (i, event) => {
@@ -109,20 +148,29 @@ class Cart extends Component {
     const endpoint = `/api/deletefromcart/${idText}/${size}/${quantity}/${price}`
 
     axios.delete(endpoint)
-      // .then(this.handleGetCart()).then(this.handleGetTotal()).then(this.handleGetVat())
-      .then(window.location.reload())
+      .then(this.props.requestCart()).then(this.props.requestVat()).then(this.props.requestTotal())
+
+    // .then(this.handleGetCart()).then(this.handleGetTotal()).then(this.handleGetVat())
+
+    // .then(window.location.reload())
   }
 
   handleUpdateClick = () => {
     const { cart, vatAmnt } = this.state
     axios.put("/api/updatecart", { cart, vatAmnt })
-      // .then(this.handleGetCart()).then(this.handleGetTotal()).then(this.handleGetVat())
-      .then(window.location.reload())
+      .then(this.props.requestCart()).then(this.props.requestVat()).then(this.props.requestTotal())
+
+    // .then(this.handleGetCart()).then(this.handleGetTotal()).then(this.handleGetVat())
+    // .then(window.location.reload())
   }
 
   render() {
 
     const { cart, total } = this.state
+
+    console.log("THIS IS THE VAT AFTER COMPONENT DID MOUNT", this.state.vatAmnt, typeof this.state.vatAmnt)
+
+    console.log("THIS IS THE CART AFTER COMPONENT DID MOUNT", this.state.cart)
 
     const cartContents = cart.map((product, i) => {
       return <div className="cart-content" key={i}>
@@ -179,11 +227,11 @@ class Cart extends Component {
                     </div>
 
                     <div className="cart-vat">
-                      <div>VAT (<i>UK only</i>)=£{(this.state.vatAmnt).toFixed(2)}</div>
+                      <div>VAT (<i>UK only</i>)=£{(+this.state.vatAmnt).toFixed(2)}</div>
                     </div>
 
                     <div className="cart-total">
-                      <div><strong>Sub-total</strong> (<i>inc. VAT</i>)=£{(this.state.total + this.state.vatAmnt).toFixed(2)}</div>
+                      <div><strong>Sub-total</strong> (<i>inc. VAT</i>)=£{(this.state.total + +this.state.vatAmnt).toFixed(2)}</div>
                     </div>
 
                     <div className="cart-repair">
@@ -206,7 +254,14 @@ class Cart extends Component {
                         </div>
                         <div className="content" >
                           {' '}
-                          <CheckoutForm total={this.state.total} vatAmnt={this.state.vatAmnt} firstname={this.props.firstname} />
+                          <CheckoutForm
+                            total={this.state.total}
+                            vatAmnt={this.state.vatAmnt}
+                            firstname={this.props.firstname}
+                            handleGetCart={this.handleGetCart}
+                            handleGetTotal={this.handleGetTotal}
+                            handleGetVat={this.handleGetVat}
+                          />
                         </div>
                         <div className="actions" >
                         </div>

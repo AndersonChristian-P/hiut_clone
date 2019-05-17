@@ -77,10 +77,19 @@ module.exports = {
 
     try {
       const data = await db.getUserAddresses({ id })
+      // console.log("THIS IS THE DATA", data)
       session.user.address = data[0]
       console.log("this is the address on session", session.user.address)
-      res.status(200).send(data[0]) // put ability to select ship to address on the back burner so currently only the first address inputted is ever returned
+
+      console.log("THIS IS THE CART ON SESSION", req.session.user.cart)
+
+
+      res.status(200).send({ validAddress: true, street: data[0].street, city: data[0].city, zip: data[0].zip, firstname: data[0].firstname, lastname: data[0].lastname })
+
+      // res.status(200).send(data[0])
+      // put ability to select ship to address on the back burner so currently only the first address inputted is ever returned
     } catch (err) {
+      console.log("THIS IS THE ERROR", err)
       res.sendStatus(404)
     }
   },

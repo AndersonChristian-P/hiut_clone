@@ -86,7 +86,7 @@ class WomensProduct extends Component {
             </Link>
           </span>
           <span>  >  </span>
-          <span class="route-prod-name">{product[0].prod_title}</span>
+          <span className="route-prod-name">{product[0].prod_title}</span>
         </div>
 
         <div className="women-prod-hero">

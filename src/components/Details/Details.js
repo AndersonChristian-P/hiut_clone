@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import axios from "axios";
 import { Link } from "react-router-dom"
 import { withRouter } from "react-router-dom"
-import { userLogOut } from "./../../redux/authReducer"
+import { userLogOut, updateStreet, updateCity, updateState, updateZip, updateValidAddress } from "./../../redux/authReducer"
 
 class Details extends Component {
 
@@ -15,32 +15,79 @@ class Details extends Component {
       city: "",
       state: "",
       zip: "",
-      haveAddress: false
+      validAddress: false
     }
   }
 
   async componentDidMount() {
     window.scrollTo(0, 0)
-    if (this.props.authenticated) {
-      const userId = this.props.user_id
-      console.log(userId)
-      await axios.get(`/auth/addresses/${userId}`)
-        .then(res => {
-          console.log(res.data)
-          if (res.data) {
-            console.log(res.data)
-            this.setState({
-              street: res.data.street,
-              city: res.data.city,
-              state: res.data.state,
-              zip: res.data.zip,
-              haveAddress: true
-            })
-          }
-        })
-    } else {
+
+    let res = await axios.get("/auth/session")
+
+    if (!res.data.user) {
       this.props.history.push("/account")
+    } else {
+      await this.handleGetAddress()
     }
+
+
+
+    // if (this.props.authenticated) {
+    //   await this.handleGetAddress()
+    // } else {
+    //   this.props.history.push("/account")
+    // }
+  }
+
+  handleGetAddress = async () => {
+
+    let res = await axios.get("/auth/session")
+
+    if (!res.data.user) {
+      return null;
+    }
+
+
+
+
+    const userAddress = await axios.get(`/auth/addresses/${res.data.user.user_id}`)
+
+    console.log("THIS IS THE USER ADDRESS FROM DETAILS", userAddress)
+
+    if (userAddress.data) {
+      await this.props.updateStreet(userAddress.data.street)
+      await this.props.updateCity(userAddress.data.city)
+      await this.props.updateState(userAddress.data.state)
+      await this.props.updateZip(userAddress.data.zip)
+      await this.props.updateValidAddress(userAddress.data.validAddress)
+    } else {
+      return null
+    }
+
+
+
+
+    // if (this.props.street === "") {
+    //   const userAddress = await axios.get(`/auth/addresses/${this.props.user_id}`)
+    //   if (userAddress.data) {
+    //     await this.props.updateStreet(userAddress.data.street)
+    //     await this.props.updateCity(userAddress.data.city)
+    //     await this.props.updateState(userAddress.data.state)
+    //     await this.props.updateZip(userAddress.data.zip)
+    //     await this.props.updateValidAddress(userAddress.data.validAddress)
+
+    //   }
+    // }
+
+    this.setState({
+      street: this.props.street,
+      city: this.props.city,
+      state: this.props.state,
+      zip: this.props.zip,
+      validAddress: this.props.validAddress
+    })
+
+
   }
 
   handleUserLogOut = () => {
@@ -60,6 +107,10 @@ class Details extends Component {
   }
 
   render() {
+
+    console.log("THIS IS THE STATE", this.state)
+
+
     return (
       <div>
         <div className="details-hero">
@@ -67,7 +118,7 @@ class Details extends Component {
           <h2>Delivery Address</h2>
           <p>{this.props.firstname} {this.props.lastname}</p>
 
-          {this.state.haveAddress ?
+          {this.state.validAddress ?
 
             <div className="address-on-file">
               <div>
@@ -100,16 +151,21 @@ class Details extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  const { authenticated, user_id, firstname, lastname } = state.auth
+const mapStateToProps = (reduxState) => {
+  const { authenticated, user_id, firstname, lastname, street, city, state, zip, validAddress } = reduxState.auth
   return {
     authenticated,
     user_id,
     firstname,
-    lastname
+    lastname,
+    street,
+    city,
+    state,
+    zip,
+    validAddress
   }
 }
 
-export default connect(mapStateToProps, { userLogOut })(withRouter(Details))
+export default connect(mapStateToProps, { userLogOut, updateStreet, updateCity, updateState, updateZip, updateValidAddress })(withRouter(Details))
 
 

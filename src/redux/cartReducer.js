@@ -5,7 +5,7 @@ const REQUEST_SESSION_TOTAL = "REQUEST_SESSION_TOTAL"
 const REQUEST_SESSION_VAT = "REQUEST_SESSION_VAT"
 
 const initialState = {
-  cart: [{}],
+  cart: [],
   total: "",
   vat: ""
 }

@@ -94,13 +94,15 @@
   display: table-footer-group;
   vertical-align: middle;
   border-top: 1px solid lightgrey;
-  margin: 0 10px;
+  padding: 0 10px;
+  // margin: 0 10px;
   font-family: 'Tinos', serif;
   font-size: 13px;
+  width: 100%;
   .cart-subtotal, .cart-vat, .cart-total, .cart-repair {
     div {
       text-align: right;
-      width: 1240px;
+      // width: 100%;
       
     }
   
