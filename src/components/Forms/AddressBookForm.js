@@ -71,6 +71,7 @@ class AddressBookForm extends Component {
               name="state"
               className="address-state"
               maxLength="2"
+              pattern="[a-zA-Z]"
               value={this.state.state}
             />
             <p>Zip</p>
