@@ -6,7 +6,7 @@ const REQUEST_SESSION_VAT = "REQUEST_SESSION_VAT"
 
 const initialState = {
   cart: [],
-  total: "",
+  total: 0,
   vat: ""
 }
 
@@ -40,7 +40,7 @@ export default function cartReducer(state = initialState, action) {
     case `${REQUEST_SESSION_CART}_FULFILLED`:
       return { ...state, cart: payload }
     case `${REQUEST_SESSION_TOTAL}_FULFILLED`:
-      return { ...state, total: payload }
+      return { ...state, total: +payload }
     case `${REQUEST_SESSION_VAT}_FULFILLED`:
       return { ...state, vat: payload }
     default:
