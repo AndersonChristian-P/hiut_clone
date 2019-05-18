@@ -14,9 +14,10 @@
   max-width: 1400px;
   #footer-logo-container {
     width: 60px;
-    height: 35.36px;
+    padding: 0 10px;
+    // height: 35.36px;
     #footer-logo {
-      height: 3.24em;
+      width: 40px;
     }
   }
   nav {
@@ -61,3 +62,20 @@
   padding-bottom: 3px;
 }
 
+@media only screen and (min-width: 480px) and (max-width: 887px) {
+  .footer { 
+  #footer-logo-container {
+    margin: auto 0;
+    width: 13.611%;
+    #footer-logo {
+      width: 88.4%;
+    }
+  }
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  #footer-logo-container {
+    visibility: hidden;
+  }
+}
