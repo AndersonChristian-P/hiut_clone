@@ -1,8 +1,10 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
 import { connect } from "react-redux"
-import { requestCart, requestTotal } from "./../../redux/cartReducer"
 import axios from "axios"
+import { requestCart, requestTotal } from "./../../redux/cartReducer"
+import { updateUserId, updateUserEmail, updateUserFirstName, updateUserLastName, updateAuthenticated } from "./../../redux/authReducer"
+
 
 class Header extends Component {
   constructor() {
@@ -20,12 +22,34 @@ class Header extends Component {
   async componentDidMount() {
     let res = await axios.get("/auth/session")
 
-    if (res.data.cart.length === 0) {
-      return null
-    } else {
+    // if (res.data.cart.length === 0) {
+    //   return null
+    // } else {
+    //   this.handleGetCart()
+    //   this.handleGetTotal()
+    //   this.handleQuantity()
+    // }
+
+    if (res.data.cart.length !== 0) {
       this.handleGetCart()
       this.handleGetTotal()
       this.handleQuantity()
+    }
+
+    console.log("THIS IS THE RES.DATA ON HEADER", res.data)
+
+
+    if (!res.data.user) {
+      return null
+    }
+
+    if (res.data.user.user_id !== this.props.user_id) {
+      const { user } = res.data
+      await this.props.updateUserEmail(user.email)
+      await this.props.updateUserId(user.user_id)
+      await this.props.updateUserFirstName(user.firstname)
+      await this.props.updateUserLastName(user.lastname)
+      await this.props.updateAuthenticated(user.authenticated)
     }
   }
 
@@ -139,12 +163,13 @@ class Header extends Component {
 
 function mapStateToProps(state) {
   const { cart, total } = state.cart
-  const { firstname } = state.auth
+  const { firstname, user_id } = state.auth
   return {
     cart,
     total,
-    firstname
+    firstname,
+    user_id
   }
 }
 
-export default connect(mapStateToProps, { requestCart, requestTotal })(Header)
+export default connect(mapStateToProps, { requestCart, requestTotal, updateUserId, updateUserEmail, updateUserFirstName, updateUserLastName, updateAuthenticated })(Header)
