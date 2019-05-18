@@ -79,3 +79,29 @@
     visibility: hidden;
   }
 }
+
+
+
+@media only screen and (min-width: 492px) and (max-width: 719px) {
+  .footer {
+    font-size: 9px;
+  }
+}
+
+@media only screen and (max-width: 491px) {
+  .footer {
+    font-size: 8px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .footer {
+    font-size: 7px;
+  }
+}
+
+@media only screen and (max-width: 410px) {
+  .footer {
+    font-size: 6px;
+  }
+}
