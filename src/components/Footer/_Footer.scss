@@ -86,22 +86,42 @@
   .footer {
     font-size: 9px;
   }
+  ul {
+    li {
+      line-height: 2em;
+    }
+ }
 }
 
 @media only screen and (max-width: 491px) {
   .footer {
     font-size: 8px;
   }
+  ul {
+    li {
+      line-height: 2em;
+    }
+ }
 }
 
 @media only screen and (max-width: 450px) {
   .footer {
     font-size: 7px;
   }
+  ul {
+    li {
+      line-height: 2em;
+    }
+ }
 }
 
 @media only screen and (max-width: 410px) {
   .footer {
     font-size: 6px;
   }
+  ul {
+    li {
+      line-height: 1.5em;
+    }
+ }
 }
