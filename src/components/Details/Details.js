@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import axios from "axios";
 import { Link } from "react-router-dom"
 import { withRouter } from "react-router-dom"
-import { userLogOut, updateStreet, updateCity, updateState, updateZip, updateValidAddress } from "./../../redux/authReducer"
+import { userLogOut, updateStreet, updateCity, updateState, updateZip, updateValidAddress, updateUserFirstName, updateUserLastName } from "./../../redux/authReducer"
 
 class Details extends Component {
 
@@ -24,6 +24,8 @@ class Details extends Component {
 
     let res = await axios.get("/auth/session")
 
+    console.log("THIS IS THE RES.DATA FROM DETAILS COMPONENT", res.data, typeof res.data)
+
     if (!res.data.user) {
       this.props.history.push("/account")
     } else {
@@ -41,25 +43,37 @@ class Details extends Component {
 
   handleGetAddress = async () => {
 
+    console.log("THIS IS THE USER_ID ON DETAILS", this.props.user_id)
+
+    // if (this.props.user_id === null) {
+    //   return null;
+    // }
+
     let res = await axios.get("/auth/session")
 
-    if (!res.data.user) {
-      return null;
-    }
-
-
+    console.log("THIS IS THE RES ON DETAILS", res)
+    console.log("THIS IS THE USER_ID ON DETAILS", res.data.user.user_id, typeof res.data.user.user_id)
 
 
     const userAddress = await axios.get(`/auth/addresses/${res.data.user.user_id}`)
 
+
+
+    // 1 const userAddress = await axios.get(`/auth/addresses/${res.data.user.user_id}`)
+
     console.log("THIS IS THE USER ADDRESS FROM DETAILS", userAddress)
 
-    if (userAddress.data) {
+    // figure out what what the status is on userAddress and use it in the if() statement below
+
+    // 1 if (userAddress.data) {
+    if (userAddress.status === 200 && userAddress.data.street.length > 0) {
       await this.props.updateStreet(userAddress.data.street)
       await this.props.updateCity(userAddress.data.city)
       await this.props.updateState(userAddress.data.state)
       await this.props.updateZip(userAddress.data.zip)
       await this.props.updateValidAddress(userAddress.data.validAddress)
+      await this.props.updateUserFirstName(userAddress.data.firstname)
+      await this.props.updateUserLastName(userAddress.data.lastname)
     } else {
       return null
     }
@@ -166,6 +180,6 @@ const mapStateToProps = (reduxState) => {
   }
 }
 
-export default connect(mapStateToProps, { userLogOut, updateStreet, updateCity, updateState, updateZip, updateValidAddress })(withRouter(Details))
+export default connect(mapStateToProps, { userLogOut, updateStreet, updateCity, updateState, updateZip, updateValidAddress, updateUserFirstName, updateUserLastName })(withRouter(Details))
 
 
