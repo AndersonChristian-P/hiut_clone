@@ -84,7 +84,7 @@ module.exports = {
       console.log("THIS IS THE CART ON SESSION", req.session.user.cart)
 
 
-      res.status(200).send({ validAddress: true, street: data[0].street, city: data[0].city, zip: data[0].zip, firstname: data[0].firstname, lastname: data[0].lastname })
+      res.status(200).send({ validAddress: true, street: data[0].street, city: data[0].city, state: data[0].state, zip: data[0].zip, firstname: data[0].firstname, lastname: data[0].lastname })
 
       // res.status(200).send(data[0])
       // put ability to select ship to address on the back burner so currently only the first address inputted is ever returned
