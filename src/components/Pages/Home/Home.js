@@ -25,7 +25,7 @@ class Home extends Component {
 
         <section className="home-partition cf" >
 
-          <div className="home-partition left">
+          <div className="home-partition-left">
             <div className="icon-container">
               <img className="icon-denim" src="https://s3.us-east-2.amazonaws.com/hiut-clone/Icons/icon-denim.png" alt="denim-icon" />
             </div>
@@ -43,7 +43,7 @@ class Home extends Component {
             </div>
           </div>
 
-          <div className="home-partition right">
+          <div className="home-partition-right">
             <div className="icon-container">
               <img className="icon-denim" src="https://s3.us-east-2.amazonaws.com/hiut-clone/Icons/icon-denim.png" alt="denim-icon" />
             </div>
