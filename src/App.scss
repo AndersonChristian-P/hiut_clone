@@ -29,21 +29,7 @@
 }
 // reset
 
-// -- Map Functions -- //
-// $fontSizeMap: (
-// 	body: 13px
-// );
-
-// @function fontSize($key) {
-// 	@if map-has-key($fontSizeMap, $key ) {
-// 		@return map-get($fontSizeMap, $key);
-// 	}
-// }
-// fontSize("body") returns 13px
-
 body {
-	// font-family: 'Ropa Sans', sans-serif;
-	// font-family: 'Tinos', serif;
 	font-size: 1em;
 	line-height: 1.5em;
 	margin: 10px auto;

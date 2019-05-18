@@ -69,6 +69,7 @@
     }
   }
   .selvedge-denim-products, .organic-denim-products, .anderson-products, .short-run-denim-products {
+    border: 1px solid red;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -83,8 +84,9 @@
 }
 
 .men-product {
+  width: 25%;
   .men-product-img {
-    width: 19.625em;
+    width: 100%;
   }
   .men-product-info{
     margin-left: 1.25em;
@@ -111,11 +113,12 @@
 }
 
 .anderson-product {
+  border: 1px solid green;
   // margin-bottom: 1.3em;
   // padding-bottom: 2.625em;
   // border-bottom: 1px solid #231F20;
   .anderson-product-img {
-    width: 78.438em;
+    width: 100%;
   }
   .anderson-product-info {
     margin-left: 1.25em;
@@ -142,8 +145,9 @@
 }
 
 .short-run-product {
+  width: 100%;
   img {
-    width: 1255px;
+    width: 100%;
   }
   .short-run-product-info {
     line-height: 1.4em;
