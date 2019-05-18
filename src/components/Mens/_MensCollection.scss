@@ -60,6 +60,7 @@
       margin-top: .05em;
     }
     p {
+      margin-bottom: 17px;
       font-size: 0.8em;
       font-style: italic;
       color: #999999;
@@ -69,7 +70,6 @@
     }
   }
   .selvedge-denim-products, .organic-denim-products, .anderson-products, .short-run-denim-products {
-    border: 1px solid red;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -113,7 +113,6 @@
 }
 
 .anderson-product {
-  border: 1px solid green;
   // margin-bottom: 1.3em;
   // padding-bottom: 2.625em;
   // border-bottom: 1px solid #231F20;
