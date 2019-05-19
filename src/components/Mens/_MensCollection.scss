@@ -3,6 +3,7 @@
   flex-direction: column;
   border-bottom: 1px solid #231F20;
   margin-bottom: 16px;
+  // line-height: 1.2;
   // padding-bottom: 2.225em;
 }
 
@@ -169,4 +170,35 @@
     font-size: 1em;
     color: #C61B21;
   }
+}
+
+
+@media only screen and (max-width: 779px) {
+  .men-product-desc {
+    line-height: 1em;
+    margin-top: .5em;
+    margin-bottom: .3em;
+  }
+}
+
+@media only screen and (max-width: 659px) {
+  .selvedge-denim-products, .organic-denim-products, .anderson-products, .short-run-denim-products {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-bottom: 2.06em;
+    margin-top: .2em;
+  }
+  .men-product {
+    width: 45%;
+  }
+  .selvedge-denim, .organic-denim, .anderson-denim, .short-run-denim {
+    .selvedge, .organic, .anderson, .short-run {
+      h3 {
+        // border: 1px solid red;
+        margin-right: 1.8em;
+      }
+    }
+  }
+  
 }
