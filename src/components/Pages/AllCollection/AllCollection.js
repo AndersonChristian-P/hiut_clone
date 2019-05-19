@@ -11,7 +11,7 @@ class AllCollection extends Component {
     return (
       <div className="hero-our-denim">
 
-        <div>
+        <div className="our-denim-content">
           <div className="our-denim">
             <div className="our-denim-heading">
               <div>

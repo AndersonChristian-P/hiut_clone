@@ -73,6 +73,7 @@
     }
     span {
       border-bottom: 0.0625em solid #fff;
+      line-height: 1em;
     }
   }
 }
@@ -84,3 +85,29 @@
 //   }
   
 // }
+
+@media only screen and (max-width: 719px) {
+  .article-left-caption, .article-right-caption{
+    span {
+      font-size: 48px;
+    }
+  }
+}
+
+@media only screen and (max-width: 639px) {
+  .our-denim-content {
+    display: flex;
+    flex-direction: column;
+  }
+  .article-left-our-denim, .article-right-our-denim {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  .article-left-caption, .article-right-caption{
+    span {
+      font-size: 40px;
+    }
+  }
+}
