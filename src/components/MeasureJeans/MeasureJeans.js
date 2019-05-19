@@ -10,9 +10,9 @@ const MeasureJeans = () => {
           <div className="measure-jeans-img-container">
             <img src="https://s3.us-east-2.amazonaws.com/hiut-clone/Pages/product/ruler-icon.png" alt="ruler icon" />
           </div>
-          <div>
-            <h3>How to measure like a Grand Master</h3>
-          </div>
+          {/* <div> */}
+          <div className="measure-jeans-title">How to measure like a Grand Master</div>
+          {/* </div> */}
         </div>
       </div>
 
