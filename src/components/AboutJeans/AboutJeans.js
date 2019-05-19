@@ -11,9 +11,7 @@ const AboutJeans = () => {
           <div className="about-jeans-img-container">
             <img src="https://s3.us-east-2.amazonaws.com/hiut-clone/Icons/icon-denim.png" alt="denim icon" />
           </div>
-          <div>
-            <h3>About Our Jeans</h3>
-          </div>
+          <div className="about-jeans-title">About Our Jeans</div>
         </div>
       </div>
 
