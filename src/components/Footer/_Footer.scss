@@ -76,7 +76,7 @@
 
 @media only screen and (max-width: 479px) {
   #footer-logo-container {
-    visibility: hidden;
+    display: none;
   }
 }
 
@@ -91,6 +91,9 @@
       line-height: 2em;
     }
  }
+ .copyright {
+  font-size: 9px;
+  }
 }
 
 @media only screen and (max-width: 491px) {
@@ -102,6 +105,9 @@
       line-height: 2em;
     }
  }
+ .copyright {
+  font-size: 8px;
+  }
 }
 
 @media only screen and (max-width: 450px) {
@@ -113,6 +119,9 @@
       line-height: 2em;
     }
  }
+ .copyright {
+  font-size: 7px;
+  }
 }
 
 @media only screen and (max-width: 410px) {
@@ -124,4 +133,7 @@
       line-height: 1.5em;
     }
  }
+ .copyright {
+  font-size: 6px;
+  }
 }
