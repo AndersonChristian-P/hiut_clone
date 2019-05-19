@@ -12,16 +12,21 @@
     display: flex;
     align-items: flex-start;
     font-family: 'Tinos', serif;
-  font-size: 11px;
-  font-weight: 700;
+    font-size: 11px;
+    font-weight: 700;
     .cart-heading-empty {
-      margin-right: 393px;
+      width: 110px;
+      // margin-right: 393px;
+      // margin-right: 28.15%;
+      margin-right: 20.37%;
     }
     .cart-heading-item {
-      margin-right: 452px;
+      // margin-right: 452px;
+      width: 33.85%;
     }
     .cart-heading-qty {
-      margin-right: 170px;
+      // margin-right: 170px;
+      margin-right: 12.15%;
     }
   }
 
@@ -37,23 +42,28 @@
 
 .cart-content {
   margin-top: 15px;
-  margin-left: 15px;
+  // margin-left: 15px;
+  padding: 0 15px;
   display: flex;
   align-items: flex-start;
   margin-bottom: 3px;
+  width: 100%;
   padding-bottom: 10px;
-  // border-bottom: 1px solid grey;
   .cart-content-image {
     width: 100px;
-    margin-right: 279px;
+    // width: 7.29%;
+    // margin-right: 279px;
+    margin-right: 20.37%;
     
   }
   .cart-content-prod-info {
     font-family: 'Tinos', serif;
     font-size: 13px;
     color: #C61B21;
-    width: 300px;
-    margin-right: 174px;
+    // width: 300px;
+    width: 21.9%;
+    // margin-right: 174px;
+    margin-right: 12.70%;
     margin-top: -5px;
     div {
       color: black;
@@ -64,6 +74,8 @@
     font-family: 'Tinos', serif;
     font-size: 13px;
     margin-top: -5px;
+    // margin-right: 145px;
+    margin-right: 10.58%;
     input {
       width: 40px;
       height: 23px;
@@ -73,7 +85,7 @@
     }
     .cart-content-btn {
       margin-top: 9px;
-      margin-right: 145px;
+      // margin-right: 145px;
       button {
       border: none;
       font-family: 'Tinos', serif;
@@ -83,9 +95,11 @@
     }
   }   
   .cart-content-subtotal {
+    
     font-family: 'Tinos', serif;
     font-size: 13px;
-    width: 175px;
+    // width: 175px;
+    width: 4%;
     margin-top: -4px;
   }
 }
@@ -178,14 +192,14 @@
 }
 
 .cart-info {
-  // border: 1px solid red;
   border-bottom: 2px solid #231f20;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // margin-bottom: 80px;
+  // margin-bottom: 20px;
   padding-bottom: 40px;
   // margin: 0 10px;
+  // margin-bottom: 20px;
   h3 {
     font-family: 'Tinos', serif;
     font-size: 19px;
@@ -227,6 +241,153 @@
     .link-to-all {
       text-decoration: none;
       color: #C61B21;
+    }
+  }
+}
+
+
+@media only screen and (max-width: 919px) {
+  .cart-info {
+    padding-bottom: 60px;
+  }
+}
+
+@media only screen and (max-width: 887px) {
+  .cart-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding-bottom: 40px;
+    .cart-info-left, .cart-info-right {
+        width: auto;
+    }
+    .cart-info-right {
+      margin-top: 23px;
+    }
+    
+  }
+}
+
+@media only screen and (max-width: 801px) {
+  .cart-content-prod-info {
+    line-height: 1em;
+    div {
+      color: black;
+      line-height: 2.5em;
+    }
+  }
+}
+
+@media only screen and (max-width: 616px) {
+  .cart-info {
+    .cart-info-right {
+      margin-top: 43px;
+    }
+  }
+}
+
+
+
+@media only screen and (max-width: 499px) {
+  .cart-content {
+    .cart-content-image {
+      margin-right: 10%;
+    }
+  }
+  .items-in-cart {
+    .cart-headings {
+      .cart-heading-empty {
+        width: 13.1%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 462px) {
+  .cart-info {
+   padding-bottom: 60px;
+   .cart-info-right {
+    margin-top: 60px;
+    } 
+  }
+}
+
+
+@media only screen and (max-width: 440px) {
+  .cart-content {
+  .cart-content-image { 
+      width: 25.91%; 
+    }
+  }
+  .items-in-cart {
+    .cart-headings {
+      .cart-heading-empty {
+        width: 16.5%;
+      }
+    }
+  }
+  .cart-info {
+    padding-bottom: 70px;
+    .cart-info-right {
+     margin-top: 75px;
+     } 
+   }
+}
+
+@media only screen and (max-width: 368px) {
+  .cart-info {
+   padding-bottom: 105px;
+   .cart-info-right {
+    margin-top: 105px;
+    } 
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .cart-content {
+  .cart-content-image { 
+      width: 13.33%; 
+    }
+  }
+  .items-in-cart {
+    .cart-headings {
+      .cart-heading-empty {
+        width: 5.5%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 332px) {
+  .cart-info {
+   padding-bottom: 135px;
+   .cart-info-right {
+    margin-top: 135px;
+    } 
+  }
+}
+
+@media only screen and (max-width: 290px) {
+  .cart-content {
+  .cart-content-image {
+      width: 12.4%; 
+    }
+    .cart-content-prod-info {
+      margin-right: 8%;
+    }  
+    .cart-content-item-count {
+      margin-right: 5%;
+    }
+  }
+  .items-in-cart {
+    .cart-headings {
+      .cart-heading-item {
+        width: 26.85%;
+      }
+      .cart-heading-qty {
+        margin-right: 14.15%;
+      }
     }
   }
 }
