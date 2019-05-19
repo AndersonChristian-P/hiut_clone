@@ -123,6 +123,14 @@
     }
 }
 
+@media only screen and (max-width: 800px) {
+  .home-hero {
+    h2 {
+      font-size: 48px;
+    }
+  }
+}
+
 @media only screen and (max-width: 639px) {
   .home-partition {
     display: flex;
