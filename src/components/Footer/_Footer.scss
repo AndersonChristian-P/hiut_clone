@@ -44,7 +44,7 @@
   ul {
      width: 28.42%;
      margin: -5px 0px 5px;
-     padding: 0px 10px;
+     padding: 0 10px;
      li {
        width: 100%;
        margin-bottom: .5px;
@@ -80,8 +80,6 @@
   }
 }
 
-
-
 @media only screen and (min-width: 492px) and (max-width: 719px) {
   .footer {
     font-size: 9px;
@@ -96,7 +94,7 @@
   }
 }
 
-@media only screen and (max-width: 491px) {
+@media only screen and (max-width: 511px) {
   .footer {
     font-size: 8px;
   }
@@ -124,16 +122,11 @@
   }
 }
 
-@media only screen and (max-width: 410px) {
-  .footer {
-    font-size: 6px;
+@media only screen and (max-width: 371px) {
+  nav {
+   .row {
+    width: 33%;
+    padding-right: 0;
   }
-  ul {
-    li {
-      line-height: 1.5em;
-    }
- }
- .copyright {
-  font-size: 6px;
-  }
+}
 }
