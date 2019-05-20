@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-class Faq extends Component {
+class FAQ extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0)
@@ -17,4 +17,4 @@ class Faq extends Component {
   }
 }
 
-export default Faq
+export default FAQ
