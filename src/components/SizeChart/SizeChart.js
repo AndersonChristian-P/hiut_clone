@@ -10,7 +10,7 @@ const SizeChart = () => {
           <div>
             <img src="https://s3.us-east-2.amazonaws.com/hiut-clone/Icons/icon-denim.png" alt="denim-icon" />
           </div>
-          <div>
+          <div className="size-chart-details">
             <h3>Size chart</h3>
             <p>You can take some measurements from your old favourite jeans and compare them to any pair of Hiut jeans, using the sizing table below. Making it easier to find your size and your new favourite pair of jeans the first time you order. See how to measure yourself below.</p>
           </div>
