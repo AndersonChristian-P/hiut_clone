@@ -63,10 +63,10 @@ VALUES (
   'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/sel_work/SELWORK_001.jpg',
   'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/sel_work/SELWORK_002.jpg',
   'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/sel_work/SELWORK_003.jpg',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_001.png',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_002.png',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_003.png',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_004.png',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_001.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_002.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_003.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_004.jpg',
   1
 ), (
   'selvedge-denim-hacka',
@@ -87,10 +87,10 @@ VALUES (
   'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/sel_hack/SELHACK_001.jpg',
   'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/sel_hack/SELHACK_002.jpg',
   'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/sel_hack/SELHACK_003.jpg',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_001.png',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_002.png',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_003.png',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_004.png',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_001.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_002.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_003.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_004.jpg',
   1
 ), (
   'selvedge-denim-slimr',
@@ -111,10 +111,10 @@ VALUES (
   'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/sel_slimr/SELSLIMR_001.jpg',
   'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/sel_slimr/SELSLIMR_002.jpg',
   'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/sel_slimr/SELSLIMR_003.jpg',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_001.png',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_002.png',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_003.png',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_004.png',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_001.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_002.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_003.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_004.jpg',
   1
 ), (
   'selvedge-denim-skinr',
@@ -135,10 +135,10 @@ VALUES (
   'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/sel_skinr/SELSKINR_001.jpg',
   'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/sel_skinr/SELSKINR_002.jpg',
   'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/sel_skinr/SELSKINR_003.jpg',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_001.png',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_002.png',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_003.png',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_004.png',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_001.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_002.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_003.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/SEL/SEL_004.jpg',
   1
 ), (
   'organic-denim-worka',
@@ -159,10 +159,10 @@ VALUES (
   'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_work/org_work_001.jpg',
   'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_work/org_work_002.jpg',
   'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_work/org_work_003.jpg',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_001.png',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_002.png',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_003.png',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_004.png',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_001.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_002.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_003.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_004.jpg',
   2
 ), (
   'organic-denim-hacka',
@@ -183,10 +183,10 @@ VALUES (
   'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_hack/org_hack_001.jpg',
   'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_hack/org_hack_002.jpg',
   'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_hack/org_hack_003.jpg',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_001.png',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_002.png',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_003.png',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_004.png',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_001.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_002.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_003.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_004.jpg',
   2
 ), (
   'organic-denim-slim',
@@ -207,10 +207,10 @@ VALUES (
   'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_slimr/org_slimr_001.jpg',
   'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_slimr/org_slimr_002.jpg',
   'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_slimr/org_slimr_003.jpg',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_001.png',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_002.png',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_003.png',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_004.png',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_001.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_002.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_003.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_004.jpg',
   2
 ), (
   'skinner-organic',
@@ -231,10 +231,10 @@ VALUES (
   'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_skinr/org_skinr_001.jpg',
   'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_skinr/org_skinr_002.jpg',
   'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_skinr/org_skinr_003.jpg',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_001.png',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_002.png',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_003.png',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_004.png',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_001.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_002.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_003.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ORGANIC/org_004.jpg',
   2
 ), (
   'wide-leg',
@@ -255,9 +255,9 @@ VALUES (
   'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ANDERSON/anderson/anderson_001.jpg',
   'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ANDERSON/anderson/anderson_002.jpg',
   'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ANDERSON/anderson/anderson_003.jpg',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ANDERSON/anderson_001.png',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ANDERSON/anderson_002.png',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ANDERSON/anderson_003.png',
-  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ANDERSON/anderson_004.png',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ANDERSON/anderson_001.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ANDERSON/anderson_002.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ANDERSON/anderson_003.jpg',
+  'https://s3.us-east-2.amazonaws.com/hiut-clone/Mens_Line/ANDERSON/anderson_004.jpg',
   3
 );
