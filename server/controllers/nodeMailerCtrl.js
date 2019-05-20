@@ -18,9 +18,10 @@ module.exports = {
     let mailOptions = {
       from: '"Charley Andrews" <hiutclone@gmail.com>',
       to: email,
-      subject: 'Reset Password - Hiut Clone',
+      subject: 'Reset Password Request - Hiut Clone',
       text: message,
-      html: `<p style="font-family: 'Tinos', serif; font-size: 14px;">Hello!</p>
+      html: `<p style="font-family: 'Tinos', serif; font-size: 14px;">Hello user at 
+      <a style="text-decoration: none; color: black;">${email}</a>!</p>
       <p style="font-family: 'Tinos', serif; font-size: 14px;">We got a request that you wanted to reset your password.</p>
       <p style="color: #C61B21; font-weight: 700; font-family: 'Tinos', serif; font-size: 14px; font-style: italic;">Please click here to continue.</p>`
     }
