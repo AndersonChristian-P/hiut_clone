@@ -31,6 +31,8 @@ app.use((req, res, next) => {
   next()
 })
 
+app.use(express.static(`${__dirname}/../build`));
+
 // -- MASSIVE -- //
 massive(CONNECTION_STRING).then((database) => {
   app.set("db", database)
