@@ -3,6 +3,7 @@ import axios from "axios"
 const REQUEST_SESSION_CART = "REQUEST_SESSION_CART"
 const REQUEST_SESSION_TOTAL = "REQUEST_SESSION_TOTAL"
 const REQUEST_SESSION_VAT = "REQUEST_SESSION_VAT"
+const CART_USER_LOGOUT = "CART_USER_LOGOUT"
 
 const initialState = {
   cart: [],
@@ -34,6 +35,12 @@ export function requestVat() {
   }
 }
 
+export function cartUserLogOut() {
+  return {
+    type: CART_USER_LOGOUT
+  }
+}
+
 export default function cartReducer(state = initialState, action) {
   const { type, payload } = action
   switch (type) {
@@ -43,6 +50,8 @@ export default function cartReducer(state = initialState, action) {
       return { ...state, total: +payload }
     case `${REQUEST_SESSION_VAT}_FULFILLED`:
       return { ...state, vat: payload }
+    case CART_USER_LOGOUT:
+      return { ...state, cart: [], total: 0, vat: "" }
     default:
       return state
   }

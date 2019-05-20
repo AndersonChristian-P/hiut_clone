@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom"
 import { withRouter } from "react-router-dom"
 import { userLogOut, updateStreet, updateCity, updateState, updateZip, updateValidAddress, updateUserFirstName, updateUserLastName } from "./../../redux/authReducer"
+import { cartUserLogOut } from "./../../redux/cartReducer"
 
 class Details extends Component {
 
@@ -70,6 +71,7 @@ class Details extends Component {
           zip: "",
           haveAddress: false
         })
+        this.props.cartUserLogOut()
         this.props.history.push("/account")
       }
       )
@@ -128,6 +130,6 @@ const mapStateToProps = (reduxState) => {
   }
 }
 
-export default connect(mapStateToProps, { userLogOut, updateStreet, updateCity, updateState, updateZip, updateValidAddress, updateUserFirstName, updateUserLastName })(withRouter(Details))
+export default connect(mapStateToProps, { userLogOut, updateStreet, updateCity, updateState, updateZip, updateValidAddress, updateUserFirstName, updateUserLastName, cartUserLogOut })(withRouter(Details))
 
 
