@@ -95,59 +95,61 @@ class WomensProduct extends Component {
               {images}
             </Slider>
           </div>
-          <br />
+          {/* <br /> */}
 
-          <div className="women-prod-info">
+          <div className="women-prod-info-container">
+            <div className="women-prod-info">
 
-            <div className="women-prod-info-purchase">
-              <h1 className="women-prod-info-title">{product[0].prod_title}</h1>
-              <p className="women-prod-info-fit">{product[0].fit}</p>
-              <p className="women-prod-info-price">{`£${product[0].price}.00`}</p>
-              <p className="women-prod-info-subtitle"><strong>The Fit:</strong></p>
-              <p>{product[0].fit_long_desc1}</p>
-              <p>{product[0].fit_long_desc2}</p>
-              <p className="women-prod-info-subtitle"><strong>The Denim:</strong></p>
-              <p>{product[0].denim_long_desc}</p>
-              <p className="women-prod-info-subtitle"><strong>Details:</strong></p>
-              <p>{product[0].details_long_desc}</p>
+              <div className="women-prod-info-purchase">
+                <h1 className="women-prod-info-title">{product[0].prod_title}</h1>
+                <p className="women-prod-info-fit">{product[0].fit}</p>
+                <p className="women-prod-info-price">{`£${product[0].price}.00`}</p>
+                <p className="women-prod-info-subtitle"><strong>The Fit:</strong></p>
+                <p>{product[0].fit_long_desc1}</p>
+                <p>{product[0].fit_long_desc2}</p>
+                <p className="women-prod-info-subtitle"><strong>The Denim:</strong></p>
+                <p>{product[0].denim_long_desc}</p>
+                <p className="women-prod-info-subtitle"><strong>Details:</strong></p>
+                <p>{product[0].details_long_desc}</p>
 
-              <div className="women-prod-made-in">
-                <p>Made in Wales.</p>
-                <p><i>If your size is not in stock, your jeans will be cut to order, with expected delivery in 4-6 weeks. Payment is taken when ordered.</i></p>
-              </div>
-
-              <div id="women-prod-size">
-                <select onChange={this.handleSizeSelection}>
-                  <option hidden value="">Please select a size</option>
-                  <option value="UK12-30/28">UK12-30 / 28 (Waist / Leg) In Stock</option>
-                  <option value="UK12-30/30">UK12-30 / 30 (Waist / Leg) In Stock</option>
-                  <option value="UK12-30/32">UK12-30 / 32 (Waist / Leg) In Stock</option>
-                  <option value="UK12-30/34">UK12-30 / 34 (Waist / Leg) In Stock</option>
-                  <option value="UK12-31/28">UK12-31 / 28 (Waist / Leg) In Stock</option>
-                  <option value="UK12-31/30">UK12-31 / 30 (Waist / Leg) In Stock</option>
-                  <option value="UK12-31/32">UK12-31 / 32 (Waist / Leg) In Stock</option>
-                  <option value="UK12-31/34">UK12-31 / 34 (Waist / Leg) In Stock</option>
-                  <option value="UK12-32/28">UK12-32 / 28 (Waist / Leg) In Stock</option>
-                  <option value="UK12-32/30">UK12-32 / 30 (Waist / Leg) In Stock</option>
-                  <option value="UK12-32/32">UK12-32 / 32 (Waist / Leg) In Stock</option>
-                  <option value="UK12-32/34">UK12-32 / 34 (Waist / Leg) In Stock</option>
-                  <option value="UK12-33/28">UK12-33 / 28 (Waist / Leg) In Stock</option>
-                  <option value="UK12-33/30">UK12-33 / 30 (Waist / Leg) In Stock</option>
-                  <option value="UK12-33/32">UK12-33 / 32 (Waist / Leg) In Stock</option>
-                  <option value="UK12-33/34">UK12-33 / 34 (Waist / Leg) In Stock</option>
-                  <option value="UK12-34/28">UK12-34 / 28 (Waist / Leg) In Stock</option>
-                  <option value="UK12-34/30">UK12-34 / 30 (Waist / Leg) In Stock</option>
-                  <option value="UK12-34/32">UK12-34 / 32 (Waist / Leg) In Stock</option>
-                  <option value="UK12-34/34">UK12-34 / 34 (Waist / Leg) In Stock</option>
-                </select>
-                <div className="women-size-chart">
-                  {/* <a className="women-size-chart" href="#sizechart">Size Chart</a> */}
-                  <span className="women-size-chart">Size Chart</span>
+                <div className="women-prod-made-in">
+                  <p>Made in Wales.</p>
+                  <p><i>If your size is not in stock, your jeans will be cut to order, with expected delivery in 4-6 weeks. Payment is taken when ordered.</i></p>
                 </div>
-              </div>
 
-              <button className="women-add-cart-btn" onClick={this.handleAddToCart}>Add to basket</button>
-              <p>What if they don't fit? You can exchange or return your jeans up to 90 days after purchase</p>
+                <div id="women-prod-size">
+                  <select onChange={this.handleSizeSelection}>
+                    <option hidden value="">Please select a size</option>
+                    <option value="UK12-30/28">UK12-30 / 28 (Waist / Leg) In Stock</option>
+                    <option value="UK12-30/30">UK12-30 / 30 (Waist / Leg) In Stock</option>
+                    <option value="UK12-30/32">UK12-30 / 32 (Waist / Leg) In Stock</option>
+                    <option value="UK12-30/34">UK12-30 / 34 (Waist / Leg) In Stock</option>
+                    <option value="UK12-31/28">UK12-31 / 28 (Waist / Leg) In Stock</option>
+                    <option value="UK12-31/30">UK12-31 / 30 (Waist / Leg) In Stock</option>
+                    <option value="UK12-31/32">UK12-31 / 32 (Waist / Leg) In Stock</option>
+                    <option value="UK12-31/34">UK12-31 / 34 (Waist / Leg) In Stock</option>
+                    <option value="UK12-32/28">UK12-32 / 28 (Waist / Leg) In Stock</option>
+                    <option value="UK12-32/30">UK12-32 / 30 (Waist / Leg) In Stock</option>
+                    <option value="UK12-32/32">UK12-32 / 32 (Waist / Leg) In Stock</option>
+                    <option value="UK12-32/34">UK12-32 / 34 (Waist / Leg) In Stock</option>
+                    <option value="UK12-33/28">UK12-33 / 28 (Waist / Leg) In Stock</option>
+                    <option value="UK12-33/30">UK12-33 / 30 (Waist / Leg) In Stock</option>
+                    <option value="UK12-33/32">UK12-33 / 32 (Waist / Leg) In Stock</option>
+                    <option value="UK12-33/34">UK12-33 / 34 (Waist / Leg) In Stock</option>
+                    <option value="UK12-34/28">UK12-34 / 28 (Waist / Leg) In Stock</option>
+                    <option value="UK12-34/30">UK12-34 / 30 (Waist / Leg) In Stock</option>
+                    <option value="UK12-34/32">UK12-34 / 32 (Waist / Leg) In Stock</option>
+                    <option value="UK12-34/34">UK12-34 / 34 (Waist / Leg) In Stock</option>
+                  </select>
+                  <div className="women-size-chart">
+                    {/* <a className="women-size-chart" href="#sizechart">Size Chart</a> */}
+                    <span className="women-size-chart">Size Chart</span>
+                  </div>
+                </div>
+
+                <button className="women-add-cart-btn" onClick={this.handleAddToCart}>Add to basket</button>
+                <p>What if they don't fit? You can exchange or return your jeans up to 90 days after purchase</p>
+              </div>
             </div>
           </div>
         </div>

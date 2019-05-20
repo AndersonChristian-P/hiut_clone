@@ -26,9 +26,10 @@
   margin-bottom: 46px;
   width: 100%;
   .men-prod-slider {
-    width: 39.375em;
+    // width: 39.375em;
+    width: 50%;
     .men-slider-img {
-      width: 39.375em;
+      width: 100%;
     }
     .men-slides {
       position: relative;
@@ -50,12 +51,12 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 505px;
-    // justify-content: space-around;
+    // width: 505px;
+    width: 100%;
     margin-left: 19px;
+    padding-right: 19px;
     padding-top: 9px;
     padding-bottom: 10px;
-    // padding: 9px 215px 10px 0;
     .men-prod-info-title {
       font-family: 'Tinos', serif;
       font-size: 24px;
@@ -103,6 +104,11 @@
   }
 }
 
+.men-prod-info-container {
+  // border: 1px solid blue;
+  width: 36.071%;
+}
+
 #men-prod-size {
   border-top: 1px solid #231F20;
   border-bottom: 1px solid #231F20;
@@ -125,3 +131,32 @@
   }
 }
 
+
+@media only screen and (max-width: 800px) {
+  .men-prod-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    .men-prod-slider {
+      width: 100%;
+    }
+    .men-prod-info {
+      margin-top: 15px;
+      margin-bottom: -46px;
+    }
+}
+}
+
+@media only screen and (max-width: 719px) {
+  // .men-prod-hero {
+  //   .men-prod-info {
+  //     width: 100%;
+  //     border: 1px solid red;
+  //   }
+  // }
+  .men-prod-info-container {
+    width: 100%;
+    
+  }
+}
