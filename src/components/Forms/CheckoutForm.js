@@ -19,7 +19,6 @@ class CheckoutForm extends Component {
   submit = async (event) => {
     let { token } = await this.props.stripe.createToken({ name: "Name" })
 
-    // console.log("THIS IS THE STRIPE TOKEN ID", token.id)
     const { total, vatAmnt } = await this.state
     const cartTotal = ((total + vatAmnt) * 100)
 
@@ -36,8 +35,6 @@ class CheckoutForm extends Component {
         }).then((result) => {
           if (result.value) {
             this.handleClickCoolBtn()
-            // window.location.reload()
-            // this.props.history.push("/")
           }
         })
       }
@@ -58,9 +55,6 @@ class CheckoutForm extends Component {
       .then(this.props.handleGetCart())
       .then(this.props.handleGetTotal())
       .then(this.props.handleGetVat())
-    // .then(window.location.reload())
-    // .then(this.props.history.push("/"))
-
   }
 
   render() {

@@ -51,10 +51,6 @@ class AllCollection extends Component {
           </article>
         </div>
 
-
-
-
-
       </div>
     )
   }

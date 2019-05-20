@@ -25,7 +25,6 @@
   margin-bottom: 11px;
   width: 100%;
   .women-prod-slider {
-    // width: 630px;
     width: 50%;
     .women-slider-img {
       width: 100%;
@@ -50,14 +49,11 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    // width: 505px;
     width: 100%;
-    // justify-content: space-around;
     margin-left: 19px;
     padding-right: 19px;
     padding-top: 9px;
     padding-bottom: 10px;
-    // padding: 9px 215px 10px 0;
     p {
       margin-top: 10px;
       font-family: 'Ropa Sans', sans-serif;
@@ -103,7 +99,6 @@
 }
 
 .women-prod-info-container {
-  // border: 1px solid blue;
   width: 36.071%;
 }
 
@@ -140,24 +135,13 @@
     }
     .women-prod-info {
       margin-top: 15px;
-      // margin-bottom: -46px;
     }
 }
 }
 
 @media only screen and (max-width: 719px) {
-  // .men-prod-hero {
-  //   .men-prod-info {
-  //     width: 100%;
-  //     border: 1px solid red;
-  //   }
-  // }
   .women-prod-info-container {
     width: 100%;
     
   }
 }
-
-
-
-// I hard coded image widths to be 640px | see line 46 in MensProduct.js

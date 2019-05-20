@@ -1,6 +1,4 @@
 .hero-our-denim {
-  // padding-bottom: 800px;
-  // margin-bottom: 20px;
   padding-bottom: 1.25em;
   margin-bottom: 1.25em;
   border-bottom: 1px solid #231F20;
@@ -27,7 +25,6 @@
       margin-top: -1px;
     }
     h3 {
-      // word-wrap: break-word;
       font-weight: 700;
       font-size: 1.189em;
       padding: 0 0.625em;
@@ -77,14 +74,6 @@
     }
   }
 }
-
-// .article-left-caption, .article-right-caption {
-//   img:hover {
-//     background-color: #999999;
-//   opacity: 0.5;
-//   }
-  
-// }
 
 @media only screen and (max-width: 719px) {
   .article-left-caption, .article-right-caption{

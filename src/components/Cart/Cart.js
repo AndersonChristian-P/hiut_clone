@@ -29,19 +29,10 @@ class Cart extends Component {
   }
 
   async componentDidMount() {
-    // await this.handleGetCart()
-    // await this.handleGetTotal()
-    // await this.handleGetVat()
 
     window.scrollTo(0, 0)
 
     let res = await axios.get("/auth/session")
-
-    console.log(res.data.user)
-
-    // if (!res.data.user && res.data.cart.length === 0) {
-    //   return null;
-    // }
 
     if (res.data.user) {
       const { user } = res.data
@@ -52,21 +43,13 @@ class Cart extends Component {
       await this.props.updateAuthenticated(user.authenticated)
     }
 
-    // if (res.data.cart.length !== 0) {
-    //   await this.handleGetCart()
-    //   await this.handleGetTotal()
-    //   await this.handleGetVat()
-    // }
-
     if (res.data.cart.length === 0) {
-
       return null
     } else {
       await this.handleGetCart()
       await this.handleGetTotal()
       await this.handleGetVat()
     }
-
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -84,12 +67,6 @@ class Cart extends Component {
     await this.setState({
       cart: this.props.cart
     })
-
-    // if (this.props.cart.length > 0) {
-    //   this.setState({
-    //     cart: this.props.cart
-    //   })
-    // }
   }
 
   handleGetTotal = async () => {
@@ -97,12 +74,6 @@ class Cart extends Component {
     await this.setState({
       total: +this.props.total
     })
-
-    // if (+this.props.total > 0) {
-    //   this.setState({
-    //     total: +this.props.total
-    //   })
-    // }
   }
 
   handleGetVat = async () => {
@@ -110,20 +81,6 @@ class Cart extends Component {
     await this.setState({
       vatAmnt: +this.props.vat
     })
-
-    // if (this.props.vat > 0) {
-    //   this.setState({
-    //     vatAmnt: +this.props.vat
-    //   })
-    // }
-
-
-    // axios.get("/api/vat")
-    //   .then(res => {
-    //     this.setState({
-    //       vatAmnt: +res.data
-    //     })
-    //   })
   }
 
   handleChange = (i, event) => {
@@ -149,28 +106,16 @@ class Cart extends Component {
 
     axios.delete(endpoint)
       .then(this.props.requestCart()).then(this.props.requestVat()).then(this.props.requestTotal())
-
-    // .then(this.handleGetCart()).then(this.handleGetTotal()).then(this.handleGetVat())
-
-    // .then(window.location.reload())
   }
 
   handleUpdateClick = () => {
     const { cart, vatAmnt } = this.state
     axios.put("/api/updatecart", { cart, vatAmnt })
       .then(this.props.requestCart()).then(this.props.requestVat()).then(this.props.requestTotal())
-
-    // .then(this.handleGetCart()).then(this.handleGetTotal()).then(this.handleGetVat())
-    // .then(window.location.reload())
   }
 
   render() {
-
     const { cart, total } = this.state
-
-    console.log("THIS IS THE VAT AFTER COMPONENT DID MOUNT", this.state.vatAmnt, typeof this.state.vatAmnt)
-
-    console.log("THIS IS THE CART AFTER COMPONENT DID MOUNT", this.state.cart)
 
     const cartContents = cart.map((product, i) => {
       return <div className="cart-content" key={i}>
@@ -178,7 +123,6 @@ class Cart extends Component {
 
         <span className="cart-content-prod-info">
           <span>{`${product.prod_title} ${product.size}`}</span>
-          {/* <br /> */}
           <div><strong>£{(product.price).toFixed(2)}</strong></div>
         </span>
 
@@ -208,8 +152,6 @@ class Cart extends Component {
           <div className="cart-hero">
             {total > 0 ?
               <div className="items-in-cart">
-
-
                 <div className="cart-headings">
                   <span className="cart-heading-empty"></span>
                   <span className="cart-heading-item"><strong>Item</strong></span>

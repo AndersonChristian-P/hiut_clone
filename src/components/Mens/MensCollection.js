@@ -148,8 +148,6 @@ class Mens extends Component {
               </div>
             </div>
 
-
-
           </div>
         </div>
 

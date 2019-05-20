@@ -6,11 +6,7 @@ module.exports = {
   stripeCharge: async (req, res) => {
     const { cartTotal, token } = req.body
 
-    console.log("THIS IS THE CART TOTAL", cartTotal)
-    console.log("THIS IS THE CART TOKEN", token)
     const roundTotal = cartTotal.toFixed(0)
-
-    console.log("THIS IS THE TOTAL ROUNDED", roundTotal)
 
     try {
       let { status } = await stripe.charges.create({

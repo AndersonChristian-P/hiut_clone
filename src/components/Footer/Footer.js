@@ -9,7 +9,6 @@ const Footer = () => {
           <img id="footer-logo" src="https://s3.us-east-2.amazonaws.com/hiut-clone/Icons/owl.png" alt="owl icon" />
         </div>
 
-
         <nav>
           <ul className="row one">
             <li>

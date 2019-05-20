@@ -64,8 +64,6 @@
   }
 }
 
-
-
 #register {
   margin-left: 250px;
   margin-top: 28px;
@@ -108,28 +106,11 @@
 }
 
 @media only screen and (max-width: 849px) {
-  // #login-reg-hero {
-  //   border: 1px solid red;
-  //   display: flex;
-  //   flex-wrap: wrap;
-  //   align-items: flex-start;
-  // }
-  // #login, #register {
-  //   width: 51%;
-  // }
-  // #register {
-  //   margin-top: 38px;
-  //   margin-left: 0;
-  // }
   #login-reg-hero {
-    // border: 1px solid red;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  // #login, #register {
-  //   width: 51%;
-  // }
   #register {
     margin-top: 38px;
     margin-left: 0;
@@ -141,4 +122,3 @@
     }
   }
 }
-

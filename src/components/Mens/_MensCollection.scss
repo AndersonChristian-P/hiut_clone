@@ -3,8 +3,6 @@
   flex-direction: column;
   border-bottom: 1px solid #231F20;
   margin-bottom: 16px;
-  // line-height: 1.2;
-  // padding-bottom: 2.225em;
 }
 
 .mens-collection-banner {
@@ -114,9 +112,6 @@
 }
 
 .anderson-product {
-  // margin-bottom: 1.3em;
-  // padding-bottom: 2.625em;
-  // border-bottom: 1px solid #231F20;
   .anderson-product-img {
     width: 100%;
   }
@@ -172,7 +167,6 @@
   }
 }
 
-
 @media only screen and (max-width: 779px) {
   .men-product-desc {
     line-height: 1em;
@@ -195,7 +189,6 @@
   .selvedge-denim, .organic-denim, .anderson-denim, .short-run-denim {
     .selvedge, .organic, .anderson, .short-run {
       h3 {
-        // border: 1px solid red;
         margin-right: 1.8em;
       }
     }

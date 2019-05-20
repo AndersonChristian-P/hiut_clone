@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Ropa+Sans:400,400i|Tinos:400,400i,700,700i');
-
 // font-family: 'Ropa Sans', sans-serif; === nimbus-sans
 // font-family: 'Tinos', serif; === calluna
 
@@ -27,7 +26,6 @@
 	// bullet points are gone, so you need to increase padding on the ul element in the appropriate scss snippets
   box-sizing: border-box;
 }
-// reset
 
 body {
 	font-size: 1em;
@@ -39,11 +37,9 @@ body {
 	padding: 0 10px;
 }
 
-
 .page-under-construction-hero {
 	border-bottom: 1px solid #231F20;
-	margin-bottom: 20px;
-	
+	margin-bottom: 20px;	
 }
 
 .page-under-construction {

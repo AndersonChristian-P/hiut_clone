@@ -8,8 +8,6 @@ module.exports = {
 
     const prodSubtotal = (+quantity * +price)
 
-    console.log("THIS IS THE VAT FROM THE REQ.BODY:", vat)
-
     if (index === -1) {
       const newItem = { id, size, quantity, img1, prod_title, prodSubtotal, price }
       req.session.total += price
@@ -30,7 +28,6 @@ module.exports = {
       }
     }
     req.session.save()
-    // console.log("-- THIS IS THE ADD CART --", req.session.cart)
     res.sendStatus(200)
   },
 
@@ -39,8 +36,6 @@ module.exports = {
     try {
       let returnCart = await cart
       if (returnCart) {
-
-        console.log("THIS IS THE CONTENTS OF THE CART", returnCart)
         res.status(200).send(returnCart)
       } else {
         throw new Error(401)
@@ -55,7 +50,6 @@ module.exports = {
     try {
       let returnTotal = await userTotal.toString()
       if (returnTotal) {
-        console.log("THIS IS THE TOTAL", returnTotal, typeof returnTotal)
         res.status(200).send(returnTotal)
       } else {
         throw new Error(401)
@@ -93,8 +87,6 @@ module.exports = {
     req.session.vat = newVat
     req.session.save()
 
-    console.log("-- THIS IS THE SESSION AFTER DELETE --", req.session)
-
     res.sendStatus(200)
   },
 
@@ -116,7 +108,6 @@ module.exports = {
     req.session.total = newTotal
     req.session.vat = newVat
 
-    console.log("THIS IS THE UPDATED SESSION", req.session)
     req.session.save()
     res.sendStatus(200)
   },
@@ -125,34 +116,7 @@ module.exports = {
     req.session.cart = []
     req.session.total = 0
     req.session.vat = 0
-    console.log("THIS IS THE ENTIRE SESSION", req.session)
+
     res.sendStatus(200)
   }
 }
-
-
-
-
-// let returnCart = await cart
-//     console.log("--- THIS IS WHAT THE CART LOOKS LIKE ---", returnCart)
-//     res.status(200).send(returnCart)
-
-
-// if (index === -1) {
-//   const newItem = {
-//     id, size, quantity, img1, prod_title, price
-//   }
-
-//   const newCart = req.session.cart.slice()
-
-//   newCart.push(newItem)
-
-//   req.session.cart = newCart
-
-// } else {
-//   cart[index].quantity++
-// }
-
-// res.sendStatus(200)
-// req.session.save()
-// since we are not calling res.send the session is not saved, so you have to call req.session.save()

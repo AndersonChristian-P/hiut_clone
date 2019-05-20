@@ -7,9 +7,7 @@ class Product extends Component {
   constructor() {
     super()
 
-    this.state = {
-
-    }
+    this.state = {}
   }
 
   render() {

@@ -2,8 +2,6 @@ const bcrypt = require("bcryptjs")
 
 module.exports = {
   getUsers: (req, res) => {
-    console.log("THIS IS THE CART", req.session.cart)
-    console.log("THIS IS THE USER.SESSION", req.session)
     const db = req.app.get("db")
     db.getUsers()
       .then(results => {
@@ -34,11 +32,8 @@ module.exports = {
 
     session.user = {
       email,
-      // hash,
       user_id: user[0].login_id
     }
-    // console.log("registered", session.user)
-    // res.sendStatus(200)
     res.status(200).send({ authenticated: true, email: user[0].email, firstname: user[0].firstname, lastname: user[0].lastname, user_id: user[0].login_id })
   },
 
@@ -71,25 +66,14 @@ module.exports = {
     const db = req.app.get("db")
     const { session } = req
     const { userId: id } = req.params
-    // const id = +userId
-    console.log("THIS IS THE GET ADDRESS USER ID:", id, typeof id)
-    // const { user_id: id } = session.user 
 
     try {
       const data = await db.getUserAddresses({ id })
-      // console.log("THIS IS THE DATA", data)
+
       session.user.address = data[0]
-      console.log("this is the address on session", session.user.address)
-
-      console.log("THIS IS THE CART ON SESSION", req.session.user.cart)
-
 
       res.status(200).send({ validAddress: true, street: data[0].street, city: data[0].city, state: data[0].state, zip: data[0].zip, firstname: data[0].firstname, lastname: data[0].lastname })
-
-      // res.status(200).send(data[0])
-      // put ability to select ship to address on the back burner so currently only the first address inputted is ever returned
     } catch (err) {
-      console.log("THIS IS THE ERROR", err)
       res.sendStatus(404)
     }
   },
@@ -99,7 +83,6 @@ module.exports = {
     const { session } = req
     const { userId } = req.params
     const id = +userId
-    // const { user_id: id } = session.user
     const { street, city, state, zip } = req.body
 
     try {
@@ -118,7 +101,6 @@ module.exports = {
         zip,
         address_id: data[0].address_id
       }
-      // console.log("add address", session.user)
 
       res.sendStatus(200)
     } catch (err) {
@@ -128,7 +110,6 @@ module.exports = {
 
   logout: (req, res) => {
     req.session.destroy()
-    // console.log(req.session)
     res.sendStatus(200)
   },
 
@@ -138,7 +119,6 @@ module.exports = {
     } catch (err) {
       res.sendStatus(400)
     }
-
   }
 }
 

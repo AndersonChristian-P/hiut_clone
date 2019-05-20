@@ -95,7 +95,6 @@ class WomensProduct extends Component {
               {images}
             </Slider>
           </div>
-          {/* <br /> */}
 
           <div className="women-prod-info-container">
             <div className="women-prod-info">
@@ -142,7 +141,6 @@ class WomensProduct extends Component {
                     <option value="UK12-34/34">UK12-34 / 34 (Waist / Leg) In Stock</option>
                   </select>
                   <div className="women-size-chart">
-                    {/* <a className="women-size-chart" href="#sizechart">Size Chart</a> */}
                     <span className="women-size-chart">Size Chart</span>
                   </div>
                 </div>
@@ -154,7 +152,6 @@ class WomensProduct extends Component {
           </div>
         </div>
 
-        {/* <SizeChart><a name="sizechart">Size Chart</a></SizeChart> */}
         <SizeChart />
 
         <MeasureJeans />

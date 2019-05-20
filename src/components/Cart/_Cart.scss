@@ -1,5 +1,4 @@
 .cart-hero {
-  // border: 1px solid green;
   margin-bottom: 20px;
 }
 
@@ -16,17 +15,12 @@
     font-weight: 700;
     .cart-heading-empty {
       width: 110px;
-      // margin-right: 393px;
-      // margin-right: 28.15%;
       margin-right: 20.37%;
     }
     .cart-heading-item {
-      // margin-right: 452px;
-      // width: 33.85%;
       width: 44.5%;
     }
     .cart-heading-qty {
-      // margin-right: 170px;
       margin-right: 11.84%;
     }
   }
@@ -43,7 +37,6 @@
 
 .cart-content {
   margin-top: 15px;
-  // margin-left: 15px;
   padding: 0 15px;
   display: flex;
   align-items: flex-start;
@@ -52,8 +45,6 @@
   padding-bottom: 10px;
   .cart-content-image {
     width: 100px;
-    // width: 7.29%;
-    // margin-right: 279px;
     margin-right: 20.37%;
     
   }
@@ -61,9 +52,7 @@
     font-family: 'Tinos', serif;
     font-size: 13px;
     color: #C61B21;
-    // width: 300px;
     width: 21.9%;
-    // margin-right: 174px;
     margin-right: 23.35%;
     margin-top: -5px;
     div {
@@ -75,7 +64,6 @@
     font-family: 'Tinos', serif;
     font-size: 13px;
     margin-top: -5px;
-    // margin-right: 145px;
     margin-right: 10.58%;
     input {
       width: 40px;
@@ -86,7 +74,6 @@
     }
     .cart-content-btn {
       margin-top: 9px;
-      // margin-right: 145px;
       button {
       border: none;
       font-family: 'Tinos', serif;
@@ -99,7 +86,6 @@
     
     font-family: 'Tinos', serif;
     font-size: 13px;
-    // width: 175px;
     width: 4%;
     margin-top: -4px;
   }
@@ -110,17 +96,13 @@
   vertical-align: middle;
   border-top: 1px solid lightgrey;
   padding: 0 10px;
-  // margin: 0 10px;
   font-family: 'Tinos', serif;
   font-size: 13px;
   width: 100%;
   .cart-subtotal, .cart-vat, .cart-total, .cart-repair {
     div {
       text-align: right;
-      // width: 100%;
-      
     }
-  
   }
   .cart-repair {
     font-size: 16px;
@@ -128,7 +110,6 @@
 }
 
 .cart-update-checkout {
-  // border-top: 1px solid grey;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -138,7 +119,6 @@
     background-color: #C61B21;
     color: white;
     border: none;
-   
     height: 39px;
     font-family: 'Tinos', serif;
     font-size: 13px;
@@ -197,10 +177,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // margin-bottom: 20px;
   padding-bottom: 40px;
-  // margin: 0 10px;
-  // margin-bottom: 20px;
   h3 {
     font-family: 'Tinos', serif;
     font-size: 19px;
@@ -265,8 +242,7 @@
     }
     .cart-info-right {
       margin-top: 23px;
-    }
-    
+    } 
   }
 }
 

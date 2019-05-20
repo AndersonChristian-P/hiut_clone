@@ -22,22 +22,11 @@ class Header extends Component {
   async componentDidMount() {
     let res = await axios.get("/auth/session")
 
-    // if (res.data.cart.length === 0) {
-    //   return null
-    // } else {
-    //   this.handleGetCart()
-    //   this.handleGetTotal()
-    //   this.handleQuantity()
-    // }
-
     if (res.data.cart.length !== 0) {
       this.handleGetCart()
       this.handleGetTotal()
       this.handleQuantity()
     }
-
-    console.log("THIS IS THE RES.DATA ON HEADER", res.data)
-
 
     if (!res.data.user) {
       return null
@@ -55,15 +44,6 @@ class Header extends Component {
 
   async componentDidUpdate(prevProps, prevState) {
     if (this.props.total !== prevState.total) {
-
-      // 1 const itemsInCart = await this.props.cart.map(item => +item.quantity)
-      //   .reduce(((acc, val) => acc + val), 0)
-
-      // 1 await this.setState({
-      //   cart: this.props.cart,
-      //   quantity: itemsInCart,
-      //   total: this.props.total
-      // })
 
       await this.setState({
         cart: this.props.cart,
@@ -103,11 +83,6 @@ class Header extends Component {
 
 
   render() {
-
-    console.log("--- THIS IS CART ON STATE ---", this.state.cart)
-    console.log("--- THIS IS THE TOTAL ON STATE ---", this.state.total)
-    console.log("--- THIS IS THE QUANTITY ON STATE ---", this.state.quantity)
-
     return (
       <div>
         <div className="header-top-bar">

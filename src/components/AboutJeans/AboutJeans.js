@@ -59,7 +59,6 @@ const AboutJeans = () => {
         </div>
       </div>
 
-
     </div>
   )
 }

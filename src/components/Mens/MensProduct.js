@@ -50,9 +50,6 @@ class MensProduct extends Component {
   }
 
   render() {
-
-    console.log("THIS IS THE VAT RATE ON STATE", this.state.vatRate)
-
     let sliderSettings = {
       arrows: true,
       dots: true,
@@ -96,7 +93,6 @@ class MensProduct extends Component {
               {images}
             </Slider>
           </div>
-          {/* <br /> */}
 
           <div className="men-prod-info-container">
             <div className="men-prod-info">
@@ -162,7 +158,6 @@ class MensProduct extends Component {
                   <option value="38/36">38 / 36 (Waist/Leg) In Stock</option>
                 </select>
                 <div className="men-size-chart">
-                  {/* <a className="men-size-chart" href="#sizechart">Size Chart</a> */}
                   <span className="men-size-chart">Size Chart</span>
                 </div>
               </div>
@@ -174,7 +169,6 @@ class MensProduct extends Component {
 
         </div>
 
-        {/* <SizeChart><a name="sizechart"></a></SizeChart> */}
         <SizeChart />
 
         <MeasureJeans />

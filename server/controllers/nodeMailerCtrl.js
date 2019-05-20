@@ -2,14 +2,9 @@ require("dotenv").config()
 const { EMAIL_PASSWORD, EMAIL } = process.env
 const nodemailer = require("nodemailer")
 
-
 module.exports = {
   passwordReset: async (req, res) => {
     const { forgotPasswordEmail: email, message } = req.body
-
-    console.log(email, typeof email)
-
-    console.log(message, typeof message)
 
     const transporter = await nodemailer.createTransport({
       service: 'Gmail',

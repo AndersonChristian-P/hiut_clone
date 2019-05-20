@@ -65,10 +65,8 @@
       width: 50%;
       margin: 0 10px;
       padding-bottom: 16px;
-      // border: 1px solid black;
     }
     img {
-      // height: 120px;
       width: 100%;    
     }
   }
@@ -95,20 +93,3 @@
     }
   }
 }
-
-// @media only screen and (max-width: 534px) {
-//   .about-panels {
-//     .left-panel, .right-panel {
-//       display: flex;
-//       flex-direction: column;
-//       align-items: center;
-//        img {
-//         width: 100%;    
-//       }
-//     }
-//     .about-panel-image {
-//       margin: 0;
-//       width: 100%;
-//     }
-//   }
-// }

@@ -26,8 +26,6 @@ export default (
     <Route path="/account" component={() => (
       <Login>
         <LoginRegForm />
-        {/* <Details />
-        <AddressBook /> */}
       </Login>
     )} />
     <Route path="/info" component={Details} />
@@ -46,6 +44,3 @@ export default (
     <Route path="/terms-and-conditions" component={TermsAndConditions} />
   </Switch>
 )
-
-
-// <Route path="/account" component={LoginRegForm} />

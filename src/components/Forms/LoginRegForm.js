@@ -5,7 +5,6 @@ import { updateUserId, updateUserEmail, updateUserFirstName, updateUserLastName,
 import axios from "axios"
 
 
-
 class Login extends Component {
 
   constructor() {
@@ -54,17 +53,6 @@ class Login extends Component {
       this.props.updateUserFirstName(res.data.firstname)
       this.props.updateUserLastName(res.data.lastname)
       this.props.updateAuthenticated(res.data.authenticated)
-
-      // const userAddress = await axios.get(`/auth/addresses/${res.data.user.user_id}`)
-      // if (userAddress.data) {
-      //   await this.props.updateStreet(userAddress.data.street)
-      //   await this.props.updateCity(userAddress.data.city)
-      //   await this.props.updateState(userAddress.data.state)
-      //   await this.props.updateZip(userAddress.data.zip)
-      //   await this.props.updateValidAddress(userAddress.data.validAddress)
-
-      // }
-
       this.props.history.push("/info")
     } catch (err) {
       this.setState({
@@ -91,7 +79,6 @@ class Login extends Component {
       try {
         const res = await axios.post("/auth/register", { firstname, lastname, email, password })
         this.props.updateAuthenticated(res.data.authenticated)
-        console.log("IS THIS USER AUTHENTICATED AFTER REGISTRATION", res.data.authenticated)
         this.props.updateUserEmail(res.data.email)
         this.props.updateUserId(res.data.user_id)
         this.props.updateUserFirstName(res.data.firstname)
@@ -129,14 +116,7 @@ class Login extends Component {
   }
 
 
-
-
-
   render() {
-    console.log("LOGIN REQ FORM RE-RENDERED")
-    // console.log("THIS IS THE AUTHENTICATION FROM REDUCER", this.props.authenticated)
-    // console.log("THIS IS THE FIRST NAME FROM REDUCER", this.props.firstname)
-
     return (
       <div id="login-reg-hero">
 
@@ -181,7 +161,7 @@ class Login extends Component {
               <h1>Reset Password</h1>
               <p>We will send you an email to reset your password</p>
 
-              <form className="login-form" /*onSubmit={this.forgotPasswordSubmit}*/>
+              <form className="login-form">
                 <p>Email</p>
                 <input
                   onChange={this.handleFormsInputUpdate}
@@ -190,8 +170,6 @@ class Login extends Component {
                   className="login-input"
                   value={this.state.forgotPasswordEmail}
                 />
-
-
 
                 <div className="forgot-password-btns">
                   <div>
@@ -205,7 +183,6 @@ class Login extends Component {
               </form>
 
             </span>
-
 
           }
         </div>
