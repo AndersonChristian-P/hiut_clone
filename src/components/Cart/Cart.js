@@ -53,7 +53,7 @@ class Cart extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.props.total !== prevState.total) {
+    if (this.props.cart !== prevState.cart) {
       this.setState({
         cart: this.props.cart,
         total: this.props.total,
@@ -96,22 +96,24 @@ class Cart extends Component {
     })
   }
 
-  handleDelete = (i) => {
-    const idText = this.state.cart[i].id
-    const size = this.state.cart[i].size
-    const quantity = this.state.cart[i].quantity
-    const price = this.state.cart[i].price
+  handleDelete = async (prod_title, prod_size) => {
+    const index = this.state.cart.findIndex(prod => prod.prod_title === prod_title && prod.size === prod_size)
 
-    const endpoint = `/api/deletefromcart/${idText}/${size}/${quantity}/${price}`
+    const idText = this.state.cart[index].id
+    const size = this.state.cart[index].size
+    const quantity = this.state.cart[index].quantity
+    const price = this.state.cart[index].price
 
-    axios.delete(endpoint)
-      .then(this.props.requestCart()).then(this.props.requestVat()).then(this.props.requestTotal())
+    const endpoint = await `/api/deletefromcart/${idText}/${size}/${quantity}/${price}`
+
+    await axios.delete(endpoint)
+      .then(this.handleGetCart()).then(this.handleGetTotal()).then(this.handleGetCart())
   }
 
   handleUpdateClick = () => {
     const { cart, vatAmnt } = this.state
     axios.put("/api/updatecart", { cart, vatAmnt })
-      .then(this.props.requestCart()).then(this.props.requestVat()).then(this.props.requestTotal())
+      .then(this.handleGetCart()).then(this.handleGetTotal()).then(this.handleGetCart())
   }
 
   render() {
@@ -136,7 +138,7 @@ class Cart extends Component {
             min="1"
           />
           <div className="cart-content-btn">
-            <button onClick={(event) => this.handleDelete(i)} >Remove</button>
+            <button onClick={() => this.handleDelete(product.prod_title, product.size)} >Remove</button>
           </div>
         </span>
 
