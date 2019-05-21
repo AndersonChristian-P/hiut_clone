@@ -37,12 +37,30 @@ body {
 	padding: 0 10px;
 }
 
+$base-color: #231F20;
+
+@mixin transform($property) {
+	margin: $property;
+	font-family: 'Tinos', serif;
+}
+
 .page-under-construction-hero {
-	border-bottom: 1px solid #231F20;
+	border-bottom: 1px solid $base-color;
 	margin-bottom: 20px;	
 }
 
+
 .page-under-construction {
-	margin: 50px 10px 90px 10px;
-	font-family: 'Tinos', serif;
+	@include transform(50px 10px 90px 10px);
 }
+
+// .page-under-construction {
+// 	margin: 50px 10px 90px 10px;
+// 	font-family: 'Tinos', serif;
+// }
+
+
+
+
+
+
