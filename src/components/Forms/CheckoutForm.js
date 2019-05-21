@@ -78,7 +78,9 @@ class CheckoutForm extends Component {
         </div>
         <br />
         <CardElement />
-        <button id="payment-btn" onClick={this.submit} >Submit Payment</button>
+        <div id="payment-btn-container">
+          <button id="payment-btn" onClick={this.submit} >Submit Payment</button>
+        </div>
       </div>
     )
   }

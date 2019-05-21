@@ -36,16 +36,20 @@
   background-color: #fefde5 !important;
 }
 
-#payment-btn {
-  background-color: #C6151B;
-  color: #ffffff;
-  border: none;
-  height: 3em;
-  width: 10em;
-  margin-top: 2.5em;
-  margin-bottom: .4em;
-  margin-left: 40%; 
-  font-family: 'Tinos', serif;
-  font-size: 14px;
-  font-weight: 700;
+#payment-btn-container {
+  width: 100%;
+  #payment-btn {
+    background-color: #C6151B;
+    color: #ffffff;
+    border: none;
+    height: 3em;
+    width: 10em;
+    margin-top: 2.5em;
+    margin-bottom: .4em;
+    margin-left: auto;
+    margin-right: auto; 
+    font-family: 'Tinos', serif;
+    font-size: 14px;
+    font-weight: 700;
+  }
 }
