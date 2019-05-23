@@ -107,8 +107,8 @@ class Cart extends Component {
     const endpoint = await `/api/deletefromcart/${idText}/${size}/${quantity}/${price}`
 
     await axios.delete(endpoint)
-      // .then(this.handleGetCart()).then(this.handleGetTotal()).then(this.handleGetVat())
-      .then(window.location.reload())
+      .then(this.handleGetCart()).then(this.handleGetTotal()).then(this.handleGetVat())
+    // .then(window.location.reload())
   }
 
   handleUpdateClick = () => {

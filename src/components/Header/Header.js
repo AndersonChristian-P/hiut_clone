@@ -45,17 +45,18 @@ class Header extends Component {
   async componentDidUpdate(prevProps, prevState) {
     if (this.props.total !== prevState.total) {
 
-      await this.setState({
-        cart: this.props.cart,
-        total: this.props.total
-      })
-
-      const itemsInCart = await this.state.cart.map(item => +item.quantity)
+      const itemsInCart = await this.props.cart.map(item => +item.quantity)
         .reduce(((acc, val) => acc + val), 0)
 
       await this.setState({
+        total: this.props.total,
+        cart: this.props.cart,
         quantity: itemsInCart
       })
+
+      // await this.setState({
+      //   quantity: itemsInCart
+      // })
     }
   }
 
