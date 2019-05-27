@@ -50,8 +50,7 @@ class CheckoutForm extends Component {
   }
 
   handleClickCoolBtn = async () => {
-    await axios.post("/api/clearcart")
-      .then(console.log("THE CART HAS BEEN CLEARED"))
+    await axios.delete("/api/clearcart")
       .then(this.props.handleGetCart())
       .then(this.props.handleGetTotal())
       .then(this.props.handleGetVat())

@@ -116,6 +116,6 @@ module.exports = {
     req.session.cart = []
     req.session.total = 0
     req.session.vat = 0
-    res.sendStatus(200)
+    res.sendStatus(201)
   }
 }

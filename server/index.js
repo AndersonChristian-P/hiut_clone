@@ -68,7 +68,7 @@ app.get("/api/vat", cartCtrl.getVat)
 app.post("/api/addtocart/:idText", cartCtrl.addToCart)
 app.put("/api/updatecart", cartCtrl.updateCart)
 app.delete("/api/deletefromcart/:idText/:size1/:size2/:quantity/:price/", cartCtrl.deleteItemFromCart)
-app.post("/api/clearcart", cartCtrl.clearCart)
+app.delete("/api/clearcart", cartCtrl.clearCart)
 
 // Stripe
 app.post("/api/charge", stripeCtrl.stripeCharge)
