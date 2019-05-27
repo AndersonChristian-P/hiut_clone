@@ -97,7 +97,8 @@ class Login extends Component {
   }
 
 
-  handleForgotPassword = () => {
+  handleForgotPassword = (e) => {
+    e.preventDefault()
     this.setState({
       forgotPassword: !this.state.forgotPassword
     })
