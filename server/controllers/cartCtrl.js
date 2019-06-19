@@ -94,7 +94,7 @@ module.exports = {
     const { cart: userCart, vatAmnt: vat } = req.body
 
     const cartWithNewSubtotals = userCart.map((item) => {
-      return { ...item, prodSubtotal: (+item.quantity * +item.price) }
+      return { ...item, prodSubtotal: (+item.quantity * +item.price), quantity: +item.quantity }
     })
 
     const newTotal = await userCart.map((item) =>

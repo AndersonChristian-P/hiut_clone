@@ -122,7 +122,7 @@ class Cart extends Component {
     const { cart, total } = this.state
 
     const cartContents = cart.map((product, i) => {
-      return <div className="cart-content" key={i}>
+      return <div className="cart-content" key={`${product.prod_title} ${product.size}`}>
         <img className="cart-content-image" src={product.img1} alt="mini shopping cart" />
 
         <span className="cart-content-prod-info">
@@ -134,8 +134,8 @@ class Cart extends Component {
           <input
             onChange={(event) => this.handleChange(i, event)}
             type="number"
-            placeholder={product.quantity}
-            value={cart[i].quantity}
+            placeholder={+product.quantity}
+            value={+cart[i].quantity}
             name="quantity"
             min="1"
           />
