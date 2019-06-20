@@ -27,7 +27,6 @@ class AddressBookForm extends Component {
     event.preventDefault()
     const { street, city, state, zip } = this.state
     const userId = this.props.user_id
-    console.log("THIS IS THE USER ID WHEN SUBMITTING ADDRESS:", userId)
     await axios.post(`/auth/addresses/${userId}`, { street, city, state, zip })
       .then(this.props.history.push("/info"))
   }
