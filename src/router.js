@@ -1,5 +1,6 @@
 import React from "react"
 import { Switch, Route } from "react-router-dom"
+
 import Home from "./components/Pages/Home/Home"
 import Login from "./components/Forms/Login"
 import LoginRegForm from "./components/Forms/LoginRegForm"
@@ -11,10 +12,10 @@ import Cart from "./components/Cart/Cart"
 import CheckoutForm from "./components/Forms/CheckoutForm";
 
 import CustomerService from "./components/Pages/CustomerService/CustomerService"
+import Documentary from "./components/Pages/Documentary/Documentary"
 import Fact from "./components/Pages/Fact/Fact"
 import FitGuide from "./components/Pages/FitGuide/FitGuide"
 import HowToWash from "./components/Pages/HowToWash/HowToWash"
-import Documentary from "./components/Pages/Documentary/Documentary"
 import Repairs from "./components/Pages/Repairs/Repairs"
 import StoreLocations from "./components/Pages/StoreLocations/StoreLocations"
 import TermsAndConditions from "./components/Pages/TermsAndConditions/TermsAndConditions"

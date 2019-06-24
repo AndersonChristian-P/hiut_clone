@@ -15,7 +15,6 @@ class FitGuide extends Component {
       </div>
     )
   }
-
 }
 
 export default FitGuide

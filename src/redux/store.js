@@ -14,6 +14,8 @@ const enhancer = composeEnhancers(applyMiddleware(promiseMiddleware))
 
 const store = createStore(rootReducer, enhancer)
 
-// const store = createStore(rootReducer, applyMiddleware(promiseMiddleware))
-
 export default store
+
+
+
+// const store = createStore(rootReducer, applyMiddleware(promiseMiddleware))

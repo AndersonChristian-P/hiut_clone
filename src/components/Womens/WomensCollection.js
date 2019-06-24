@@ -150,7 +150,6 @@ class Womens extends Component {
           </div>
         </div>
 
-
         <div className="dina-denim">
           <div className="dina-wrapper">
             <div>
@@ -163,7 +162,6 @@ class Womens extends Component {
             {dinaProduct}
           </div>
         </div>
-
 
         <div className="stelsby-denim">
           <div className="stelsby-wrapper">
@@ -178,7 +176,6 @@ class Womens extends Component {
           </div>
         </div>
 
-
         <div className="stelsby-hw-denim">
           <div className="stelsby-hw-wrapper">
             <div>
@@ -191,7 +188,6 @@ class Womens extends Component {
             {stelsbyHwProduct}
           </div>
         </div>
-
 
       </div>
     )

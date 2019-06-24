@@ -15,7 +15,6 @@ class CustomerService extends Component {
       </div>
     )
   }
-
 }
 
 export default CustomerService

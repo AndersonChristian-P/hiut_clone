@@ -1,11 +1,13 @@
-import React from 'react';
+import React from 'react'
 import { Provider } from "react-redux"
 import { HashRouter } from "react-router-dom"
+
 import store from "./redux/store"
 import router from "./router"
 import Header from "./components/Header/Header"
 import Footer from "./components/Footer/Footer"
-import './App.scss';
+
+import './App.scss'
 
 function App() {
 
@@ -20,4 +22,4 @@ function App() {
   );
 }
 
-export default App;
+export default App

@@ -37,7 +37,7 @@ app.use(express.static(`${__dirname}/../build`));
 massive(CONNECTION_STRING).then((database) => {
   app.set("db", database)
   console.log("database set!")
-  console.log(database.listTables())
+  // console.log(database.listTables())
   app.listen(SERVER_PORT, () => {
     console.log(`listening on port ${SERVER_PORT}`)
   })

@@ -121,7 +121,3 @@ module.exports = {
     }
   }
 }
-
-// the idea I have for address is if user selects a difference shipping address on the client side it changes the address on req.session.user
-
-// the base process is that if a user adds an address to the book it is automatically selected as the ship to address

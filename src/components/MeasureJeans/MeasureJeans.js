@@ -1,6 +1,5 @@
 import React from "react"
 
-
 const MeasureJeans = () => {
   return (
     <div className="measure-jeans">
@@ -53,7 +52,6 @@ const MeasureJeans = () => {
 
         </div>
       </div>
-
 
     </div>
   )

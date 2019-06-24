@@ -18,7 +18,6 @@ class Header extends Component {
     }
   }
 
-
   async componentDidMount() {
     let res = await axios.get("/auth/session")
 
@@ -45,9 +44,6 @@ class Header extends Component {
   async componentDidUpdate(prevProps, prevState) {
     if (this.props.total !== prevState.total) {
 
-      // const itemsInCart = await this.props.cart.map(item => +item.quantity)
-      //   .reduce(((acc, val) => acc + val), 0)
-
       const itemsInCart = () => {
         if (this.props.total === 0) {
           return 0
@@ -60,13 +56,8 @@ class Header extends Component {
       await this.setState({
         total: this.props.total,
         cart: this.props.cart,
-        // quantity: itemsInCart
         quantity: itemsInCart()
       })
-
-      // await this.setState({
-      //   quantity: itemsInCart
-      // })
     }
   }
 
@@ -109,9 +100,7 @@ class Header extends Component {
                 <Link to="/account" className="header-reg">
                   Register
               </Link>
-              </span>
-
-              :
+              </span> :
 
               <span>
                 <Link to="/account" className="header-sign-in">

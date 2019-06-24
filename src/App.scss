@@ -1,7 +1,7 @@
+// -- FONTS -- //
 @import url('https://fonts.googleapis.com/css?family=Ropa+Sans:400,400i|Tinos:400,400i,700,700i');
-// font-family: 'Ropa Sans', sans-serif; === nimbus-sans
-// font-family: 'Tinos', serif; === calluna
 
+// -- SNIPPETS -- //
 @import "./components/Header/Header";
 @import "./components/Mens/MensProduct";
 @import "./components/Womens/WomensProduct";
@@ -23,10 +23,10 @@
 * {
 	margin: 0;
 	padding: 0;
-	// bullet points are gone, so you need to increase padding on the ul element in the appropriate scss snippets
   box-sizing: border-box;
 }
 
+// -- BASE SETUP -- //
 body {
 	font-size: 1em;
 	line-height: 1.5em;
@@ -44,21 +44,15 @@ $base-color: #231F20;
 	font-family: 'Tinos', serif;
 }
 
+// -- PAGE UNDER CONSTRUCTION STYLING -- //
 .page-under-construction-hero {
 	border-bottom: 1px solid $base-color;
 	margin-bottom: 20px;	
 }
 
-
 .page-under-construction {
 	@include transform(50px 10px 90px 10px);
 }
-
-// .page-under-construction {
-// 	margin: 50px 10px 90px 10px;
-// 	font-family: 'Tinos', serif;
-// }
-
 
 
 
