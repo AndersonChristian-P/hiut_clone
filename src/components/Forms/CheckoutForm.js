@@ -26,7 +26,7 @@ class CheckoutForm extends Component {
       let response = await axios.post("/api/charge", { cartTotal, token: token.id })
 
       if (response.data === "succeeded") {
-        console.log("Purchase Complete!")
+        // console.log("Purchase Complete!")
         Swal.fire({
           title: "Success!!!",
           text: "Thank you so much for your purchase.",
@@ -39,7 +39,7 @@ class CheckoutForm extends Component {
         })
       }
     } else {
-      console.log("Error making purchase!")
+      // console.log("Error making purchase!")
       Swal.fire({
         title: "Woops! Something went wrong.",
         text: "Please re-enter your payment information.",
